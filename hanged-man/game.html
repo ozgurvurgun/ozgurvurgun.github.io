@@ -46,13 +46,14 @@
                         <label for="" class="form-label mb-3 text-danger">
                             <h3>İpucu</h3>
                         </label>
-                        <h5></h5>
+                        <h5 id="hint"></h5>
                     </div>
                 </div>
             </div>
     </section>
 
     <script>
+        document.getElementById("hint").innerHTML = sessionStorage.getItem("clue");
         var word = sessionStorage.getItem("word");
         function keepPlaying() {
             window.location.href = "again.html";
@@ -107,7 +108,6 @@
                             document.getElementById("kapsayici").appendChild(x);
                             document.getElementById("id" + i).style.textAlign = "center";
                         }
-
                     </script>
                 </div>
             </div>
@@ -134,18 +134,25 @@
             for (i = 0; i < split_word.length; i++) {
                 super_gamer.push(String.prototype.turkishToUpper(document.getElementById("id" + i).value)); //inpulardan gelen veriyi bir arrayda topluyorum.
             }
+            var long_trial = 1; //tek inputa tek seferde tahmin yapılmasını engellemek için değişken oluşturdum
             for (i = 0; i < split_word.length; i++) { //dizi en optimal şekilde belirlenen kelimenin harf sayısı kadar dönüyor. ne eksik ne fazla.
                 if (String.prototype.turkishToUpper(document.getElementById("id" + i).value) == split_word[i]) { //i değişkeni ile input id lerimin değerlerine ulaşıp sınamalarını yapıyorum.
                     document.getElementById("id" + i).style.backgroundColor = "green";
+                    if ((document.getElementById("id" + i).value).length != 1) { //inputlarda ki karakter uzunluğu 1 den farklı ise long_trail sıfır olacak
+                        long_trial = 0;
+                    }
                 } else if (String.prototype.turkishToUpper(document.getElementById("id" + i).value) == "") {
                     document.getElementById("id" + i).style.backgroundColor = "white";
                 } else {
                     document.getElementById("id" + i).style.backgroundColor = "red";
                     can -= 1;
+                    if ((document.getElementById("id" + i).value).length != 1) {
+                        long_trial = 0;
+                    }
                 }
             }
-            //inputlardan gelen dizide toplanmış veriyi tek parça string yapıyorum.
-            if (can == 10 && super_gamer.join('') == Upword) { //Bu string kullanıcın başta belirlemiş olduğu word e eşitse oyunu kazanıyor ve yeni oyun için word.php sayfasına gidiyor. 
+            //inputlardan gelen dizide toplanmış veriyi tek parça string yapıyorum. //long_trail yukarıda ki döngüde değişti ise oyun kazanılamayacak.
+            if (can == 10 && super_gamer.join('') == Upword && long_trial == 1) { //Bu string kullanıcın başta belirlemiş olduğu word e eşitse oyunu kazanıyor ve yeni oyun için word.php sayfasına gidiyor. 
                 alert("Vay canına tekte buldun bu oyunda çok iyisin ❤️. Tamam butonuna bastıktan 7 saniye sonra kelime seçim sayfasına göndereceğim seni. Böylelikle yeni bir kelime seçip oyuna devam edebilirsin :)");
                 setTimeout(function () {
                     window.location.assign("again.html");
@@ -153,7 +160,7 @@
                 }, 7000);
             }
             //inputlardan gelen dizide toplanmış veriyi tek parça string yapıyorum.
-            if (super_gamer.join('') == Upword && can < 10 && can > 0) { //Bu string kullanıcın başta belirlemiş olduğu word e eşitse oyunu kazanıyor ve yeni oyun için word.php sayfasına gidiyor. 
+            if (super_gamer.join('') == Upword && can < 10 && can > 0 && long_trial == 1) { //Bu string kullanıcın başta belirlemiş olduğu word e eşitse oyunu kazanıyor ve yeni oyun için word.php sayfasına gidiyor. 
                 alert("Kelimeyi buldun 🤓. Tamam butonuna bastıktan 7 saniye sonra kelime seçim sayfasına göndereceğim seni. Böylelikle yeni bir kelime seçip oyuna devam edebilirsin :)");
                 setTimeout(function () {
                     window.location.assign("again.html");
