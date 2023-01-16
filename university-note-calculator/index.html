@@ -104,7 +104,7 @@
                 gpa = midterm_note_avarage + final_note_avarage;
                 gpa = gpa.toFixed(2);
                 gpa = Number(gpa);
-                if (final_note <= 100 && final_note >= 0 && midterm_note <= 100 && midterm_note >= 0 || isNaN(midterm_note) || isNaN(final_note)) {
+                if (final_note <= 110 && final_note >= 0 && midterm_note <= 110 && midterm_note >= 0 || isNaN(midterm_note) || isNaN(final_note)) {
                     if (gpa < 50 && gpa >= 0) {
                         message = "Yüzlük sistem de notun: " + gpa + "<br>" + "Harf sisteminde notun: F1"
                     }
@@ -135,7 +135,7 @@
                     else if (gpa >= 90 && gpa < 95) {
                         message = "Yüzlük sistem de notun: " + gpa + "<br>" + "Harf sisteminde notun: A2"
                     }
-                    else if (gpa >= 95 && gpa <= 100) {
+                    else if (gpa >= 95 && gpa <= 110) {
                         message = "Yüzlük sistem de notun: " + gpa + "<br>" + "Harf sisteminde notun: A1"
                     }
                     else {
