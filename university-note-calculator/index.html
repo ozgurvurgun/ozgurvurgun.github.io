@@ -14,9 +14,10 @@
     <title>University Note Calculator</title>
     <style>
         a {
-            text-decoration: none ;
+            text-decoration: none;
             color: white;
         }
+
         a:hover {
             color: white;
         }
@@ -70,6 +71,10 @@
                 <div class="mb-3">
                     <h3 id="result"></h3>
                 </div>
+
+                <div class="mt-4 mb-3">
+                    <h5>Son güncelleme, 2023 güz dönemi not hesaplama sistemine göre dizayn edildi</h5>
+                </div>
             </div>
         </div>
     </div>
@@ -96,7 +101,7 @@
                 final_percent = Number(document.getElementById("btnradio8").value);
             }
             var validation = midterm_percent + final_percent;
-            if (validation <= 110) {// okulda ki not sisteminde bir karmaşa var, şu an %110 olarak hesaplandığı söyleniyor. Durum netleşince güncelleme sallarız
+            if (validation <= 110 && validation != 90) {// okulda ki not sisteminde bir karmaşa var, şu an %110 olarak hesaplandığı söyleniyor. Durum netleşince güncelleme sallarız
                 midterm_note = Number(document.getElementById("midterm-note").value);
                 final_note = Number(document.getElementById("final-note").value);
                 midterm_note_avarage = midterm_note * midterm_percent / 100;
@@ -145,7 +150,7 @@
                     message = "Vize, final notu 100 den büyük, 0 dan küçük olamaz !";
                 }
             } else {
-                window.alert("Yüzdelik dilimlerin toplamının 110 dan küçük olduğundan emin ol !");
+                window.alert("Yüzdelik dilimlerin toplamının 90 olmadığından emin ol !");
             }
             document.getElementById("result").innerHTML = message;
         }   
