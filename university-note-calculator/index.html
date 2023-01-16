@@ -96,7 +96,7 @@
                 final_percent = Number(document.getElementById("btnradio8").value);
             }
             var validation = midterm_percent + final_percent;
-            if (validation == 100) {
+            if (validation <= 110) {// okulda ki not sisteminde bir karmaşa var, şu an %110 olarak hesaplandığı söyleniyor. Durum netleşince güncelleme sallarız
                 midterm_note = Number(document.getElementById("midterm-note").value);
                 final_note = Number(document.getElementById("final-note").value);
                 midterm_note_avarage = midterm_note * midterm_percent / 100;
