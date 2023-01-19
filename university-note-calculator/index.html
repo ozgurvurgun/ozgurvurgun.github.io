@@ -112,15 +112,15 @@
                 gpa = gpa.toFixed(2);
                 gpa = Number(gpa);
                 if (final_note <= 100 && final_note >= 0 && midterm_note <= 100 && midterm_note >= 0 || isNaN(midterm_note) || isNaN(final_note)) {
-                    if (gpa < 50 && gpa >= 0) {
+                    if (gpa < 55 && gpa >= 0) {
                         message = "Yüzlük sistem de notun: " + gpa + "<br>" + "Harf sisteminde notun: F1"
                     }
-                    else if (gpa >= 50 && gpa < 55) {
+                    else if (gpa >= 55 && gpa < 60) {
                         message = "Yüzlük sistem de notun: " + gpa + "<br>" + "Harf sisteminde notun: D1"
                     }
-                    else if (gpa >= 55 && gpa < 60) {
-                        message = "Yüzlük sistem de notun: " + gpa + "<br>" + "Harf sisteminde notun: C3"
-                    }
+                    // else if (gpa >= 55 && gpa < 60) {
+                    //     message = "Yüzlük sistem de notun: " + gpa + "<br>" + "Harf sisteminde notun: C3"
+                    // }
                     else if (gpa >= 60 && gpa < 65) {
                         message = "Yüzlük sistem de notun: " + gpa + "<br>" + "Harf sisteminde notun: C2"
                     }
