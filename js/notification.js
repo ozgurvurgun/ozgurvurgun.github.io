@@ -10,5 +10,8 @@ window.addEventListener("load", () => {
         icon: "1667593744391.jpg",
       });
     }
+    else{
+        alert("permission denied")
+    }
   });
 });
