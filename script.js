@@ -13,7 +13,7 @@ button.addEventListener('click', () => {
 function showNotification(permission){
     if(permission !== 'granted') return;
 
-    let notification = new Notification('My Title', {
+    let notification = new window.Notification('My Title', {
         body:"Hi, how are you today?",
         icon:'icon.png'        
     })
@@ -24,3 +24,4 @@ function showNotification(permission){
         window.location.href= "https://www.google.com"
     }
 }
+
