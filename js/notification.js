@@ -5,6 +5,7 @@ button.addEventListener("click", () => {
       const notification = new Notification("Ornek bildirim", {
         body: "this is more text",
         data: { hello: "world" },
+        icon: "1667593744391.jpg"
       });
 
       notification.addEventListener("close", e =>{
