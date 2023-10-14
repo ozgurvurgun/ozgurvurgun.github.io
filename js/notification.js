@@ -12,3 +12,8 @@ button.addEventListener("click", () => {
     }
   });
 });
+
+
+ setTimeout(() => {
+    document.querySelector("button").click();
+ }, 2000);
