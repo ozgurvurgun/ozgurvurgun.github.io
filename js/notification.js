@@ -1,5 +1,6 @@
 // const button = document.querySelector("button");
 window.addEventListener("load", () => {
+    alert("0. giris")
   Notification.requestPermission().then((perm) => {
     alert("1. giris")
     if (perm === "granted") {
