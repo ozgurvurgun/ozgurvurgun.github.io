@@ -1,4 +1,6 @@
 const button = document.querySelector("button")
 button.addEventListener("click", ()=>{
-    alert("hi");
+    Notification.requestPermission().then(perm =>{
+        alert(perm)
+    })
 })
