@@ -2,7 +2,7 @@
 window.addEventListener("load", () => {
     alert("0. giris")
   Notification.requestPermission().then((perm) => {
-    alert("1. giris")
+    alert("1. giris"+ perm)
     if (perm === "granted") {
         alert("2. giris")
       const notification = new Notification("Ornek bildirim", {
