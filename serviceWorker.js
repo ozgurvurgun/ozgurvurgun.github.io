@@ -4,6 +4,7 @@ const assets = [
   "https://ozgurvurgun.github.io/index.html",
   "https://ozgurvurgun.github.io/css/style.css",
   "https://ozgurvurgun.github.io/js/app.js",
+  "https://ozgurvurgun.github.io/js/notification.js",
   "https://ozgurvurgun.github.io/images/1667593744391.jpg",
   "https://ozgurvurgun.github.io/images/icons/icon-72x72.png",
   "https://ozgurvurgun.github.io/images/icons/icon-96x96.png",
