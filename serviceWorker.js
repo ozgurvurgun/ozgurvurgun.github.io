@@ -3,6 +3,7 @@ const assets = [
   "/",
   "/index.html",
   "/js/app.js",
+  "/js/notification.js"
 ];
 
 self.addEventListener("install", installEvent => {
