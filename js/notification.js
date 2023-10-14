@@ -1,4 +1,4 @@
-const button = document.querySelector("button");
+const button = document.getElementById("buty");
 button.addEventListener("click", () => {
     alert("0. giris")
   Notification.requestPermission().then((perm) => {
