@@ -1,1 +1,0 @@
-# ozgurvurgun.github.io
