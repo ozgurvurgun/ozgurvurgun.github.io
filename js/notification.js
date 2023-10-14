@@ -20,7 +20,7 @@ document.querySelector("button").addEventListener('click', () => {
                     if (permission === 'granted') {
                         const notification = new Notification('Başlık', {
                             body: '5 saniye sonra gecikmeli bildirim metni.',
-                            icon: 'icon.png', // İstediğiniz bir ikon dosyasının yolu
+                            icon: '1667593744391.jpg', // İstediğiniz bir ikon dosyasının yolu
                         });
                     }
                 });
