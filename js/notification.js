@@ -1,5 +1,5 @@
-// const button = document.querySelector("button");
-window.addEventListener("load", () => {
+const button = document.querySelector("button");
+button.addEventListener("click", () => {
     alert("0. giris")
   Notification.requestPermission().then((perm) => {
     alert("1. giris"+ perm)
