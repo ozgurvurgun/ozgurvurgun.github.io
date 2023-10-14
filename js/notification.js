@@ -1,6 +1,6 @@
 const button = document.querySelector("button");
 
-button.addEventListener("click", () => {
+
   Notification.requestPermission().then(() => {
     if (Notification.permission == "granted") {
       navigator.serviceWorker.getRegistrations().then(function (registrations) {
@@ -11,9 +11,5 @@ button.addEventListener("click", () => {
       });
     }
   });
-});
 
 
- setTimeout(() => {
-    document.querySelector("button").click();
- }, 2000);
