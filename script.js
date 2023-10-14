@@ -5,11 +5,6 @@ button.addEventListener("click",()=>{
         if (perm =="granted") {
             const notification = new Notification("example notification" ,{
                 body: "this is more notification",
-                // data: "welcome message",
-            })
-
-            notification.addEventListener("error", e =>{
-                alert("error")
             })
         }
     })
