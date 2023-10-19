@@ -7,7 +7,7 @@ const button = document.querySelector("button");
         registrations[0].showNotification("Yeni Mesajınız Var", {
           body: "Ne zamandır yoksun dayı bir uğra ;)",
           icon: "icon.png",
-          showTrigger: new TimestampTrigger(Date.now() + 10 * 1000)
+          showTrigger: new TimestampTrigger(Date.now() + 5 * 1000)
         });
       });
     }
