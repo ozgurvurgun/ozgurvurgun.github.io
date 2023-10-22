@@ -1,6 +1,6 @@
 {
-    "name": "Dev Ozgur",
-    "short_name": "#devOzgur",
+    "name": "QR Menu",
+    "short_name": "#qrMenu",
     "start_url": "index.html",
     "display": "standalone",
     "background_color": "#fdfdfd",
