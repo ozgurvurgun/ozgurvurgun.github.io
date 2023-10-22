@@ -66,9 +66,9 @@ function createPopup(id) {
       }
     };
   
-    xhttp.open("POST", `apis/${categoryName}.json`, true);
-    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xhttp.send(``);
+    xhttp.open("GET", `apis/${categoryName}.json`, true);
+    xhttp.send();
+
   }
   /*** get product end ***/
   
