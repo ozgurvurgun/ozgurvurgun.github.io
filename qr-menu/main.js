@@ -68,7 +68,7 @@ function createPopup(id) {
   
     xhttp.open("POST", `apis/${categoryName}.json`, true);
     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xhttp.send(`category_id=${categoryID}`);
+    xhttp.send(``);
   }
   /*** get product end ***/
   
