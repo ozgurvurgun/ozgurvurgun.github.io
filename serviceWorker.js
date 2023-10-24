@@ -1,4 +1,4 @@
-const staticDevCoffee = "dev-qr-menu-site-v1";
+const staticDevCoffee = "dev-qr-menu-site-v2";
 const assets = [
   "/",
   "/index.html",
