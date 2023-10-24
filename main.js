@@ -67,6 +67,7 @@ function getProducts(categoryID, categoryName) {
   };
 
   xhttp.open("GET", `apis/${categoryName}.json`, true);
+  xhttp.setRequestHeader('Cache-Control', 'max-age=3600');
   xhttp.send();
 }
 /*** get product end ***/
