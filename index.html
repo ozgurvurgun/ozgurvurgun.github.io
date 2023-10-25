@@ -20,7 +20,6 @@
       rel="stylesheet"
       href="https://ozgurvurgun.github.io/styles/style.css"
     />
-    <link rel="manifest" href="manifest.json" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
@@ -121,14 +120,6 @@
     <script>
       let routing_name = "sopung-restaurant";
       let base_url = "https://ozgurvurgun.github.io/";
-      if ("serviceWorker" in navigator) {
-        window.addEventListener("load", function () {
-          navigator.serviceWorker
-            .register("/serviceWorker.js")
-            .then((res) => console.log("service worker registered"))
-            .catch((err) => console.log("service worker not registered", err));
-        });
-      }
     </script>
     <script src="main.js"></script>
   </body>
