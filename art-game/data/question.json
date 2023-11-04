@@ -1,0 +1,49 @@
+[
+  {
+    "id": "0",
+    "question": "En güzel sanat tarihçisi ?",
+    "options": ["ece", "ece şensöz", "şensöz ece", "gülgünün kızı"],
+    "correct": "php"
+  },
+  {
+    "id": "1",
+    "question": "Barok döneminin önemli bir ressamı olan ve Caravaggio'nun öğrencisi olarak bilinen bu sanatçı, dramatik aydınlatma tekniğiyle tanınır. Hangi sanatçıdan bahsediyoruz?",
+    "options": [
+      "Rembrandt van Rijn",
+      "Jan Vermeer",
+      "Peter Paul Rubens",
+      "Hieronymus Bosch"
+    ],
+    "correct": "Rembrandt van Rijn"
+  },
+  {
+    "id": "2",
+    "question": "özgür ?",
+    "options": ["makotikoti", "vurgun", "demir", "vey"],
+    "correct": "vurgun"
+  },
+  {
+    "id": "3",
+    "question": "leb ?",
+    "options": ["leblebi", "avokado", "nane", "kekik"],
+    "correct": "leblebi"
+  },
+  {
+    "id": "4",
+    "question": "Çam ?",
+    "options": ["sakızı", "cevizi", "şırdanı", "lalesi"],
+    "correct": "sakızı"
+  },
+  {
+    "id": "5",
+    "question": "<h1>  -> bu ne ?",
+    "options": ["başlık tagı", "php", "paragraf", "çizgi"],
+    "correct": "başlık tagı"
+  },
+  {
+    "id": "6",
+    "question": "semavi dindir ?",
+    "options": ["unicorn", "tek boynuz", "islam", "siyonizm"],
+    "correct": "islam"
+  }
+]
