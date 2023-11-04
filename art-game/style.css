@@ -9,7 +9,8 @@
 body {
   font-family: "Dosis", sans-serif;
   background-color: #1d2630;
-  overflow: hidden;
+  overflow-x: hidden;
+  width: 100%;
 }
 
 button {
@@ -23,7 +24,6 @@ button {
 }
 #toggle-menu:checked ~ .nav-right {
   right: 0;
-  
 }
 
 /*! hamburger menu end  */
