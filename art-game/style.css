@@ -6,7 +6,8 @@
   list-style-type: none;
 }
 
-html, body {
+html,
+body {
   font-family: "Dosis", sans-serif;
   background-color: #1d2630;
   overflow-x: hidden;
@@ -19,7 +20,7 @@ button {
 
 /**** component start ****/
 /*! hamburger menu start  */
-#toggle-menu{
+#toggle-menu {
   cursor: pointer;
 }
 #toggle-menu:checked ~ .nav-right {
@@ -193,6 +194,50 @@ footer {
 }
 /*** footer end ***/
 
+/*** game settings start ***/
+/* .question-bar,
+.next-question,
+.quiz-status-bar {
+  display: none;
+} */
+
+.next-question,
+.quiz-status-bar {
+  display: none;
+}
+
+.start-panel-header {
+  margin-top: 20px;
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  justify-content: center;
+}
+
+.start-panel-header h3 {
+  font-size: 30px;
+  margin-bottom: 15px;
+}
+
+.start-panel-header p {
+  font-size: 20px;
+}
+
+.start-button {
+  width: 140px;
+  height: 40px;
+  font-size: 18px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border: none;
+  color: blue;
+  border-radius: 20px;
+  cursor: pointer;
+}
+/*** game settings end ***/
+
 /*** responsive start ***/
 @media (max-width: 800px) {
   /*640*/
@@ -206,7 +251,7 @@ footer {
     top: 100px;
     right: -200px;
     padding: 30px;
-    height: calc(100vh - 100px);
+    /* height: calc(100vh - 100px); */
     transition: all 0.3s ease-in-out;
   }
 }
