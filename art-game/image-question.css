@@ -207,7 +207,7 @@ footer {
     top: 100px;
     right: -200px;
     padding: 30px;
-    height: calc(100vh - 100px);
+    /* height: calc(100vh - 100px); */
     transition: all 0.3s ease-in-out;
   }
 }
