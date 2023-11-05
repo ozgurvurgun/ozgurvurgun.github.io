@@ -9,46 +9,57 @@ let activeQuestion;
 let questionData = [];
 let questionHierarchy = [];
 let answerHierarchy = [];
-let countdown = 10;
+let realCountdown = 15;
+let tempCountdown = realCountdown;
 let counter;
 let slctQuestion = 0;
-let datta =[]
+let report = [];
 
 function timer() {
+  if (tempCountdown == realCountdown) {
+    questionView(questionHierarchy[slctQuestion], questionShuffle(0, 3));
+    optionUpdate();
+  }
   counter = setInterval(() => {
-    countdown--;
-    countdownDisplay.innerHTML = `${countdown}s`;
-    if (countdown == 0) {
-      countdown = 10;
+    tempCountdown--;
+    countdownDisplay.innerHTML = `${tempCountdown}s`;
+    if (tempCountdown == -1) {
+      tempCountdown = realCountdown;
       clearInterval(counter);
-      setTimeout(() => {
-        if (slctQuestion >= questionData.length) {
-          finishGame();
-          slctQuestion = 0;
-          return;
-        }
-        countdownDisplay.innerHTML = `${10}s`;
-        questionView(questionHierarchy[slctQuestion], questionShuffle(0, 3));
-        ResultdataCreator();
-        optionUpdate();
-        slctQuestion++;
-        timer();
-      }, 1000);
+      ResultdataCreator();
+      slctQuestion++;
+      if (slctQuestion != questionData.length) {
+        countdownDisplay.innerHTML = `${realCountdown}s`;
+      }
+      if (slctQuestion == questionData.length) {
+        finishGame();
+        countdownDisplay.innerHTML = `${0}s`;
+        return;
+      }
+      timer();
     }
   }, 1000);
 }
 
 function ResultdataCreator() {
   activeQuestion = questionHierarchy[slctQuestion];
-  datta.push({questionId: questionData[activeQuestion].id, answer: questionData[activeQuestion].correct, userAnswer: userAnswer});
-  console.log(datta);
+  report.push({
+    questionId: questionData[activeQuestion].id,
+    answer: questionData[activeQuestion].correct,
+    userAnswer: userAnswer,
+  });
   userAnswer = "";
 }
 
 function finishGame() {
   clearInterval(counter);
-  questionDisplay.innerHTML =
-    '<div style="margin-top:25px;margin-bottom:25px;font-size:20px;" class="question">Oyunu Tamamladın. Skor tablosundan sonucunu görebilirsin 😎 <br />( sonuçlar console da )</div>';
+  let successRate = 0;
+  report.forEach((element) => {
+    if (element.answer == element.userAnswer) {
+      successRate++;
+    }
+  });
+  questionDisplay.innerHTML = `<div style="margin-top:25px;margin-bottom:25px;font-size:20px;" class="question">Sonuçların aşağıda 😎<br />${questionData.length} soru dan, <span style="color:green;" >${successRate}</span> tanesini doğru cevapladın.</div>`;
   document.querySelector(".next-question").style.display = "none";
 }
 
@@ -64,10 +75,18 @@ function questionView(ID, answers) {
       ${questionData[ID].question}
     </div>
     <div class="answers">
-      <button data-id="${questionData[ID].id}" data-option="${questionData[ID].options[answers[0]]}" class="option">${questionData[ID].options[answers[0]]}</button>
-      <button data-id="${questionData[ID].id}" data-option="${questionData[ID].options[answers[1]]}" class="option">${questionData[ID].options[answers[1]]}</button>
-      <button data-id="${questionData[ID].id}" data-option="${questionData[ID].options[answers[2]]}" class="option">${questionData[ID].options[answers[2]]}</button>
-      <button data-id="${questionData[ID].id}" data-option="${questionData[ID].options[answers[3]]}" class="option">${questionData[ID].options[answers[3]]}</button>
+      <button data-option="${
+        questionData[ID].options[answers[0]]
+      }" class="option">${questionData[ID].options[answers[0]]}</button>
+      <button data-option="${
+        questionData[ID].options[answers[1]]
+      }" class="option">${questionData[ID].options[answers[1]]}</button>
+      <button data-option="${
+        questionData[ID].options[answers[2]]
+      }" class="option">${questionData[ID].options[answers[2]]}</button>
+      <button data-option="${
+        questionData[ID].options[answers[3]]
+      }" class="option">${questionData[ID].options[answers[3]]}</button>
     </div>
     `;
   counterStatusDispley.innerHTML = `${slctQuestion + 1} of ${
@@ -101,40 +120,35 @@ function optionUpdate() {
   optionsButton.forEach((button) => {
     button.addEventListener("click", function () {
       const answer = button.getAttribute("data-option");
-      const questionId = button.getAttribute("data-id");
       selectRemove();
       button.style.backgroundColor = "#c0bfd2";
       userAnswer = answer;
-      console.log(questionId);
     });
   });
 }
 
 nextQuestionButton.addEventListener("click", () => {
-  if (slctQuestion >= questionData.length) {
+  questionView(questionHierarchy[slctQuestion], questionShuffle(0, 3));
+  ResultdataCreator();
+  optionUpdate();
+  tempCountdown = realCountdown;
+  slctQuestion++;
+  if (slctQuestion != questionData.length) {
+    countdownDisplay.innerHTML = `${realCountdown}s`;
+  }
+  if (slctQuestion == questionData.length) {
     finishGame();
-    slctQuestion = 0;
     return;
   }
-  questionView(questionHierarchy[slctQuestion], questionShuffle(0, 3));
   clearInterval(counter);
-  ResultdataCreator("next");
-  optionUpdate();
-  countdown = 10;
-  countdownDisplay.innerHTML = `${10}s`;
-  slctQuestion++;
   timer();
 });
 
 startButton.addEventListener("click", () => {
-  // document.querySelector(".question-bar").style.display = "block";
+  document.querySelector(".countdown").innerHTML = realCountdown + "s";
   document.querySelector(".next-question").style.display = "inline-block";
   document.querySelector(".quiz-status-bar").style.display = "flex";
   document.querySelector(".start-panel").style.display = "none";
-  questionView(questionHierarchy[slctQuestion], questionShuffle(0, 3));
-  ResultdataCreator("start");
-  optionUpdate();
-  slctQuestion++;
   timer();
 });
 
@@ -151,7 +165,6 @@ document.addEventListener("DOMContentLoaded", () => {
   document.querySelector(".nav-right").style.height = pageHeight - 100 + "px";
 });
 //! responsive navbar calculate end
-
 // document.addEventListener("contextmenu", function (e) {
 //   e.preventDefault(); // Sağ tıklama olayını engelle
 // });
