@@ -3,11 +3,16 @@ let questionDisplay = document.querySelector(".question-bar");
 let startButton = document.querySelector(".start-button");
 let nextQuestionButton = document.querySelector(".next-question");
 let counterStatusDispley = document.querySelector(".left-status-bar");
+let optionsButton;
+let userAnswer;
+let activeQuestion;
 let questionData = [];
 let questionHierarchy = [];
 let answerHierarchy = [];
 let countdown = 10;
 let counter;
+let slctQuestion = 0;
+let datta =[]
 
 function timer() {
   counter = setInterval(() => {
@@ -24,6 +29,8 @@ function timer() {
         }
         countdownDisplay.innerHTML = `${10}s`;
         questionView(questionHierarchy[slctQuestion], questionShuffle(0, 3));
+        ResultdataCreator();
+        optionUpdate();
         slctQuestion++;
         timer();
       }, 1000);
@@ -31,10 +38,17 @@ function timer() {
   }, 1000);
 }
 
+function ResultdataCreator() {
+  activeQuestion = questionHierarchy[slctQuestion];
+  datta.push({questionId: questionData[activeQuestion].id, answer: questionData[activeQuestion].correct, userAnswer: userAnswer});
+  console.log(datta);
+  userAnswer = "";
+}
+
 function finishGame() {
   clearInterval(counter);
   questionDisplay.innerHTML =
-    '<div style="margin-top:25px;margin-bottom:25px;font-size:20px;" class="question">Oyunu Tamamladın. Skor tablosundan sonucunu görebilirsin 😎</div>';
+    '<div style="margin-top:25px;margin-bottom:25px;font-size:20px;" class="question">Oyunu Tamamladın. Skor tablosundan sonucunu görebilirsin 😎 <br />( sonuçlar console da )</div>';
   document.querySelector(".next-question").style.display = "none";
 }
 
@@ -46,16 +60,16 @@ function finishGame() {
 
 function questionView(ID, answers) {
   questionDisplay.innerHTML = `
-  <div class="question">
-    ${questionData[ID].question}
-  </div>
-  <div class="answers">
-    <button class="option">${questionData[ID].options[answers[0]]}</button>
-    <button class="option">${questionData[ID].options[answers[1]]}</button>
-    <button class="option">${questionData[ID].options[answers[2]]}</button>
-    <button class="option">${questionData[ID].options[answers[3]]}</button>
-  </div>
-  `;
+    <div class="question">
+      ${questionData[ID].question}
+    </div>
+    <div class="answers">
+      <button data-id="${questionData[ID].id}" data-option="${questionData[ID].options[answers[0]]}" class="option">${questionData[ID].options[answers[0]]}</button>
+      <button data-id="${questionData[ID].id}" data-option="${questionData[ID].options[answers[1]]}" class="option">${questionData[ID].options[answers[1]]}</button>
+      <button data-id="${questionData[ID].id}" data-option="${questionData[ID].options[answers[2]]}" class="option">${questionData[ID].options[answers[2]]}</button>
+      <button data-id="${questionData[ID].id}" data-option="${questionData[ID].options[answers[3]]}" class="option">${questionData[ID].options[answers[3]]}</button>
+    </div>
+    `;
   counterStatusDispley.innerHTML = `${slctQuestion + 1} of ${
     questionData.length
   } question`;
@@ -76,7 +90,26 @@ function questionShuffle(min, max) {
   return numbers;
 }
 
-let slctQuestion = 0;
+function selectRemove() {
+  optionsButton.forEach((button) => {
+    button.style.backgroundColor = "#fff";
+  });
+}
+
+function optionUpdate() {
+  optionsButton = document.querySelectorAll(".option");
+  optionsButton.forEach((button) => {
+    button.addEventListener("click", function () {
+      const answer = button.getAttribute("data-option");
+      const questionId = button.getAttribute("data-id");
+      selectRemove();
+      button.style.backgroundColor = "#c0bfd2";
+      userAnswer = answer;
+      console.log(questionId);
+    });
+  });
+}
+
 nextQuestionButton.addEventListener("click", () => {
   if (slctQuestion >= questionData.length) {
     finishGame();
@@ -84,10 +117,12 @@ nextQuestionButton.addEventListener("click", () => {
     return;
   }
   questionView(questionHierarchy[slctQuestion], questionShuffle(0, 3));
-  countdown = 10;
-   countdownDisplay.innerHTML = `${10}s`;
-  slctQuestion++;
   clearInterval(counter);
+  ResultdataCreator("next");
+  optionUpdate();
+  countdown = 10;
+  countdownDisplay.innerHTML = `${10}s`;
+  slctQuestion++;
   timer();
 });
 
@@ -97,6 +132,8 @@ startButton.addEventListener("click", () => {
   document.querySelector(".quiz-status-bar").style.display = "flex";
   document.querySelector(".start-panel").style.display = "none";
   questionView(questionHierarchy[slctQuestion], questionShuffle(0, 3));
+  ResultdataCreator("start");
+  optionUpdate();
   slctQuestion++;
   timer();
 });
