@@ -21,29 +21,5 @@
     "question": "'Mona Lisa' adlı ünlü tablonun yaratıcısı kimdir?",
     "options": ["Michelangelo", "Vincent van Gogh", "Leonardo da Vinci", "Pablo Picasso"],
     "correct": "Leonardo da Vinci"
-  },
-  {
-    "id": "3",
-    "question": "20. yüzyılın başlarında, kim, ünlü 'Scream' tablosunun yaratıcısı olarak bilinir ve bu eserini hangi sanat akımı içinde üretti?",
-    "options": ["Vincent van Gogh", "Edvard Munch, Sürrealizm", "Wassily Kandinsky, İzlenimcilik", "Georges Seurat, Post-İzlenimcilik"],
-    "correct": "Edvard Munch, Sürrealizm"
-  },
-  {
-    "id": "4",
-    "question": "Ünlü İtalyan ressam Caravaggio'nun stilinin önemli bir özelliği nedir ve hangi dönemde faaliyet göstermiştir?",
-    "options": ["Rönesans'ta perspektif kullanımı, Barok dönemde", "İzlenimcilik tarzı, Rönesans döneminde", "Tenebrizm tekniği, Rönesans döneminde", "Fütürizm akımı, Barok döneminde"],
-    "correct": "Tenebrizm tekniği, Rönesans döneminde"
-  },
-  {
-    "id": "5",
-    "question": "'Guernica' adlı ünlü tablo hangi olayı ve sanatçısı tarafından yaratılmıştır?",
-    "options": ["İspanya İç Savaşı'nı, Salvador Dalí", "II. Dünya Savaşı'nı, Pablo Picasso", "Hiroşima bombalamasını, Jackson Pollock", "Rus Devrimi'ni, Henri Matisse"],
-    "correct": "II. Dünya Savaşı'nı, Pablo Picasso"
-  },
-  {
-    "id": "6",
-    "question": "15. yüzyılda Floransa'da yaşamış olan ve İtalyan Rönesansı'nın öncülerinden biri olarak kabul edilen ünlü bir ressam ve mucit kimdir?",
-    "options": ["Leonardo da Vinci", "Rembrandt van Rijn", "Vincent van Gogh", "Édouard Manet"],
-    "correct": "Leonardo da Vinci"
   }
 ]
