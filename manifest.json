@@ -3,7 +3,7 @@
     "short_name": "TruckGame",
     "start_url": "index.html",
     "display": "fullscreen",
-    "background_color": "#db4938",
+    "background_color": "#fdfdfd",
     "theme_color": "#db4938",
     "orientation": "landscape",
     "icons": [
