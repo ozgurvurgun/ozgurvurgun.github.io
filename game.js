@@ -1,3 +1,7 @@
+// if(window.innerHeight > window.innerWidth){
+//     document.getElementsByTagName("body")[0].style.transform = "rotate(90deg)";
+// }
+
 //mobil check
 let isMobil = false;
 const isMobile =
@@ -11,7 +15,9 @@ if (isMobile) {
 
 //setup
 let c = document.createElement("canvas");
-c.width = window.innerWidth;
+// c.width = window.innerWidth;
+// c.height = window.innerHeight;
+c.width =  window.innerWidth;
 c.height = window.innerHeight;
 document.body.appendChild(c);
 let context = c.getContext("2d");
