@@ -1,43 +1,51 @@
 {
-    "name": "Monster Truck",
-    "short_name": "#Monster Truck",
+    "name": "Truck Game",
+    "short_name": "TruckGame",
     "start_url": "index.html",
     "display": "fullscreen",
-    "background_color": "#fdfdfd",
+    "background_color": "#db4938",
     "theme_color": "#db4938",
     "orientation": "landscape",
     "icons": [
       {
         "src": "/images/icons/72x72.png",
-        "type": "image/png", "sizes": "72x72"
+        "type": "image/png", "sizes": "72x72",
+        "purpose": "maskable"
       },
       {
         "src": "/images/icons/96x96.png",
-        "type": "image/png", "sizes": "96x96"
+        "type": "image/png", "sizes": "96x96",
+        "purpose": "maskable"
       },
       {
         "src": "/images/icons/128x128.png",
-        "type": "image/png","sizes": "128x128"
+        "type": "image/png","sizes": "128x128",
+        "purpose": "maskable"
       },
       {
         "src": "/images/icons/144x144.png",
-        "type": "image/png", "sizes": "144x144"
+        "type": "image/png", "sizes": "144x144",
+        "purpose": "maskable"
       },
       {
         "src": "/images/icons/152x152.png",
-        "type": "image/png", "sizes": "152x152"
+        "type": "image/png", "sizes": "152x152",
+        "purpose": "maskable"
       },
       {
         "src": "/images/icons/192x192.png",
-        "type": "image/png", "sizes": "192x192"
+        "type": "image/png", "sizes": "192x192",
+        "purpose": "maskable"
       },
       {
         "src": "/images/icons/384x384.png",
-        "type": "image/png", "sizes": "384x384"
+        "type": "image/png", "sizes": "384x384",
+        "purpose": "maskable"
       },
       {
         "src": "/images/icons/512x512.png",
-        "type": "image/png", "sizes": "512x512"
+        "type": "image/png", "sizes": "512x512",
+        "purpose": "maskable"
       }
     ]
   }
