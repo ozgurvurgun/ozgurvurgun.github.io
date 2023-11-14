@@ -9,11 +9,10 @@ if (isMobile) {
 }
 
 //setup
-let c = document.getElementById("game");
+let c = document.createElement("canvas");
 c.width = window.innerWidth;
 c.height = window.innerHeight;
-c.style.width = window.innerWidth;
-c.style.height = window.innerHeight;
+document.body.appendChild(c);
 let context = c.getContext("2d");
 
 let pts = [];
@@ -30,8 +29,6 @@ let pts = [];
   }
   pts.push(pts[0]);
 })();
-
-console.table(pts);
 
 function lerp(a, b, t) {
   return a + ((b - a) * (1 - Math.cos(t * Math.PI))) / 2;
@@ -53,6 +50,8 @@ let t = 0;
 let speed = 0;
 let playing = true;
 let k = { ArrowUp: 0, ArrowLeft: 0, ArrowRight: 0 };
+let score = 0;
+let highScore = localStorage.getItem("highScore") ?? 0;
 
 class Player {
   constructor() {
@@ -80,12 +79,30 @@ class Player {
   drawInterface() {
     if (playing) {
       //interface draw
+
+      context.font = "22px Impact";
+      context.fillStyle = "white";
+      context.textAlign = "start";
+      context.textBaseline = "top";
+      context.fillText("High Score: " + highScore, 10, 10);
+      context.fillText("Score: " + score, 10, 35);
       if (isMobil) {
         context.drawImage(this.leftBtn, 20, c.height - 90, 70, 70);
         context.drawImage(this.rightBtn, 110, c.height - 90, 70, 70);
         context.drawImage(this.fireBtn, c.width - 90, c.height - 90, 70, 70);
       }
     } else {
+      if (score > highScore) {
+        localStorage.setItem("highScore", score);
+        highScore = score;
+      }
+      context.font = "22px Impact";
+      context.fillStyle = "white";
+      context.textAlign = "start";
+      context.textBaseline = "top";
+      context.fillText("High Score: " + highScore, 10, 10);
+      context.fillText("Score: " + score, 10, 35);
+
       context.textAlign = "center";
       context.textBaseline = "middle";
       context.font = "32px Impact";
@@ -119,7 +136,7 @@ class Player {
     if (!playing || (gnd && Math.abs(this.rot) > Math.PI * 0.5)) {
       playing = false;
       this.rSpeed = 5;
-      k.ArrowUp = 1;
+      k.ArrowUp = 0;
       this.x -= speed * 5;
     }
 
@@ -128,11 +145,13 @@ class Player {
     if (gnd && playing) {
       this.rot -= (this.rot - angle) * 0.5;
       this.rSpeed = this.rSpeed - (angle - this.rot);
+      if (k.ArrowUp == 1) {
+        score += 10;
+      }
     }
 
     this.rSpeed += (k.ArrowLeft - k.ArrowRight) * 0.05;
     this.rot -= this.rSpeed * 0.05;
-
     this.rot -= this.rSpeed * 0.1;
     if (this.rot > Math.PI) {
       this.rot = -Math.PI;
@@ -155,12 +174,6 @@ class Player {
 }
 
 let player = new Player();
-window.onresize = function () {
-    c.width = window.innerWidth;
-    c.height = window.innerHeight;
-    c.style.width = window.innerWidth;
-    c.style.height = window.innerHeight;
-};
 
 //draw
 function draw() {
@@ -220,7 +233,9 @@ if (isMobil) {
   }
 } else {
   //desktop control
-  onkeydown = (d) => (k[d.key] = 1);
+  onkeydown = (d) => {
+    k[d.key] = 1;
+  };
   onkeyup = (d) => (k[d.key] = 0);
   c.addEventListener("click", handleClick, false);
   function handleClick(e) {
@@ -228,6 +243,10 @@ if (isMobil) {
     checkBtnPress(e.clientX, e.clientY);
   }
 }
+
+window.onresize = function () {
+  window.location.reload();
+};
 
 function checkBtnPress(x, y) {
   //restart button
@@ -291,6 +310,7 @@ function checkBtnRelase(x, y) {
     y > c.height - 90 &&
     y < c.height - 20
   ) {
+    score += 10;
     k.ArrowUp = 0;
   }
 }
