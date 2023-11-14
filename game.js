@@ -6,6 +6,7 @@ const isMobile =
   );
 if (isMobile) {
   isMobil = true;
+  screen.orientation.lock('landscape');
 }
 
 //setup
