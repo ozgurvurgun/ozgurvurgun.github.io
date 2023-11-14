@@ -9,12 +9,11 @@ if (isMobile) {
 }
 
 //setup
-let c = document.createElement("canvas");
-// c.width = window.innerWidth;
-// c.height = window.innerHeight;
-c.width =  window.innerWidth;
+let c = document.getElementById("game");
+c.width = window.innerWidth;
 c.height = window.innerHeight;
-document.body.appendChild(c);
+c.style.width = window.innerWidth;
+c.style.height = window.innerHeight;
 let context = c.getContext("2d");
 
 let pts = [];
@@ -156,6 +155,12 @@ class Player {
 }
 
 let player = new Player();
+window.onresize = function () {
+    c.width = window.innerWidth;
+    c.height = window.innerHeight;
+    c.style.width = window.innerWidth;
+    c.style.height = window.innerHeight;
+};
 
 //draw
 function draw() {
@@ -223,10 +228,6 @@ if (isMobil) {
     checkBtnPress(e.clientX, e.clientY);
   }
 }
-
-window.onresize = function () {
-  window.location.reload();
-};
 
 function checkBtnPress(x, y) {
   //restart button
