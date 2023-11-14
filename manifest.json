@@ -2,7 +2,7 @@
     "name": "Monster Truck",
     "short_name": "#Monster Truck",
     "start_url": "index.html",
-    "display": "standalone",
+    "display": "fullscreen",
     "background_color": "#fdfdfd",
     "theme_color": "#db4938",
     "orientation": "landscape",

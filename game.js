@@ -1,7 +1,3 @@
-// if(window.innerHeight > window.innerWidth){
-//     document.getElementsByTagName("body")[0].style.transform = "rotate(90deg)";
-// }
-
 //mobil check
 let isMobil = false;
 const isMobile =
@@ -10,7 +6,6 @@ const isMobile =
   );
 if (isMobile) {
   isMobil = true;
-  screen.orientation.lock('landscape');
 }
 
 //setup
