@@ -132,6 +132,9 @@ class Player {
       gnd = 1;
     }
 
+    if (k.ArrowUp == 1) {
+      score += 10;
+    }
     //fall check
     if (!playing || (gnd && Math.abs(this.rot) > Math.PI * 0.5)) {
       playing = false;
@@ -145,9 +148,6 @@ class Player {
     if (gnd && playing) {
       this.rot -= (this.rot - angle) * 0.5;
       this.rSpeed = this.rSpeed - (angle - this.rot);
-      if (k.ArrowUp == 1) {
-        score += 10;
-      }
     }
 
     this.rSpeed += (k.ArrowLeft - k.ArrowRight) * 0.05;
