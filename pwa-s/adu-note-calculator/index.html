@@ -22,15 +22,42 @@
       rel="stylesheet"
     />
     <!-- pwa -->
-    <link rel="manifest" href="https://ozgurvurgun.github.io/pwa-s/adu-note-calculator/manifest.json" />
-    <link rel="apple-touch-icon" href="https://ozgurvurgun.github.io/pwa-s/adu-note-calculator/images/icons/72x72.png" />
-    <link rel="apple-touch-icon" href="https://ozgurvurgun.github.io/pwa-s/adu-note-calculator/images/icons/96x96.png" />
-    <link rel="apple-touch-icon" href="https://ozgurvurgun.github.io/pwa-s/adu-note-calculator/images/icons/128x128.png" />
-    <link rel="apple-touch-icon" href="https://ozgurvurgun.github.io/pwa-s/adu-note-calculator/images/icons/144x144.png" />
-    <link rel="apple-touch-icon" href="https://ozgurvurgun.github.io/pwa-s/adu-note-calculator/images/icons/152x152.png" />
-    <link rel="apple-touch-icon" href="https://ozgurvurgun.github.io/pwa-s/adu-note-calculator/images/icons/192x192.png" />
-    <link rel="apple-touch-icon" href="https://ozgurvurgun.github.io/pwa-s/adu-note-calculator/images/icons/384x384.png" />
-    <link rel="apple-touch-icon" href="https://ozgurvurgun.github.io/pwa-s/adu-note-calculator/images/icons/512x512.png" />
+    <link
+      rel="manifest"
+      href="https://ozgurvurgun.github.io/pwa-s/adu-note-calculator/manifest.json"
+    />
+    <link
+      rel="apple-touch-icon"
+      href="https://ozgurvurgun.github.io/pwa-s/adu-note-calculator/images/icons/72x72.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      href="https://ozgurvurgun.github.io/pwa-s/adu-note-calculator/images/icons/96x96.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      href="https://ozgurvurgun.github.io/pwa-s/adu-note-calculator/images/icons/128x128.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      href="https://ozgurvurgun.github.io/pwa-s/adu-note-calculator/images/icons/144x144.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      href="https://ozgurvurgun.github.io/pwa-s/adu-note-calculator/images/icons/152x152.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      href="https://ozgurvurgun.github.io/pwa-s/adu-note-calculator/images/icons/192x192.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      href="https://ozgurvurgun.github.io/pwa-s/adu-note-calculator/images/icons/384x384.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      href="https://ozgurvurgun.github.io/pwa-s/adu-note-calculator/images/icons/512x512.png"
+    />
     <meta name="apple-mobile-web-app-status-bar" content="#B6D0E2" />
     <meta name="theme-color" content="#B6D0E2" />
     <!-- pwa -->
@@ -40,6 +67,17 @@
     ></script>
     <title>University Note Calculator</title>
     <style>
+      /* Chrome, Safari, Edge, Opera */
+      input::-webkit-outer-spin-button,
+      input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+
+      /* Firefox */
+      input[type="number"] {
+        -moz-appearance: textfield;
+      }
       a {
         text-decoration: none;
         color: white;
@@ -135,11 +173,12 @@
               >
               <input
                 style="text-align: center"
-                type="text"
+                type="number"
                 class="form-control"
                 id="midterm-note"
                 name="user"
                 placeholder=""
+                inputmode="numeric"
                 required
               />
             </div>
@@ -149,10 +188,11 @@
               >
               <input
                 style="text-align: center"
-                type="text"
+                type="number"
                 class="form-control"
                 id="final-note"
                 name="user"
+                inputmode="numeric"
                 placeholder=""
                 required
               />
