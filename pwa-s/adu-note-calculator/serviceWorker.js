@@ -1,4 +1,4 @@
-const staticMonsterTruck = "monster-truck-game-site-v1";
+const staticNoteCalc = "uni-note-calc-v1";
 const assets = [
   "https://ozgurvurgun.github.io/pwa-s/adu-note-calculator/",
   "https://ozgurvurgun.github.io/pwa-s/adu-note-calculator/index.html",
@@ -7,7 +7,7 @@ const assets = [
 
 self.addEventListener("install", (installEvent) => {
   installEvent.waitUntil(
-    caches.open(staticMonsterTruck).then((cache) => {
+    caches.open(staticNoteCalc).then((cache) => {
       cache.addAll(assets);
     })
   );
