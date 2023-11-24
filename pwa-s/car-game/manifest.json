@@ -1,7 +1,7 @@
 {
     "name": "Truck Game",
     "short_name": "TruckGame",
-    "start_url": "index.html",
+    "start_url": "https://ozgurvurgun.github.io/pwa-s/car-game/index.html",
     "display": "fullscreen",
     "background_color": "#db4938",
     "theme_color": "#db4938",

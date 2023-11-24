@@ -1,5 +1,9 @@
 const staticMonsterTruck = "monster-truck-game-site-v1";
-const assets = ["/", "/index.html", "/images/pwa-images/logoadu.png"];
+const assets = [
+  "https://ozgurvurgun.github.io/pwa-s/adu-note-calculator/",
+  "https://ozgurvurgun.github.io/pwa-s/adu-note-calculator/index.html",
+  "https://ozgurvurgun.github.io/pwa-s/adu-note-calculator/images/pwa-images/logoadu.png",
+];
 
 self.addEventListener("install", (installEvent) => {
   installEvent.waitUntil(

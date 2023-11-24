@@ -1,7 +1,7 @@
 {
   "name": "Adu Note",
   "short_name": "Adu Note",
-  "start_url": "index.html",
+  "start_url": "https://ozgurvurgun.github.io/pwa-s/adu-note-calculator/index.html",
   "display": "standalone",
   "background_color": "#B6D0E2",
   "theme_color": "#B6D0E2",

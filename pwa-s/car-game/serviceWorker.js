@@ -1,13 +1,13 @@
 const staticMonsterTruck = "monster-truck-game-site-v1";
 const assets = [
-  "/",
-  "/index.html",
-  "/game.js",
-  "/images/game-images/left.png",
-  "/images/game-images/restart.png",
-  "/images/game-images/right.png",
-  "/images/game-images/speed.png",
-  "/images/game-images/truck.png",
+  "https://ozgurvurgun.github.io/pwa-s/car-game/",
+  "https://ozgurvurgun.github.io/pwa-s/car-game/index.html",
+  "https://ozgurvurgun.github.io/pwa-s/car-game/game.js",
+  "https://ozgurvurgun.github.io/pwa-s/car-game/images/game-images/left.png",
+  "https://ozgurvurgun.github.io/pwa-s/car-game/images/game-images/restart.png",
+  "https://ozgurvurgun.github.io/pwa-s/car-game/images/game-images/right.png",
+  "https://ozgurvurgun.github.io/pwa-s/car-game/images/game-images/speed.png",
+  "https://ozgurvurgun.github.io/pwa-s/car-game/images/game-images/truck.png",
 ];
 
 self.addEventListener("install", (installEvent) => {
