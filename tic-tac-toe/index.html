@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tic tac toe</title>
+</head>
+<style>
+    .container {
+        border: 1px solid black;
+        width: 306px;
+        height: 306px;
+        margin-top: 70px;
+    }
+
+    * {
+        cursor: pointer;
+    }
+
+    .gameValue {
+        font-size: 75px;
+        border: 1px solid black;
+        width: 100px;
+        height: 100px;
+    }
+</style>
+
+<body>
+    <center>
+        <h1>Tiq Taq To</h1>
+    </center>
+    <center>
+        <h1 id="playerOne" style="padding: 8px;width:306px;">Player One =>&nbsp;<span id="winningStreak1"></span></h1>
+    </center>
+    <center>
+        <h1 id="playerTwo" style="padding: 8px;width:306px;">Player Two =>&nbsp;<span id="winningStreak2"></span></h1>
+    </center>
+    <center>
+        <div class="container">
+            <div class="containOne" style="float: left;">
+                <div onclick="playGame(1);" class="gameValue" id="id1"></div>
+                <div onclick="playGame(2);" class="gameValue" id="id2"></div>
+                <div onclick="playGame(3);" class="gameValue" id="id3"></div>
+            </div>
+            <div class="containOne" style="float: left;">
+                <div onclick="playGame(4);" class="gameValue" id="id4"></div>
+                <div onclick="playGame(5);" class="gameValue" id="id5"></div>
+                <div onclick="playGame(6);" class="gameValue" id="id6"></div>
+            </div>
+            <div class="containOne" style="float: left;">
+                <div onclick="playGame(7);" class="gameValue" id="id7"></div>
+                <div onclick="playGame(8);" class="gameValue" id="id8"></div>
+                <div onclick="playGame(9);" class="gameValue" id="id9"></div>
+            </div>
+        </div>
+        <Button onclick="finishGame();" style="font-size: 20px;margin-top:20px;" type="button">Finish The Game</Button>
+    </center>
+    <script>
+        let player = 1;
+        document.getElementById("playerOne").style.backgroundColor = "Green";
+
+        function playGame(par) {
+            if (document.getElementById("id" + par).innerHTML == "") {
+                if (player == 1) {
+                    document.getElementById("id" + par).innerHTML = "x";
+                    document.getElementById("playerOne").style.backgroundColor = "";
+                    document.getElementById("playerTwo").style.backgroundColor = "Green";
+                    player = 2;
+                } else if (player == 2) {
+                    document.getElementById("id" + par).innerHTML = "o";
+                    document.getElementById("playerTwo").style.backgroundColor = "";
+                    document.getElementById("playerOne").style.backgroundColor = "Green";
+                    player = 1;
+                }
+                let winner;
+                let possibilities = [
+                    [1, 4, 7],
+                    [2, 5, 8],
+                    [3, 6, 9],
+                    [1, 2, 3],
+                    [4, 5, 6],
+                    [7, 8, 9],
+                    [1, 5, 9],
+                    [3, 5, 7]
+                ];
+                let result = [];
+                for (let i = 0; i < possibilities.length; i++) {
+                    for (let j = 0; j < possibilities[i].length; j++) {
+                        result.push(document.getElementById("id" + possibilities[i][j]).innerHTML);
+                    }
+                    if (result.join('') == "xxx") {
+                        winner = 1;
+                        break;
+                    } else if (result.join('') == "ooo") {
+                        winner = 2;
+                        break;
+                    }
+                    result = [];
+                }
+                if (winner == 1) {
+                    playerOneWin();
+                } else if (winner == 2) {
+                    playerTwoWin();
+                }
+                x = 0;
+                for (let i = 1; i <= 9; i++) {
+                    isNull = document.getElementById("id" + i).innerHTML;
+                    if (isNull == "x" || isNull == "o") {
+                        x += 1;
+                    }
+                    if (x == 9) {
+                        equal();
+                    }
+                }
+
+            }
+
+        }
+        function playerOneWin() {
+            alert("1. oyuncu kazandı");
+            localStorage.setItem("player1", (Number(localStorage.getItem("player1")) + 1));
+            removeCharacter();
+            document.getElementById("playerTwo").style.backgroundColor = "";
+            document.getElementById("playerOne").style.backgroundColor = "Green";
+            document.getElementById("winningStreak1").innerHTML = localStorage.getItem("player1");
+            document.getElementById("winningStreak2").innerHTML = localStorage.getItem("player2");
+            player = 1;
+        }
+        function playerTwoWin() {
+            alert("2. oyuncu kazandı");
+            localStorage.setItem("player2", (Number(localStorage.getItem("player2")) + 1));
+            removeCharacter();
+            document.getElementById("playerOne").style.backgroundColor = "";
+            document.getElementById("playerOne").style.backgroundColor = "Green";
+            player = 1;
+            document.getElementById("winningStreak1").innerHTML = localStorage.getItem("player1");
+            document.getElementById("winningStreak2").innerHTML = localStorage.getItem("player2");
+        }
+        function equal() {
+            alert("oyun berabere");
+            player = 1;
+            removeCharacter();
+            document.getElementById("playerTwo").style.backgroundColor = "";
+            document.getElementById("playerOne").style.backgroundColor = "Green";
+        }
+        function finishGame() {
+            localStorage.clear();
+            removeCharacter();
+            player = 1;
+            document.getElementById("playerTwo").style.backgroundColor = "";
+            document.getElementById("playerOne").style.backgroundColor = "Green";
+            document.getElementById("winningStreak1").innerHTML = localStorage.getItem("player1");
+            document.getElementById("winningStreak2").innerHTML = localStorage.getItem("player2");
+        }
+        function removeCharacter() {
+            for (let i = 1; i <= 9; i++) {
+                document.getElementById("id" + i).innerHTML = "";
+            }
+        }
+        document.getElementById("winningStreak1").innerHTML = localStorage.getItem("player1");
+        document.getElementById("winningStreak2").innerHTML = localStorage.getItem("player2");
+    </script>
+</body>
+
+</html>
