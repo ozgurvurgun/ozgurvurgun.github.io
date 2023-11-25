@@ -53,7 +53,6 @@ function go() {
   let temp = 0;
   let totalLengthDOM = 0;
   let totalLengthPawnDOM = 0;
-  let aritmeticPawn;
   while (true) {
     for (let i = 0; i < parts.length; i++) {
       for (let j = 0; j < added_stock; j++) {
@@ -117,7 +116,6 @@ function go() {
   let resultDOM = "";
   totalLengthDOM = 0;
   totalLengthPawnDOM = 0;
-  let toplam_fire = 0;
   let toplam_kesim = 0;
   let toplam_kesim_sonuc = 0;
   for (let i = 0; i < added_stock; i++) {
