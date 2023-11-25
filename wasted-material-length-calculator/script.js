@@ -83,10 +83,6 @@ function go() {
           pawn = parts[l].request_length * parts[l].possibility_values[k];
           total += pawn;
         }
-        console.log("total değeri:" + total);
-        console.log(parts);
-        console.log(added_stock);
-        console.log("stok length: " + stock_length);
         if (total <= real_stock_length) {
           break;
         }
@@ -173,5 +169,5 @@ function go() {
   tableDOM.innerHTML = resultDOM;
   parts = [];
   resultDOM = "";
-  console.log(resultDOM);
+//   console.log(resultDOM);
 }
