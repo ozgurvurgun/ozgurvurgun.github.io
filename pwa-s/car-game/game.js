@@ -58,22 +58,22 @@ class Player {
     this.x = c.width / 2;
     this.y = 50;
     this.truck = new Image();
-    this.truck.src = "images/game-images/truck.png";
+    this.truck.src = "https://ozgurvurgun.github.io/pwa-s/car-game/images/game-images/truck.png";
     this.rot = 0;
     this.ySpeed = 0;
     this.rSpeed = 0;
     //interface
     this.startBtn = new Image();
-    this.startBtn.src = "images/game-images/restart.png";
+    this.startBtn.src = "https://ozgurvurgun.github.io/pwa-s/car-game/images/game-images/restart.png";
     //left button
     this.leftBtn = new Image();
-    this.leftBtn.src = "images/game-images/left.png";
+    this.leftBtn.src = "https://ozgurvurgun.github.io/pwa-s/car-game/images/game-images/left.png";
     //right button
     this.rightBtn = new Image();
-    this.rightBtn.src = "images/game-images/right.png";
+    this.rightBtn.src = "https://ozgurvurgun.github.io/pwa-s/car-game/images/game-images/right.png";
     //speed button
     this.fireBtn = new Image();
-    this.fireBtn.src = "images/game-images/speed.png";
+    this.fireBtn.src = "https://ozgurvurgun.github.io/pwa-s/car-game/images/game-images/speed.png";
   }
 
   drawInterface() {
@@ -318,7 +318,7 @@ function checkBtnRelase(x, y) {
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", function () {
     navigator.serviceWorker
-      .register("/serviceWorker.js")
+      .register("https://ozgurvurgun.github.io/pwa-s/car-game/serviceWorker.js")
       .then((res) => console.log("service worker registered"))
       .catch((err) => console.log("service worker not registered", err));
   });
