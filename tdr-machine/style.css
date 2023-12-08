@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap");
 
 @font-face {
   font-family: "TDR";
@@ -14,7 +14,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   text-decoration: none;
 }
 
@@ -50,6 +50,12 @@ body {
 
 .border-button:hover > span {
   width: 100%;
+}
+
+.toogle-btn {
+  font-size: 25px;
+  color: #eadede;
+  display: none;
 }
 /* component end */
 
@@ -91,7 +97,7 @@ nav ul li {
 
 nav ul li a {
   color: #eadede;
-  font-size: 18px;
+  font-size: 15px;
   font-weight: 500;
   transition: color 0.3s;
 }
@@ -109,7 +115,7 @@ nav ul li a:not(.border-button):hover {
   color: #eadede;
 }
 
-.content h1{
+.content h1 {
   font-size: 50px;
   font-family: "TDR2", sans-serif;
 }
@@ -118,8 +124,6 @@ nav ul li a:not(.border-button):hover {
   font-size: 70px;
   font-family: "TDR", sans-serif;
 }
-
-
 
 .content p {
   margin-top: -25px;
@@ -150,7 +154,7 @@ nav ul li a:not(.border-button):hover {
   bottom: 40px;
   z-index: 99;
   font-size: 20px;
-  background-color: #FF7900;
+  background-color: #ff7900;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -158,9 +162,20 @@ nav ul li a:not(.border-button):hover {
   height: 50px;
   border-radius: 50%;
   cursor: pointer;
-  /* visibility: hidden;
-  opacity: 0; */
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.5s ease;
 }
 /* banner end */
 
+/* responsive */
+/* 762 */
 
+@media screen and (max-width: 762px) {
+  .toogle-btn {
+    display: inline-block;
+  }
+  nav ul {
+    display: none;
+  }
+}
