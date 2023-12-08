@@ -23,7 +23,7 @@ html {
 }
 
 body {
-  background-color: #262626;
+  background-color: #ff7919;
 }
 /* reset css end */
 
@@ -168,9 +168,62 @@ nav ul li a:not(.border-button):hover {
 }
 /* banner end */
 
-/* responsive */
-/* 762 */
+/* services start */
+.services-description {
+  margin-top: 70px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
 
+.services-description h3 {
+  color: #000;
+}
+
+.services-description p {
+  color: #000;
+  font-size: 30px;
+  word-spacing: 5px;
+  font-weight: bolder;
+}
+/* services end */
+
+/* services categories start */
+.services-categories {
+  padding: 100px 200px;
+  display: flex;
+  column-gap: 250px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.services-categories .services-categories-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.services-categories .services-categories-item img {
+  width: 150px;
+  margin-bottom: 20px;
+}
+
+.services-categories .services-categories-item .services-categories-item-header h4{
+  font-size: 18px;
+  font-weight: 900;
+  margin-bottom: 10px;
+}
+
+.services-categories .services-categories-item .services-categories-item-text{
+  font-size: 20px;
+  font-weight: 500;
+}
+/* services categories end */
+
+/* responsive */
 @media screen and (max-width: 762px) {
   .toogle-btn {
     display: inline-block;
