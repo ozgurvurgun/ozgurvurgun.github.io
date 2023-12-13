@@ -23,11 +23,16 @@ html {
 }
 
 body {
-  background-color: #ff7919;
+  background-color: #262626;
 }
 /* reset css end */
 
 /* component start */
+
+.container {
+  margin: 0 89px;
+}
+
 .border-button {
   border: 2px solid #fff;
   background: transparent;
@@ -168,67 +173,68 @@ nav ul li a:not(.border-button):hover {
 }
 /* banner end */
 
-/* services start */
-.services-description {
+/* about start */
+.about {
+  width: 100%;
   margin-top: 70px;
-  text-align: center;
   display: flex;
-  flex-direction: column;
-  gap: 20px;
+  border: 1px solid #9a8a78;
+  height: 700px;
 }
 
-.services-description h3 {
-  color: #000;
+.about .box {
+  flex: 1;
+  height: 100%;
+  background-color: #262626;
 }
 
-.services-description p {
-  color: #000;
-  font-size: 30px;
-  word-spacing: 5px;
-  font-weight: bolder;
+.container .box:first-child {
+  background-image: url(images/a.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-right: 1px solid #9a8a78;
 }
-/* services end */
 
-/* services categories start */
-.services-categories {
-  padding: 100px 200px;
+.container .box:last-child {
   display: flex;
-  column-gap: 250px;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
 }
 
-.services-categories .services-categories-item {
+.container .box:last-child .about-texts {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-  text-align: center;
+  align-items: start;
+  width: 50%;
+  height: auto;
 }
 
-.services-categories .services-categories-item img {
-  width: 150px;
-  margin-bottom: 20px;
+.container .box:last-child h3 {
+  font-size: 38px;
+  color: #eadede;
 }
 
-.services-categories .services-categories-item .services-categories-item-header h4{
-  font-size: 18px;
-  font-weight: 900;
+.container .box:last-child ul {
+  margin-left: 35px;
+  margin-top: 20px;
+}
+
+.container .box:last-child ul li {
+  color: #eadede;
   margin-bottom: 10px;
 }
 
-.services-categories .services-categories-item .services-categories-item-text{
-  font-size: 20px;
-  font-weight: 500;
+.container .box:last-child button {
+  font-size: 16px;
+  padding:18px 90px;
+  margin-top: 30px;
+  background-color: #B3A89A;
+  border: none;
 }
-/* services categories end */
+/* about end */
 
 /* responsive */
 @media screen and (max-width: 762px) {
-  .toogle-btn {
-    display: inline-block;
-  }
-  nav ul {
-    display: none;
-  }
 }

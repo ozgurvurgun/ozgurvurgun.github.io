@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aylık Kredi Taksidi Hesaplama</title>
+  </head>
+  <body>
+    <script>
+      // p -> kredi miktari
+      // r -> aylik faiz orani
+      // n -> kredi vadesi
+      /*
+            * formula
+            p.r.(1 + r)^n / (1 + r)^n-1
+        */
+         let installment, p, r, n, mainAmount, interest;
+
+      p = 10000;
+      r = 1.5;
+      n = 12;
+
+      r = r / 100;
+      // Kredi Tutarı * [Faiz * (1+Faiz)Taksit Sayısı / (1+Faiz)Taksit Sayısı-1]
+      installment = (p * r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1);
+    //   mainAmount = installment + installment * 0.15 * 2;
+      console.log(installment);
+
+
+
+      let faizOrani = 0.015; // %1.5 faiz oranı
+let krediTutari = 10000; // Kredi tutarı
+let taksitSayisi = 12; // Taksit sayısı
+
+let aylikFaizOrani = faizOrani / 12;
+let aylikOdeme = krediTutari * aylikFaizOrani / (1 - Math.pow(1 + aylikFaizOrani, -taksitSayisi));
+console.log("Aylık Ödeme Tutarı: " + aylikOdeme.toFixed(2) + " birim");
+
+
+    </script>
+  </body>
+</html>
