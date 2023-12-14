@@ -324,6 +324,94 @@ nav ul li a:not(.border-button):hover {
 }
 /* aboutt end */
 
+/* latest projects start*/
+.container .latest-projects {
+  margin-top: 100px;
+}
+
+.container .latest-projects h3 {
+  text-align: center;
+  font-size: 38px;
+  color: #fff;
+}
+
+.container .latest-projects .latest-projects-box-wrapper {
+  display: flex;
+  gap: 60px;
+  margin-top: 50px;
+  height: 500px;
+  width: 100%;
+}
+
+.container .latest-projects .latest-projects-box-wrapper .box:first-child {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+}
+
+.container
+  .latest-projects
+  .latest-projects-box-wrapper
+  .box:first-child
+  .left-projects-one {
+  flex: 2;
+  background-image: url(images/a.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border: 1px solid #9a8a78;
+}
+
+.container
+  .latest-projects
+  .latest-projects-box-wrapper
+  .box:first-child
+  .left-projects-two {
+  flex: 1;
+  background-image: url(images/a.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border: 1px solid #9a8a78;
+}
+
+.container .latest-projects .latest-projects-box-wrapper .box:nth-child(2) {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+}
+
+.container .latest-projects .latest-projects-box-wrapper .box:nth-child(2) .center-projects-one{
+  flex: 3;
+  background-image: url(images/a.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border: 1px solid #9a8a78;
+}
+
+.container .latest-projects .latest-projects-box-wrapper .box:nth-child(2) .center-projects-two{
+  flex: 4;
+  background-image: url(images/a.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border: 1px solid #9a8a78;
+}
+
+.container .latest-projects .latest-projects-box-wrapper .box:last-child {
+  flex: 3;
+  background-image: url(images/a.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border: 1px solid #9a8a78;
+}
+
+/* latest projects end */
+
 /* responsive */
 @media screen and (max-width: 762px) {
 }
