@@ -895,7 +895,7 @@ footer img {
 /**************550**************/
 @media (max-width: 550px) {
   .container {
-    margin: 0 10px;
+    margin: 0 0px;
   }
   .social-media-buttons {
     display: none;
