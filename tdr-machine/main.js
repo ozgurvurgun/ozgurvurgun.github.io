@@ -17,6 +17,10 @@ upButton.addEventListener("click", () => {
   document.documentElement.scrollTop = 0;
 });
 
-window.onload = function() {
-  window.scrollTo(0, document.body.scrollHeight - window.innerHeight);
-};
+// window.onload = function() {
+//   window.scrollTo(0, document.body.scrollHeight - window.innerHeight);
+// };
+
+// setInterval(() => {
+//   window.scrollTo(0, document.body.scrollHeight - window.innerHeight);
+// }, 50);
