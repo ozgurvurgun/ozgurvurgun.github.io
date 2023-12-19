@@ -24,17 +24,14 @@ const dropdownMenu = document.querySelector(".dropdown-menu");
 toggleButton.addEventListener("click", () => {
   const isOpen = dropdownMenu.classList.toggle("dropdown-open");
 
-  // tooggleButtonIcon.classList = isOpen
-  //   ? "fa-solid fa-xmark"
-  //   : "fa-solid fa-bars";
-  toggleButton.style.opacity = "0";
-  if (isOpen) {
-    tooggleButtonIcon.classList = "fa-solid fa-xmark";
-    toggleButton.style.opacity = "1";
-  } else {
-    tooggleButtonIcon.classList = "fa-solid fa-bars";
-    toggleButton.style.opacity = "1";
-  }
-  setTimeout(() => {
-  }, 300);
+  tooggleButtonIcon.classList = isOpen
+    ? "fa-solid fa-xmark"
+    : "fa-solid fa-bars";
 });
+
+
+// setInterval(() => {
+//   window.scrollTo({
+//     top: document.documentElement.scrollHeight // Sayfanın en altındaki pozisyon
+//   });
+// }, 200);
