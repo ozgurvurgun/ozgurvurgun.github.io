@@ -1,0 +1,131 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sketch-wrapper {
+  width: 1200px;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+}
+
+.sketch-wrapper .sketch {
+  display: flex;
+  align-items: center;
+}
+
+.sketch-wrapper .area {
+  border: 2px solid grey;
+  width: 100%;
+  height: 75%;
+  display: grid;
+  position: relative;
+}
+
+.sketch-wrapper .area .main-door {
+  font-size: 40px;
+  position: absolute;
+  top: 50%;
+  left: -162px;
+  transform: translateY(-50%) rotate(90deg);
+}
+
+.sketch-wrapper .area .room-separator {
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  position: absolute;
+  bottom: 0;
+  right: 350px;
+  width: 20px;
+  height: 75%;
+  background-color: grey;
+}
+
+.sketch-wrapper .area .table {
+  width: 50px;
+  border: 1px solid grey;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  position: absolute;
+}
+
+.sketch-wrapper .area .table-1 {
+  height: 55%;
+  right: 280px;
+  bottom: 10px;
+}
+
+.sketch-wrapper .area .table-2 {
+  height: 55%;
+  right: 20px;
+  bottom: 10px;
+}
+
+.sketch-wrapper .area .meeting-table {
+  position: absolute;
+  height: 100px;
+  width: 320px;
+  border: 1px solid grey;
+  border-radius: 10px;
+  top: 50%;
+  right: 480px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+}
+
+.sketch-wrapper .area .smart-board {
+  font-size: 40px;
+  position: absolute;
+  top: 55%;
+  right: 380px;
+  transform: rotate(90deg);
+}
+
+.sketch-wrapper .area .smart-board .fa-vr-cardboard {
+  display: inline-block;
+  transform: scaleX(1.8);
+}
+
+.sketch-wrapper .area .main-door code {
+  font-size: 16px;
+}
+
+/* PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP */
+
+.sketch-wrapper .guide-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 19px;
+}
+
+.sketch-wrapper .guide-wrapper .guide {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.sketch-wrapper .guide-wrapper .guide section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* PUBLIC */
+.right-arrow {
+  margin: 0 12px;
+}
