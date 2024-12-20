@@ -1,5 +1,5 @@
 {
-  "name": "Smart Lab Reservation",
+  "name": "Smart Reservation",
   "short_name": "Lab Reservation",
   "start_url": "./index.html",
   "display": "standalone",
