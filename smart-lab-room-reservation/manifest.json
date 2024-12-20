@@ -4,7 +4,7 @@
   "start_url": "https://ozgurvurgun.github.io/smart-lab-room-reservation/index.html",
   "display": "standalone",
   "background_color": "#ffffff",
-  "theme_color": "#000000",
+  "theme_color": "#ffffff",
   "icons": [
     {
       "src": "https://ozgurvurgun.github.io/smart-lab-room-reservation/assets/images/pwa/smartlab-logo-72x72.png",
