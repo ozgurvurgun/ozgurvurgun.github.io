@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="manifest" href="manifest.json" />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <title>Güvenlift Qr Certificate Generator</title>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="output" id="output">
+        <div class="canvas" id="canvas"></div>
+        <h2>CE BELGESİ</h2>
+      </div>
+      <div class="actions">
+        <input
+          class="url"
+          id="url"
+          type="text"
+          value="https://guvenlift.com/"
+        />
+        <button id="generate-qr">GENERATE</button>
+        <button id="download-qr">DOWNLOAD QR</button>
+      </div>
+    </div>
+
+    <div class="wrapper">
+      <div class="output" id="output2">
+        <div class="canvas" id="canvas2"></div>
+        <h2>KULLANIM KILAVUZU</h2>
+      </div>
+      <div class="actions">
+        <input
+          class="url"
+          id="url2"
+          type="text"
+          value="https://guvenlift.com/"
+        />
+        <button id="generate-qr2">GENERATE</button>
+        <button id="download-qr2">DOWNLOAD QR</button>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.5/dist/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://unpkg.com/qr-code-styling@1.5.0/lib/qr-code-styling.js"></script>
+    <script src="./assets/javascript/QRCodeManager.js"></script>
+  </body>
+</html>
