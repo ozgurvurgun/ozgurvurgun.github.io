@@ -84,3 +84,32 @@ button:hover {
   flex-direction: column;
   width: 100%;
 }
+
+.qr-sizes {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  left: 25px;
+  top: 25px;
+}
+
+.qr-sizes > div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.qr-sizes > div > p {
+  width: 55px;
+}
+
+.qr-sizes input {
+  margin-top: 5px;
+  border-radius: 5px;
+  border: 1px solid black;
+  width: 90px;
+  font-size: 16px;
+  padding: 10px;
+  box-sizing: initial;
+}

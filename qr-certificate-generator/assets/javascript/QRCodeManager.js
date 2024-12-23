@@ -6,7 +6,9 @@ class QRCodeManager {
     generateButtonId,
     downloadButtonId,
     defaultImageUrl,
-    fileName
+    fileName,
+    width,
+    height
   ) {
     this.wrapperId = wrapperId;
     this.canvasId = canvasId;
@@ -16,7 +18,10 @@ class QRCodeManager {
     this.defaultImageUrl = defaultImageUrl;
     this.fileName = fileName;
     this.qrCode = null;
-
+    this.widthId = width;
+    this.heightId = height;
+    this.width = 0;
+    this.height = 0;
     this.initialize();
   }
 
@@ -24,8 +29,8 @@ class QRCodeManager {
     const canvas = document.getElementById(this.canvasId);
     canvas.innerHTML = "";
     this.qrCode = new QRCodeStyling({
-      width: 270,
-      height: 270,
+      width: this.width,
+      height: this.height,
       type: "canvas",
       data: url,
       image: this.defaultImageUrl,
@@ -70,9 +75,22 @@ class QRCodeManager {
     const urlInput = document.getElementById(this.urlInputId);
     const generateButton = document.getElementById(this.generateButtonId);
     const downloadButton = document.getElementById(this.downloadButtonId);
+    const widthInput = document.getElementById(this.widthId);
+    const heightInput = document.getElementById(this.heightId);
+
+    // Set initial width and height values
+    this.width = parseInt(widthInput.value, 10) || 0;
+    this.height = parseInt(heightInput.value, 10) || 0;
 
     // Generate QR Code initially
     this.generateQRCode(urlInput.value);
+
+    // Bind updateQRCode to the instance
+    this.updateQRCode = this.updateQRCode.bind(this);
+
+    // Add event listeners for width and height changes
+    widthInput.addEventListener("input", this.updateQRCode);
+    heightInput.addEventListener("input", this.updateQRCode);
 
     // Add event listeners for buttons
     generateButton.addEventListener("click", () => {
@@ -82,6 +100,23 @@ class QRCodeManager {
     downloadButton.addEventListener("click", () => {
       this.downloadQRCodeAsPDF(urlInput.value);
     });
+  }
+
+  updateQRCode() {
+    const urlInput = document.getElementById(this.urlInputId);
+    const widthInput = document.getElementById(this.widthId);
+    const heightInput = document.getElementById(this.heightId);
+
+    this.width = parseInt(widthInput.value, 10) || 0;
+    this.height = parseInt(heightInput.value, 10) || 0;
+
+    const h2Elements = document.querySelectorAll("h2");
+    const newFontSize = (this.width / 10) + "px";
+    h2Elements.forEach((h2) => {
+      h2.style.fontSize = newFontSize;
+    });
+
+    this.generateQRCode(urlInput.value);
   }
 }
 
@@ -93,7 +128,9 @@ new QRCodeManager(
   "generate-qr",
   "download-qr",
   "./assets/logos/enyeni-guven-png-2.webp",
-  "ce-belgesi"
+  "ce-belgesi",
+  "qr-width",
+  "qr-height"
 );
 
 // Initialize second instance
@@ -104,5 +141,7 @@ new QRCodeManager(
   "generate-qr2",
   "download-qr2",
   "./assets/logos/enyeni-guven-png-2.webp",
-  "kullanim-kilavuzu"
+  "kullanim-kilavuzu",
+  "qr-width",
+  "qr-height"
 );
