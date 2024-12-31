@@ -1,38 +1,37 @@
 class QRCodeManager {
   constructor(
-    wrapperId,
     canvasId,
     urlInputId,
-    generateButtonId,
-    downloadButtonId,
+    widthInputId,
+    heightInputId,
     defaultImageUrl,
-    fileName,
-    width,
-    height
+    downloadButtonId,
+    titleInputId = null,
+    headingId = null
   ) {
-    this.wrapperId = wrapperId;
     this.canvasId = canvasId;
     this.urlInputId = urlInputId;
-    this.generateButtonId = generateButtonId;
-    this.downloadButtonId = downloadButtonId;
+    this.widthInputId = widthInputId;
+    this.heightInputId = heightInputId;
     this.defaultImageUrl = defaultImageUrl;
-    this.fileName = fileName;
+    this.downloadButtonId = downloadButtonId;
+    this.titleInputId = titleInputId;
+    this.headingId = headingId;
     this.qrCode = null;
-    this.widthId = width;
-    this.heightId = height;
-    this.width = 0;
-    this.height = 0;
+    this.width = 270;
+    this.height = 270;
     this.initialize();
   }
 
-  generateQRCode(url) {
+  generateQRCode(data) {
     const canvas = document.getElementById(this.canvasId);
-    canvas.innerHTML = "";
+    canvas.innerHTML = ""; // Clear existing QR code
+
     this.qrCode = new QRCodeStyling({
       width: this.width,
       height: this.height,
       type: "canvas",
-      data: url,
+      data: data,
       image: this.defaultImageUrl,
       dotsOptions: {
         color: "#000000",
@@ -51,97 +50,86 @@ class QRCodeManager {
     this.qrCode.append(canvas);
   }
 
-  downloadQRCodeAsPDF(url) {
-    const outputElement = document.getElementById(this.wrapperId);
+  downloadQRCode() {
+    const outputElement = document.getElementById(this.canvasId).parentNode;
     html2canvas(outputElement).then((canvas) => {
-      const imgData = canvas.toDataURL("image/png");
-      const elementWidth = outputElement.offsetWidth / 1.8;
-      const elementHeight = outputElement.offsetHeight / 1.8;
-
-      const { jsPDF } = window.jspdf;
-      const pdf = new jsPDF({
-        orientation: "portrait",
-        unit: "px",
-        format: "a4",
-      });
-
-      pdf.addImage(imgData, "PNG", 50, 50, elementWidth, elementHeight);
-      pdf.text(url, 50, 300);
-      pdf.save(`${this.fileName}.pdf`);
+      const link = document.createElement("a");
+      link.download = "qr-code.png";
+      link.href = canvas.toDataURL("image/png");
+      link.click();
     });
   }
 
   initialize() {
     const urlInput = document.getElementById(this.urlInputId);
-    const generateButton = document.getElementById(this.generateButtonId);
+    const widthInput = document.getElementById(this.widthInputId);
+    const heightInput = document.getElementById(this.heightInputId);
     const downloadButton = document.getElementById(this.downloadButtonId);
-    const widthInput = document.getElementById(this.widthId);
-    const heightInput = document.getElementById(this.heightId);
+    const titleInput = this.titleInputId ? document.getElementById(this.titleInputId) : null;
+    const heading = this.headingId ? document.getElementById(this.headingId) : null;
 
-    // Set initial width and height values
-    this.width = parseInt(widthInput.value, 10) || 0;
-    this.height = parseInt(heightInput.value, 10) || 0;
+    // Set initial dimensions
+    this.width = parseInt(widthInput.value, 10) || 270;
+    this.height = parseInt(heightInput.value, 10) || 270;
 
     // Generate QR Code initially
     this.generateQRCode(urlInput.value);
 
-    // Bind updateQRCode to the instance
-    this.updateQRCode = this.updateQRCode.bind(this);
-
-    // Add event listeners for width and height changes
-    widthInput.addEventListener("input", this.updateQRCode);
-    heightInput.addEventListener("input", this.updateQRCode);
-
-    // Add event listeners for buttons
-    generateButton.addEventListener("click", () => {
+    // Event listener for URL input
+    urlInput.addEventListener("input", () => {
       this.generateQRCode(urlInput.value);
     });
 
+    // Event listener for title input (if applicable)
+    if (titleInput && heading) {
+      titleInput.addEventListener("input", () => {
+        heading.textContent = titleInput.value;
+      });
+    }
+
+    // Event listener for width/height inputs
+    const updateDimensions = () => {
+      this.width = parseInt(widthInput.value, 10) || 270;
+      this.height = parseInt(heightInput.value, 10) || 270;
+      this.generateQRCode(urlInput.value);
+    };
+
+    widthInput.addEventListener("input", updateDimensions);
+    heightInput.addEventListener("input", updateDimensions);
+
+    // Event listener for download button
     downloadButton.addEventListener("click", () => {
-      this.downloadQRCodeAsPDF(urlInput.value);
+      this.downloadQRCode();
     });
-  }
-
-  updateQRCode() {
-    const urlInput = document.getElementById(this.urlInputId);
-    const widthInput = document.getElementById(this.widthId);
-    const heightInput = document.getElementById(this.heightId);
-
-    this.width = parseInt(widthInput.value, 10) || 0;
-    this.height = parseInt(heightInput.value, 10) || 0;
-
-    const h2Elements = document.querySelectorAll("h2");
-    const newFontSize = (this.width / 10) + "px";
-    h2Elements.forEach((h2) => {
-      h2.style.fontSize = newFontSize;
-    });
-
-    this.generateQRCode(urlInput.value);
   }
 }
 
-// Initialize first instance
+// Initialize QR Code Managers
 new QRCodeManager(
-  "output",
   "canvas",
   "url",
-  "generate-qr",
-  "download-qr",
-  "./assets/logos/enyeni-guven-png-2.webp",
-  "ce-belgesi",
   "qr-width",
-  "qr-height"
+  "qr-height",
+  "./assets/logos/enyeni-guven-png-2.webp",
+  "download-qr"
 );
 
-// Initialize second instance
 new QRCodeManager(
-  "output2",
   "canvas2",
   "url2",
-  "generate-qr2",
-  "download-qr2",
-  "./assets/logos/enyeni-guven-png-2.webp",
-  "kullanim-kilavuzu",
   "qr-width",
-  "qr-height"
+  "qr-height",
+  "./assets/logos/enyeni-guven-png-2.webp",
+  "download-qr2"
+);
+
+new QRCodeManager(
+  "canvas3",
+  "url3",
+  "qr-width",
+  "qr-height",
+  "./assets/logos/enyeni-guven-png-2.webp",
+  "download-qr3",
+  "title3",
+  "dynamic-heading"
 );
