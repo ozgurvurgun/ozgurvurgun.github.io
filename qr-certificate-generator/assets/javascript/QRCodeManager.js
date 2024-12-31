@@ -105,23 +105,6 @@ class QRCodeManager {
 }
 
 // Initialize QR Code Managers
-new QRCodeManager(
-  "canvas",
-  "url",
-  "qr-width",
-  "qr-height",
-  "./assets/logos/enyeni-guven-png-2.webp",
-  "download-qr"
-);
-
-new QRCodeManager(
-  "canvas2",
-  "url2",
-  "qr-width",
-  "qr-height",
-  "./assets/logos/enyeni-guven-png-2.webp",
-  "download-qr2"
-);
 
 new QRCodeManager(
   "canvas3",

@@ -13,10 +13,9 @@ body {
 }
 
 body {
-  margin-top: 150px;
   height: 100vh;
   display: flex;
-  align-items: start;
+  align-items: center;
   justify-content: center;
   gap: 100px;
 }
