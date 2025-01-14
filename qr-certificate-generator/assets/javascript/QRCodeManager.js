@@ -65,8 +65,12 @@ class QRCodeManager {
     const widthInput = document.getElementById(this.widthInputId);
     const heightInput = document.getElementById(this.heightInputId);
     const downloadButton = document.getElementById(this.downloadButtonId);
-    const titleInput = this.titleInputId ? document.getElementById(this.titleInputId) : null;
-    const heading = this.headingId ? document.getElementById(this.headingId) : null;
+    const titleInput = this.titleInputId
+      ? document.getElementById(this.titleInputId)
+      : null;
+    const heading = this.headingId
+      ? document.getElementById(this.headingId)
+      : null;
 
     // Set initial dimensions
     this.width = parseInt(widthInput.value, 10) || 270;

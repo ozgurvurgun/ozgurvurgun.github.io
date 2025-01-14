@@ -1,0 +1,62 @@
+[
+  {
+    "room-category": "experiment-rooms",
+    "roomId": "B.C. Skinner Unit",
+    "user": "Şimal Yenigüllü",
+    "startTime": "13.12.24",
+    "endTime": "13.12.24",
+    "intendedUse": "Preparing experiments",
+    "flag": "interval"
+  },
+  {
+    "room-category": "experiment-rooms",
+    "roomId": "S. Asch Unit",
+    "user": "Ayşenur Candemir",
+    "startTime": "11.12.2024",
+    "endTime": "28.02.2025",
+    "intendedUse": "Data Collection",
+    "flag": "interval"
+  },
+  {
+    "room-category": "meeting-room",
+    "roomId": "2B04",
+    "user": "Seda Dural",
+    "startTime": "02.01.2025",
+    "endTime": "02.01.2025",
+    "startHour": "09:00",
+    "endHour": "11:00",
+    "intendedUse": "The exam for the learning course will be held.",
+    "flag": "interval"
+  },
+  {
+    "room-category": "meeting-room",
+    "roomId": "2B04",
+    "user": "Seda Dural",
+    "startTime": "16.01.2025",
+    "endTime": "16.01.2025",
+    "startHour": "10:00",
+    "endHour": "12:00",
+    "intendedUse": "PhD interview.",
+    "flag": "interval"
+  },
+  {
+    "room-category": "meeting-room",
+    "roomId": "2B04",
+    "user": "Seda Dural",
+    "startTime": "2",
+    "startHour": "09:00",
+    "endHour": "12:00",
+    "intendedUse": "not specified.",
+    "flag": "continuous"
+  },
+  {
+    "room-category": "meeting-room",
+    "roomId": "2B04",
+    "user": "SmartLab Team",
+    "startTime": "4",
+    "startHour": "09:00",
+    "endHour": "12:00",
+    "intendedUse": "smartlab weekly meeting.",
+    "flag": "continuous"
+  }
+]
