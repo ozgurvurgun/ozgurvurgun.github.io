@@ -26,5 +26,9 @@
   {
     "room-category": "other-rooms",
     "roomId": "Participant Waiting Room"
+  },
+  {
+    "room-category": "other-rooms",
+    "roomId": "fNIR"
   }
 ]

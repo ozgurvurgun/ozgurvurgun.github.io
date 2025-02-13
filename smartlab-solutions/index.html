@@ -10,11 +10,13 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <link rel="shortcut icon" href="https://ozgurvurgun.github.io/smart-lab-room-reservation/assets/images/pwa/smartlab-logo-72x72.png" type="image/x-icon">
+    <link rel="manifest" href="https://ozgurvurgun.github.io/smartlab-solutions/manifest.json" />
     <link rel="stylesheet" href="./public/css/main.css" />
     <link rel="stylesheet" href="./public/css/components/navbar.css" />
     <link rel="stylesheet" href="./public/css/components/table.css" />
     <link rel="stylesheet" href="./public/css/pages/lab-log.css" />
-    <title>SmartLab Solutions | Lab Log</title>
+    <title>SmartLab Solutions </title>
   </head>
 
   <body>
@@ -27,9 +29,12 @@
       <div class="nav-links-container">
         <i class="fa-solid fa-xmark close-menu"></i>
         <ul class="nav-links">
-          <li class="nav-link-item"><a class="active" href="index.html">Home</a></li>
+          <!-- <li class="nav-link-item"><a href="index.html">Home</a></li> -->
           <li class="nav-link-item dropdown-menu-branch">
-            <a href="javascript:void(0)" data-toggle="dropdown-menu"
+            <a
+              class="active"
+              href="javascript:void(0)"
+              data-toggle="dropdown-menu"
               >Room Status <i class="fa-solid fa-chevron-down"></i
             ></a>
             <div class="hover-buffer"></div>
@@ -38,7 +43,7 @@
                 <a href="experiment-rooms.html">Experiment Rooms</a>
               </li>
               <li class="dropdown-menu-item">
-                <a href="meeting-room.html">Meeting Room</a>
+                <a href="index.html">Meeting Room</a>
               </li>
               <li class="dropdown-menu-item">
                 <a href="other-rooms.html">Other Rooms</a>
@@ -50,9 +55,194 @@
       </div>
     </div>
     <main class="container">
-      <h2>Homepage</h2>
+      <h2>Meeting Room Active Reservations</h2>
+      <div class="table-wrapper">
+        <table id="active-reservations">
+          <!-- <tr>
+            <th>Room ID</th>
+            <th>User</th>
+            <th>Interval</th>
+            <th>Intended Use</th>
+          </tr> -->
+          <!-- <tr>
+            <td><strong>2B04</strong></td>
+            <td><strong>Seda Dural</strong></td>
+            <td class="date-color" data-type="repeated-day">
+              Every monday (afternoon)
+            </td>
+            <td>not specified.</td>
+          </tr> -->
+        </table>
+      </div>
+      <h2>Meeting Room Previous Reservations</h2>
+      <div class="table-wrapper">
+        <table id="previous-reservations">
+          <!-- <tr>
+            <th>Room ID</th>
+            <th>User</th>
+            <th>Interval</th>
+            <th>Intended Use</th>
+          </tr> -->
+          <!-- <tr>
+            <td><strong>2B04</strong></td>
+            <td><strong>Seda Dural</strong></td>
+            <td class="date-color" data-type="standard-start-end">
+              02.01.2025 - 02.01.2025 (morning)
+            </td>
+            <td>The exam for the learning course will be held.</td>
+          </tr> -->
+        </table>
+      </div>
     </main>
-
+    <br /><br /><br />
     <script src="public/javascript/navbar.js"></script>
+    <script>
+      async function fetchData() {
+        try {
+          const reservationResponse = await fetch(
+            "public/data/reservation.json"
+          );
+
+          if (!reservationResponse.ok) {
+            throw new Error("Veriler alınırken hata oluştu.");
+          }
+
+          const reservationData = await reservationResponse.json();
+
+          const dayMap = {
+            1: "Sunday",
+            2: "Monday",
+            3: "Tuesday",
+            4: "Wednesday",
+            5: "Thursday",
+            6: "Friday",
+            7: "Saturday",
+          };
+
+          const currentDate = new Date();
+
+          // Tarih parse etme fonksiyonu
+          function parseDate(dateStr) {
+            if (!dateStr) return null; // Boş veya undefined kontrolü
+            if (dateStr.includes(".")) {
+              const [day, month, year] = dateStr.split(".").map(Number);
+              return new Date(year, month - 1, day); // Aylar 0 tabanlı
+            } else if (!isNaN(dateStr)) {
+              // Eğer sadece bir gün varsa (ör. "1")
+              return dayMap[dateStr] || null; // Gün adı olarak döndür
+            }
+            return null; // Geçersiz format
+          }
+
+          // Tabloları seç
+          const activeReservationsTable = document.querySelector(
+            "#active-reservations"
+          );
+          const previousReservationsTable = document.querySelector(
+            "#previous-reservations"
+          );
+
+          // Tabloları temizle
+          activeReservationsTable.innerHTML = `<tr>
+      <th>Room ID</th>
+      <th>User</th>
+      <th>Interval</th>
+      <th>Intended Use</th>
+    </tr>`;
+          previousReservationsTable.innerHTML = `<tr>
+      <th>Room ID</th>
+      <th>User</th>
+      <th>Interval</th>
+      <th>Intended Use</th>
+    </tr>`;
+
+          // Çakışma kontrolü
+          let conflicts = [];
+
+          reservationData.forEach((reservation1, index) => {
+            reservationData.forEach((reservation2, index2) => {
+              if (
+                index !== index2 &&
+                reservation1["room-category"] === "meeting-room" &&
+                reservation2["room-category"] === "meeting-room"
+              ) {
+                if (
+                  reservation1.roomId === reservation2.roomId &&
+                  reservation1.startTime === reservation2.startTime &&
+                  !(
+                    reservation1.endHour <= reservation2.startHour ||
+                    reservation2.endHour <= reservation1.startHour
+                  )
+                ) {
+                  conflicts.push(reservation1);
+                  conflicts.push(reservation2);
+                }
+              }
+            });
+          });
+
+          // Rezervasyonları tabloya ekle
+          reservationData.forEach((reservation) => {
+            const startDate = parseDate(reservation.startTime);
+            const endDate = parseDate(reservation.endTime);
+
+            let isConflict = conflicts.includes(reservation);
+
+            const rowHTML = `
+        <tr style="background-color: ${
+          isConflict ? "rgba(255, 204, 0, 0.8)" : "transparent"
+        };">
+          <td>${reservation.roomId}</td>
+          <td>${reservation.user}</td>
+          <td class="date-color">
+            ${
+              reservation.flag === "continuous"
+                ? `Every ${dayMap[reservation.startTime]} (${
+                    reservation.startHour
+                  } - ${reservation.endHour})`
+                : `${reservation.startTime} (${reservation.startHour}) - ${reservation.endTime} (${reservation.endHour})`
+            }
+          </td>
+          <td>${reservation.intendedUse}</td>
+        </tr>
+      `;
+
+            if (reservation["room-category"] === "meeting-room") {
+              if (
+                reservation.flag === "continuous" ||
+                (endDate && endDate >= currentDate)
+              ) {
+                activeReservationsTable.innerHTML += rowHTML;
+              } else {
+                previousReservationsTable.innerHTML += rowHTML;
+              }
+            }
+          });
+
+          // Çakışmalar için alert
+          conflicts.forEach((conflict, index) => {
+            if (index % 2 === 0) {
+              const conflict1 = conflicts[index];
+              const conflict2 = conflicts[index + 1];
+              alert(
+                `Çakışma Tespit Edildi:
+- Kullanıcı 1: ${conflict1.user}
+- Kullanıcı 2: ${conflict2.user}
+- Oda: ${conflict1.roomId}
+- Gün: ${dayMap[conflict1.startTime] || conflict1.startTime}
+- Saatler: ${conflict1.startHour}-${conflict1.endHour} ve ${
+                  conflict2.startHour
+                }-${conflict2.endHour}`
+              );
+            }
+          });
+        } catch (error) {
+          console.error("Hata:", error);
+        }
+      }
+
+      // Verileri yükle
+      fetchData();
+    </script>
   </body>
 </html>

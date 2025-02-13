@@ -44,9 +44,9 @@
     "roomId": "2B04",
     "user": "Seda Dural",
     "startTime": "2",
-    "startHour": "09:00",
-    "endHour": "12:00",
-    "intendedUse": "not specified.",
+    "startHour": "12:00",
+    "endHour": "16:00",
+    "intendedUse": "SD team meeting. - Throughout the Spring 2025 semester.",
     "flag": "continuous"
   },
   {
@@ -57,6 +57,56 @@
     "startHour": "09:00",
     "endHour": "12:00",
     "intendedUse": "smartlab weekly meeting.",
+    "flag": "continuous"
+  },
+  {
+    "room-category": "other-room",
+    "roomId": "fNIR",
+    "user": "Ezgi Gür",
+    "startTime": "4",
+    "startHour": "12:50",
+    "endHour": "15:45",
+    "intendedUse": "10.02.2025 - 23.05.2025 Every Wednesday",
+    "flag": "continuous"
+  },
+  {
+    "room-category": "other-room",
+    "roomId": "2B04",
+    "user": "Ezgi Gür",
+    "startTime": "5",
+    "startHour": "09:00",
+    "endHour": "12:00",
+    "intendedUse": "10.02.2025 - 23.05.2025 Every Thursday",
+    "flag": "continuous"
+  },
+  {
+    "room-category": "meeting-room",
+    "roomId": "2B04",
+    "user": "Seda Dural",
+    "startTime": "4",
+    "startHour": "12:00",
+    "endHour": "16:00",
+    "intendedUse": "psy 432 - Throughout the Spring 2025 semester",
+    "flag": "continuous"
+  },
+  {
+    "room-category": "meeting-room",
+    "roomId": "2B04",
+    "user": "Seda Dural",
+    "startTime": "3",
+    "startHour": "12:00",
+    "endHour": "16:00",
+    "intendedUse": "Psy 602 - Throughout the Spring 2025 semester",
+    "flag": "continuous"
+  },
+  {
+    "room-category": "meeting-room",
+    "roomId": "2B04",
+    "user": "Seda Dural",
+    "startTime": "5",
+    "startHour": "12:00",
+    "endHour": "16:00",
+    "intendedUse": "Psy 502 - Throughout the Spring 2025 semester",
     "flag": "continuous"
   }
 ]
