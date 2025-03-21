@@ -18,6 +18,24 @@
     "flag": "interval"
   },
   {
+    "room-category": "experiment-rooms",
+    "roomId": "S. Asch Unit",
+    "user": "Şimal Yenigüllü",
+    "startTime": "25.03.2025",
+    "endTime": "20.04.2025",
+    "intendedUse": "Data Collection",
+    "flag": "interval"
+  },
+  {
+    "room-category": "experiment-rooms",
+    "roomId": "M. Sherif Unit",
+    "user": "Baturalp",
+    "startTime": "02.04.2025",
+    "endTime": "20.04.2025",
+    "intendedUse": "Data Collection",
+    "flag": "interval"
+  },
+  {
     "room-category": "meeting-room",
     "roomId": "2B04",
     "user": "Seda Dural",
