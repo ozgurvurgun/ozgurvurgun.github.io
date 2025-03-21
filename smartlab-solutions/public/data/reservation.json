@@ -36,6 +36,15 @@
     "flag": "interval"
   },
   {
+    "room-category": "experiment-rooms",
+    "roomId": "J. Pavlov Unit",
+    "user": "Aybars",
+    "startTime": "04.03.2025",
+    "endTime": "30.04.2025",
+    "intendedUse": "Data Collection",
+    "flag": "interval"
+  },
+  {
     "room-category": "meeting-room",
     "roomId": "2B04",
     "user": "Seda Dural",
