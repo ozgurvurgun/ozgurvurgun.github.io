@@ -22,7 +22,7 @@
     "roomId": "S. Asch Unit",
     "user": "Şimal Yenigüllü",
     "startTime": "25.03.2025",
-    "endTime": "20.04.2025",
+    "endTime": "20.05.2025",
     "intendedUse": "Data Collection",
     "flag": "interval"
   },
@@ -40,7 +40,7 @@
     "roomId": "J. Pavlov Unit",
     "user": "Aybars",
     "startTime": "04.03.2025",
-    "endTime": "30.04.2025",
+    "endTime": "30.03.2025",
     "intendedUse": "Data Collection",
     "flag": "interval"
   },
@@ -49,7 +49,7 @@
     "roomId": "B.C. Skinner Unit",
     "user": "Samet Kahraman",
     "startTime": "24.03.2025",
-    "endTime": "20.04.2025",
+    "endTime": "20.05.2025",
     "intendedUse": "Data Collection",
     "flag": "interval"
   },
@@ -64,10 +64,19 @@
   },
   {
     "room-category": "experiment-rooms",
-    "roomId": "J. Pavlov Unit",
+    "roomId": "J.B. Watson Unit",
     "user": "Duygu Kahraman",
     "startTime": "10.04.2025",
     "endTime": "29.04.2025",
+    "intendedUse": "Data Collection",
+    "flag": "interval"
+  },
+  {
+    "room-category": "experiment-rooms",
+    "roomId": "J. Pavlov Unit",
+    "user": "Zeynep Tuncalı",
+    "startTime": "21.04.2025",
+    "endTime": "30.05.2025",
     "intendedUse": "Data Collection",
     "flag": "interval"
   },
