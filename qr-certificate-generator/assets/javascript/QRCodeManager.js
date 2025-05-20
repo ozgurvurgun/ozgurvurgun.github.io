@@ -13,7 +13,7 @@ class QRCodeManager {
     this.urlInputId = urlInputId;
     this.widthInputId = widthInputId;
     this.heightInputId = heightInputId;
-    this.defaultImageUrl = defaultImageUrl;
+    //this.defaultImageUrl = defaultImageUrl;
     this.downloadButtonId = downloadButtonId;
     this.titleInputId = titleInputId;
     this.headingId = headingId;
