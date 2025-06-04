@@ -13,7 +13,7 @@ class QRCodeManager {
     this.urlInputId = urlInputId;
     this.widthInputId = widthInputId;
     this.heightInputId = heightInputId;
-
+    this.defaultImageUrl = defaultImageUrl; 
     this.downloadButtonId = downloadButtonId;
     this.titleInputId = titleInputId;
     this.headingId = headingId;
@@ -115,7 +115,7 @@ new QRCodeManager(
   "url3",
   "qr-width",
   "qr-height",
-  "./assets/logos/enyeni-guven-png-2.webp",
+  "./assets/logos/logo.jpg",
   "download-qr3",
   "title3",
   "dynamic-heading"
