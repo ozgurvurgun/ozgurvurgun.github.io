@@ -1,0 +1,23 @@
+BEGIN:VCARD
+VERSION:3.0
+FN;CHARSET=UTF-8:Emre Yilmaz
+N;CHARSET=UTF-8:Yilmaz;Emre;;;
+NICKNAME;CHARSET=UTF-8:delirehberi
+GENDER:M
+BDAY:19890221
+EMAIL;CHARSET=UTF-8;type=HOME,INTERNET:z@emre.xyz
+EMAIL;CHARSET=UTF-8;type=WORK,INTERNET:emre@workouse.com
+TEL;TYPE=CELL:00905413811273
+TEL;TYPE=WORK,VOICE:00905413801273
+ADR;CHARSET=UTF-8;TYPE=HOME:;;;Aydin;Kusadasi;;Turkiye
+ROLE;CHARSET=UTF-8:Software Developer, Founder
+ORG;CHARSET=UTF-8:Workouse
+URL;CHARSET=UTF-8:https://emre.xyz
+URL;type=WORK;CHARSET=UTF-8:https://workouse.com
+X-SOCIALPROFILE;TYPE=twitter:https://twitter.com/delirehberi
+X-SOCIALPROFILE;TYPE=linkedin:https://linkedin.com/in/delirehberi
+X-SOCIALPROFILE;TYPE=instagram:https://instagram.com/delirehberi
+X-SOCIALPROFILE;TYPE=youtube:https://youtube.com/@delirehberi
+X-SOCIALPROFILE;TYPE=nostr:delirehberi@emre.xyz
+REV:2023-12-13T13:53:42.837Z
+END:VCARD

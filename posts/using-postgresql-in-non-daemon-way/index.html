@@ -1,0 +1,37 @@
+<!doctype html><html><head lang=en><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge"><title>Using postgresql in non daemon way - emre.xyz | @delirehberi</title><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="I have a preference against installing servers locally and running them as systemd services, which is why I&rsquo;m a big fan of Docker.
+However, there are times when I simply want to use servers as specific apps, without having to go through a system-wide installation, even with docker.
+Take #postgresql as an example. A typical installation creates a user, installs files in your root directories, changes ownerships, creates service files, and so on."><meta property="og:image" content><meta property="og:title" content="Using postgresql in non daemon way"><meta property="og:description" content="I have a preference against installing servers locally and running them as systemd services, which is why I&rsquo;m a big fan of Docker.
+However, there are times when I simply want to use servers as specific apps, without having to go through a system-wide installation, even with docker.
+Take #postgresql as an example. A typical installation creates a user, installs files in your root directories, changes ownerships, creates service files, and so on."><meta property="og:type" content="article"><meta property="og:url" content="https://ozgurvurgun.github.io/posts/using-postgresql-in-non-daemon-way/"><meta property="article:section" content="posts"><meta property="article:published_time" content="2021-12-12T00:00:00+00:00"><meta property="article:modified_time" content="2021-12-12T00:00:00+00:00"><meta name=twitter:card content="summary"><meta name=twitter:title content="Using postgresql in non daemon way"><meta name=twitter:description content="I have a preference against installing servers locally and running them as systemd services, which is why I&rsquo;m a big fan of Docker.
+However, there are times when I simply want to use servers as specific apps, without having to go through a system-wide installation, even with docker.
+Take #postgresql as an example. A typical installation creates a user, installs files in your root directories, changes ownerships, creates service files, and so on."><script src=https://ozgurvurgun.github.io/js/feather.min.js></script>
+<link href=https://ozgurvurgun.github.io/css/fonts.2c2227b81b1970a03e760aa2e6121cd01f87c88586803cbb282aa224720a765f.css rel=stylesheet><link rel=stylesheet type=text/css media=screen href=https://ozgurvurgun.github.io/css/main.6a0f23ea50fd34b46fee262a5a68e17d458c51a2bc99ba1ba018065de6b180c3.css><link id=darkModeStyle rel=stylesheet type=text/css href=https://ozgurvurgun.github.io/css/dark.50b57e12d401420df23965fed157368aba37b76df0ecefd0b1ecd4da664f01a0.css media="(prefers-color-scheme: dark)"><script async src="https://www.googletagmanager.com/gtag/js?id=G-VLZVJMKPNJ"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-VLZVJMKPNJ")</script></head><body><div class=content><header><div class=main><a href=https://ozgurvurgun.github.io/>emre.xyz | @delirehberi</a></div><nav><a href=/>main</a>
+<a href=https://gist.github.com/delirehberi>gist</a>
+<a href=https://nostr.emre.xyz>nostr</a>
+<a href=/til>til</a>
+<a href=/about>me</a>
+<a href=/subscribe>subscribe</a>
+<a href=/resume.pdf>resume</a></nav></header><main><article><div class=post-container><div class=post-content><div class=title><h1 class=title>Using postgresql in non daemon way</h1><div class=meta>Posted on Dec 12, 2021</div></div><section class=body><p>I have a preference against installing servers locally and running them as systemd services, which is why I&rsquo;m a big fan of Docker.</p><p>However, there are times when I simply want to use servers as specific apps, without having to go through a system-wide installation, even with docker.</p><p>Take #postgresql as an example. A typical installation creates a user, installs files in your root directories, changes ownerships, creates service files, and so on.</p><p>Today, I aimed to run PostgreSQL without turning it into a systemd service. It&rsquo;s actually simpler than you might think. Here are the steps:</p><ol><li><p>Download the executable (I used nix for this).</p></li><li><p>Create a directory for PostgreSQL data.</p></li><li><p>Apply the appropriate permissions to the folders.</p></li><li><p>Run it!</p></li></ol><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span>adduser postgres #create user from ui in macos
+</span></span><span style=display:flex><span>su postgres
+</span></span><span style=display:flex><span>mkdir ./var/data
+</span></span><span style=display:flex><span>./psql/initdb ./var/data -U postgres -W
+</span></span><span style=display:flex><span>#write password
+</span></span><span style=display:flex><span>./bin/postgres -D var/pgsql/data -k .
+</span></span><span style=display:flex><span>./bin/psql -h 127.0.0.1
+</span></span><span style=display:flex><span>#its ok now, let create a db
+</span></span><span style=display:flex><span>./bin/createdb hedefim -h 127.0.0.1
+</span></span><span style=display:flex><span>#you can create another super user
+</span></span><span style=display:flex><span>./bin/createuser -s hedefim_user -W -h 127.0.0.1
+</span></span><span style=display:flex><span>#write new password
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>#you can now connect the database with your new user
+</span></span><span style=display:flex><span>./bin/psql -U hedefim_user -W hedefim -h 127.0.0.1
+</span></span></code></pre></div><p>how its easy, right.</p><p>talk soon.</p></section><div class=post-tags></div></div></div></article></main><footer><div style=display:flex><a class=soc href=https://github.com/ozgurvurgun rel=me title=GitHub><i data-feather=github></i></a>
+<a class=border></a><a class=soc href=https://bsky.app/profile/emre.xyz rel=me title=Bluesky><i data-feather=at-sign></i></a>
+<a class=border></a><a class=soc href=https://youtube.com/EmreYILMAZ rel=me title=Youtube><i data-feather=youtube></i></a>
+<a class=border></a><a class=soc href=https://linkedin.com/in/delirehberi rel=me title=Linkedin><i data-feather=linkedin></i></a>
+<a class=border></a><a class=soc href=https://satellite.earth/@delirehberi@emre.xyz rel=me title=Nostr><i data-feather=at-sign></i></a>
+<a class=border></a><a class=soc href=http://emre.xyz/me.vcf rel=me title=VCF><i data-feather=phone></i></a>
+<a class=border></a><a class=soc href=http://emre.xyz/resume.pdf rel=me title=Resume><i data-feather=file-text></i></a>
+<a class=border></a></div><div class=footer-info>2025 delirehberi | <a href=https://github.com/athul/archie>Archie Theme</a> | Built with <a href=https://gohugo.io>Hugo</a></div></footer><script>feather.replace()</script></div></body></html>

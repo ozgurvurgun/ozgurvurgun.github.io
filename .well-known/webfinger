@@ -1,0 +1,19 @@
+{
+  "subject" : "acct:delirehberi@emre.xyz",
+  "links" :
+  [
+    {
+      "rel" : "http://webfinger.net/rel/avatar",
+      "href" : "http://emre.xyz/me.jpg"
+    },
+    {
+      "rel" : "http://packetizer.com/rel/businesscard",
+      "type" : "text/vcard",
+      "href" : "http://emre.xyz/me.vcf"
+    }, 
+    {
+      "rel" : "http://packetizer.com/rel/blog",
+      "href" : "http://emre.xyz"
+    }
+  ]
+}

@@ -1,0 +1,106 @@
+<!doctype html><html><head lang=en><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge"><title>Deploy streamlit app to aws with elastic beanstalk - emre.xyz | @delirehberi</title><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="Streamlit is a framework for creating data apps with python.
+I&rsquo;ve built a sandbox application for testing the amazon personalization engine. I use streamlit as a framework and python as a language.
+After completing the job, I had to deploy to AWS. This is the way I followed."><meta property="og:image" content><meta property="og:title" content="Deploy streamlit app to aws with elastic beanstalk"><meta property="og:description" content="Streamlit is a framework for creating data apps with python.
+I&rsquo;ve built a sandbox application for testing the amazon personalization engine. I use streamlit as a framework and python as a language.
+After completing the job, I had to deploy to AWS. This is the way I followed."><meta property="og:type" content="article"><meta property="og:url" content="https://ozgurvurgun.github.io/posts/deploy-streamlit-app-to-aws-with-elastic-beanstalk/"><meta property="article:section" content="posts"><meta property="article:published_time" content="2023-03-30T00:00:00+00:00"><meta property="article:modified_time" content="2023-03-30T00:00:00+00:00"><meta name=twitter:card content="summary"><meta name=twitter:title content="Deploy streamlit app to aws with elastic beanstalk"><meta name=twitter:description content="Streamlit is a framework for creating data apps with python.
+I&rsquo;ve built a sandbox application for testing the amazon personalization engine. I use streamlit as a framework and python as a language.
+After completing the job, I had to deploy to AWS. This is the way I followed."><script src=https://ozgurvurgun.github.io/js/feather.min.js></script>
+<link href=https://ozgurvurgun.github.io/css/fonts.2c2227b81b1970a03e760aa2e6121cd01f87c88586803cbb282aa224720a765f.css rel=stylesheet><link rel=stylesheet type=text/css media=screen href=https://ozgurvurgun.github.io/css/main.6a0f23ea50fd34b46fee262a5a68e17d458c51a2bc99ba1ba018065de6b180c3.css><link id=darkModeStyle rel=stylesheet type=text/css href=https://ozgurvurgun.github.io/css/dark.50b57e12d401420df23965fed157368aba37b76df0ecefd0b1ecd4da664f01a0.css media="(prefers-color-scheme: dark)"><script async src="https://www.googletagmanager.com/gtag/js?id=G-VLZVJMKPNJ"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-VLZVJMKPNJ")</script></head><body><div class=content><header><div class=main><a href=https://ozgurvurgun.github.io/>emre.xyz | @delirehberi</a></div><nav><a href=/>main</a>
+<a href=https://gist.github.com/delirehberi>gist</a>
+<a href=https://nostr.emre.xyz>nostr</a>
+<a href=/til>til</a>
+<a href=/about>me</a>
+<a href=/subscribe>subscribe</a>
+<a href=/resume.pdf>resume</a></nav></header><main><article><div class=post-container><div class=post-content><div class=title><h1 class=title>Deploy streamlit app to aws with elastic beanstalk</h1><div class=meta>Posted on Mar 30, 2023</div></div><section class=body><p><a href=https://streamlit.io/>Streamlit</a> is a framework for creating data apps with python.</p><p>I&rsquo;ve built a sandbox application for testing the amazon personalization engine. I use streamlit as a framework and python as a language.</p><p>After completing the job, I had to deploy to AWS. This is the way I followed.</p><p>My stack</p><ul><li><a href=https://www.python.org/>python 3.9.2</a></li><li><a href=https://pipenv.pypa.io/en/latest/>pipenv</a></li><li><a href=https://direnv.net/>direnv</a></li><li><a href=https://www.gnu.org/software/make/>gnu-make</a></li><li><a href=https://www.docker.com/>docker</a></li><li><a href=https://docs.docker.com/compose/>docker-compose</a></li><li><a href=https://aws.amazon.com/cli/>aws cli</a></li><li><a href=https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/eb-cli3.html>eb cli</a></li><li><a href=https://www.gnu.org/software/sed/manual/sed.html>sed</a></li><li><a href=https://git-scm.com/>git</a></li></ul><p>Services</p><ul><li><a href=https://aws.amazon.com/elasticbeanstalk/>AWS Elastic Beanstalk</a></li><li><a href=https://aws.amazon.com/ecr/>AWS Elastic Container Registry</a></li><li><a href=https://aws.amazon.com/iam/>AWS IAM Role Manager</a></li></ul><p>The first task is creating a docker image for streamlit application. This is the example;</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span>FROM python:3.9-slim
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>WORKDIR /app
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>RUN apt-get update &amp;&amp; apt-get install -y \
+</span></span><span style=display:flex><span>    build-essential \
+</span></span><span style=display:flex><span>    curl \
+</span></span><span style=display:flex><span>    software-properties-common \
+</span></span><span style=display:flex><span>    git \
+</span></span><span style=display:flex><span>    &amp;&amp; rm -rf /var/lib/apt/lists/*
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>COPY . /app
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>RUN /usr/local/bin/python -m pip install --upgrade pip
+</span></span><span style=display:flex><span>RUN pip3 install -r requirements.txt
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>ARG AWS_ACCESS_KEY_ID
+</span></span><span style=display:flex><span>ARG AWS_SECRET_ACCESS_KEY
+</span></span><span style=display:flex><span>ARG AWS_DEFAULT_REGION=us-west-2
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>ENV AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID
+</span></span><span style=display:flex><span>ENV AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY
+</span></span><span style=display:flex><span>ENV AWS_DEFAULT_REGION=$AWS_DEFAULT_REGION
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>EXPOSE 8501
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>HEALTHCHECK CMD curl --fail http://localhost:8501/_stcore/health
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>ENTRYPOINT [&#34;streamlit&#34;, &#34;run&#34;, &#34;app.py&#34;, &#34;--server.port=8501&#34;, &#34;--server.address=0.0.0.0&#34;]
+</span></span></code></pre></div><p>The only difference from the original streamlit docker image is AWS tokens. I used that tokens in my app, so I had to import them into the image.</p><p>Then I configured docker-compose.yaml file. I will use that file with elastic beanstalk.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span>version: &#34;3.4&#34;
+</span></span><span style=display:flex><span>services:
+</span></span><span style=display:flex><span>  streamlit:
+</span></span><span style=display:flex><span>    image: ACCOUNTID.dkr.ecr.REGION.amazonaws.com/IMAGENAME:TAG
+</span></span><span style=display:flex><span>    ports:
+</span></span><span style=display:flex><span>      - 80:8501
+</span></span></code></pre></div><p>It will fetch the image from ECR with the image name. We will build our docker image and then push it to the ECR.</p><p>And the time is creating Makefile, which contains building the docker image, pushing to ECR, and updating docker-compose file shortcuts.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span>AWS_REGION ?= us-west-1 # its for pushing image to ecr
+</span></span><span style=display:flex><span>ECR_ENDPOINT ?= &#34;&#34;
+</span></span><span style=display:flex><span>IMAGE_NAME ?= &#34;delirehberisandbox&#34;
+</span></span><span style=display:flex><span>TS=$(shell date +&#39;%Y%m%d%H%M%S&#39;)
+</span></span><span style=display:flex><span>TAG=${IMAGE_NAME}:v${TS}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>deploy: ## Rebuild docker image with a new tag and push to ECR
+</span></span><span style=display:flex><span>	docker build --build-arg AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID} --build-arg AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY} --build-arg AWS_DEFAULT_REGION=${AWS_DEFAULT_REGION} -t ${TAG} .
+</span></span><span style=display:flex><span>	aws ecr get-login-password --region ${AWS_REGION} | docker login --username AWS --password-stdin ${ECR_ENDPOINT}
+</span></span><span style=display:flex><span>	docker tag ${TAG} ${ECR_ENDPOINT}/${TAG}
+</span></span><span style=display:flex><span>	docker push ${ECR_ENDPOINT}/${TAG}
+</span></span><span style=display:flex><span>	$(shell sed -i &#39;s/\(^ *image: *\).*/\1${ECR_ENDPOINT}\/${TAG}/&#39; docker-compose.yaml)
+</span></span><span style=display:flex><span>	git add docker-compose.yaml
+</span></span><span style=display:flex><span>	git commit -m &#34;autocommit: image version updated&#34;
+</span></span><span style=display:flex><span>	eb deploy
+</span></span><span style=display:flex><span>.PHONY: rebuild
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>help: ## Show this help
+</span></span><span style=display:flex><span>	@echo ${TAG}
+</span></span><span style=display:flex><span>	@echo &#34;\nSpecify a command. The choices are:\n&#34;
+</span></span><span style=display:flex><span>	@grep -E &#39;^[0-9a-zA-Z_-]+:.*?## .*$$&#39; $(MAKEFILE_LIST) | awk &#39;BEGIN {FS = &#34;:.*?## &#34;}; {printf &#34;  \033[0;36m%-12s\033[m %s\n&#34;, $$1, $$2}&#39;
+</span></span><span style=display:flex><span>	@echo &#34;&#34;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>.PHONY: help
+</span></span></code></pre></div><p>We can use the <code>make deploy</code> command after that. But wait, we didn&rsquo;t ready yet.</p><p>Let&rsquo;s go to the AWS console with a web browser and follow these steps;</p><ul><li>Open the <code>Elastic Container Registry</code> -> <code>Repositories</code> -> <code>Create a new repository</code> page and give the name to the repository. It must be the same <code>IMAGE_NAME</code> variable inside Makefile. For me, its <code>delirehberisandbox</code></li><li>Open the <code>Elastic Beanstalk</code> -> <code>Environments</code> page and click <code>Create new environment</code> button. Select <code>Web Server Environment</code> and click <code>Next</code>. Give an application name, i gave <code>delirehberi</code> as application name. On the platform section, choose <code>Managed Platform</code> and choose <code>Docker</code> as the platform. Then click the <code>Create Environment</code> button. It will start to create environment with example code.</li><li>Open the <code>IAM</code>-><code>Roles</code> page and give <code>AmazonEC2ContainerRegistryReadOnly</code> permission to <code>aws-elasticbeanstalk-ec2-role</code> and <code>aws-elasticbeanstalk-service-role</code> roles.</li></ul><p>And we are closing the final steps. You have to configure AWS credentials in your local. I am using direnv to handle environment variables by folder. Create a <code>.envrc</code> file in the project root.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span>dotenv .env
+</span></span></code></pre></div><p>Then create a .env file and fill in the credentials;</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span>AWS_ACCESS_KEY_ID=CHANGE
+</span></span><span style=display:flex><span>AWS_SECRET_ACCESS_KEY=CHANGE
+</span></span><span style=display:flex><span>AWS_REGION=us-west-2
+</span></span><span style=display:flex><span>ECR_ENDPOINT=ACCOUNTID.dkr.ecr.REGION.amazonaws.com
+</span></span><span style=display:flex><span>IMAGE_NAME=delirehberi
+</span></span></code></pre></div><p>And allow to export with <code>direnv allow</code></p><p>So, now we will init elasticbeanstalk in root directory. Just run <code>eb init -p docker YOUR_APPLICATION_NAME</code></p><p>It will create a config.yaml file inside .elasticbeanstalk folder like this.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span>branch-defaults:
+</span></span><span style=display:flex><span>  master:
+</span></span><span style=display:flex><span>    environment: Delirehberisandbox-env
+</span></span><span style=display:flex><span>    group_suffix: null
+</span></span><span style=display:flex><span>global:
+</span></span><span style=display:flex><span>  application_name: delirehberi
+</span></span><span style=display:flex><span>  branch: master
+</span></span><span style=display:flex><span>  default_ec2_keyname: null
+</span></span><span style=display:flex><span>  default_platform: Docker
+</span></span><span style=display:flex><span>  default_region: us-east-2
+</span></span><span style=display:flex><span>  include_git_submodules: true
+</span></span><span style=display:flex><span>  instance_profile: null
+</span></span><span style=display:flex><span>  platform_name: null
+</span></span><span style=display:flex><span>  platform_version: null
+</span></span><span style=display:flex><span>  profile: null
+</span></span><span style=display:flex><span>  repository: null
+</span></span><span style=display:flex><span>  sc: git
+</span></span><span style=display:flex><span>  workspace_type: Application
+</span></span></code></pre></div><p>You can configure that file for your needs.</p><p>Finally, we can run <code>make deploy</code> command. It will build an image, then push it to ecr, then update the docker-compose file, and then it will add changes to git history and will deploy to your elasticbeanstalk environment.</p></section><div class=post-tags></div></div></div></article></main><footer><div style=display:flex><a class=soc href=https://github.com/ozgurvurgun rel=me title=GitHub><i data-feather=github></i></a>
+<a class=border></a><a class=soc href=https://bsky.app/profile/emre.xyz rel=me title=Bluesky><i data-feather=at-sign></i></a>
+<a class=border></a><a class=soc href=https://youtube.com/EmreYILMAZ rel=me title=Youtube><i data-feather=youtube></i></a>
+<a class=border></a><a class=soc href=https://linkedin.com/in/delirehberi rel=me title=Linkedin><i data-feather=linkedin></i></a>
+<a class=border></a><a class=soc href=https://satellite.earth/@delirehberi@emre.xyz rel=me title=Nostr><i data-feather=at-sign></i></a>
+<a class=border></a><a class=soc href=http://emre.xyz/me.vcf rel=me title=VCF><i data-feather=phone></i></a>
+<a class=border></a><a class=soc href=http://emre.xyz/resume.pdf rel=me title=Resume><i data-feather=file-text></i></a>
+<a class=border></a></div><div class=footer-info>2025 delirehberi | <a href=https://github.com/athul/archie>Archie Theme</a> | Built with <a href=https://gohugo.io>Hugo</a></div></footer><script>feather.replace()</script></div></body></html>
