@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "product_name": "Tatl\u0131 ek\u015fi noodle",
+    "product_price": "105",
+    "product_picture": "tatli-eksi-noodle.jpg",
+    "active": "1"
+  },
+  {
+    "id": 2,
+    "product_name": "Sebzeli noodle",
+    "product_price": "100",
+    "product_picture": "sebzeli-noodle.jpg",
+    "active": "1"
+  }
+]

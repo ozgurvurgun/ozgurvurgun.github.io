@@ -1,0 +1,85 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
+}
+body {
+  background: #f3f5f9;
+}
+.container .sidebar {
+  position: fixed;
+  width: 200px;
+  height: 100%;
+  background: #3b5998;
+  padding: 30px 0;
+}
+.container .sidebar h2 {
+  color: #fff;
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 30px;
+  cursor: pointer;
+  transition: 0.5s;
+}
+.container .sidebar h2 span {
+  color: #f2b354;
+  transition: 0.5s;
+}
+.container .sidebar h2 span:hover {
+  color: #fff;
+}
+.container .sidebar h2:hover {
+  color: #f2b354;
+}
+.container .sidebar ul li a {
+  color: #fff;
+}
+.container .sidebar ul li i {
+  margin-right: 10px;
+}
+.container .sidebar ul li {
+  padding: 15px;
+  border-bottom: 1px solid black;
+  transition: 0.5s;
+}
+.container .sidebar ul li:hover {
+  background: black;
+}
+.container .sidebar .social-media {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%);
+  display: flex;
+}
+.container .sidebar .social-media a {
+  display: block;
+  width: 40px;
+  background-color: black;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  margin: 0 5px;
+  color: #bdb8d7;
+  border-top-right-radius: 35%;
+  border-top-left-radius: 2px;
+  transition: 0.5s;
+}
+.container .sidebar .social-media a:hover {
+  background-color: #3b5777;
+}
+.container .main-content {
+  margin-left: 200px;
+}
+.container .main-content .header {
+  padding: 20px;
+  background: #fff;
+  color: #717171;
+}
+.container .main-content .info {
+  margin: 20px;
+  color: #717171;
+  line-height: 25px;
+}

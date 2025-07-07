@@ -1,0 +1,77 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+body {
+  background-image: url("fantasy-4367602_960_720.jpg");
+  background-size: cover;
+  height: 100vh;
+  font-family: sans-serif;
+}
+.menu-bar {
+  background-color: #5b71b5;
+  text-align: center;
+}
+.menu-bar ul {
+  display: inline-flex;
+  list-style: none;
+}
+.menu-bar ul li {
+  width: 150px;
+  margin: 15px;
+  padding: 15px;
+}
+.menu-bar ul li a {
+  color: #fff;
+}
+.active,
+.menu-bar ul li:hover {
+  background-color: #d4c995;
+  border-radius: 10px;
+}
+.menu-bar .fas {
+  margin-right: 8px;
+}
+.sub-menu-1 {
+  display: none;
+}
+.menu-bar ul li:hover .sub-menu-1 {
+  display: block;
+  position: absolute;
+  background-color: #5b71b5;
+  margin-top: 15px;
+  margin-left: -15px;
+  font-size: 10px;
+}
+.menu-bar ul li:hover .sub-menu-1 ul{
+    display: block;
+}
+.menu-bar ul li:hover .sub-menu-1 ul li{
+    width: 150px;
+    padding: 10px;
+    border-bottom: 1px dotted #fff;
+    background: transparent;
+    text-align: left;
+    border-radius: 0;
+    cursor: pointer;
+}
+.menu-bar ul li:hover .sub-menu-1 ul li a:hover{
+    color: #b2ff00;
+}
+.fa-caret-right{
+    font-size: 14px;
+    color: #fff;
+    float: right;
+}
+.sub-menu-2{
+    display: none;
+}
+.hover-me:hover .sub-menu-2{
+    position: absolute;
+    display: block;
+    margin-top: -36px;
+    margin-left: 150px;
+    background-color: #5b71b5;
+}

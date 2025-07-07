@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+      integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="shortcut icon" href="https://ozgurvurgun.github.io/smart-lab-room-reservation/assets/images/pwa/smartlab-logo-72x72.png" type="image/x-icon">
+    <link rel="manifest" href="https://ozgurvurgun.github.io/smartlab-solutions/manifest.json" />
+    <link rel="stylesheet" href="./public/css/main.css" />
+    <link rel="stylesheet" href="./public/css/components/navbar.css" />
+    <link rel="stylesheet" href="./public/css/components/table.css" />
+    <link rel="stylesheet" href="./public/css/pages/lab-log.css" />
+    <title>SmartLab Solutions </title>
+  </head>
+
+  <body>
+    <div class="nav-container">
+      <div class="nav-logo">
+        <h1>SmartLab Solutions</h1>
+      </div>
+      <i class="fa-solid fa-bars open-menu"></i>
+      <div class="background"></div>
+      <div class="nav-links-container">
+        <i class="fa-solid fa-xmark close-menu"></i>
+        <ul class="nav-links">
+          <!-- <li class="nav-link-item"><a class="active" href="index.html">Home</a></li> -->
+          <li class="nav-link-item dropdown-menu-branch">
+            <a href="javascript:void(0)" data-toggle="dropdown-menu"
+              >Room Status <i class="fa-solid fa-chevron-down"></i
+            ></a>
+            <div class="hover-buffer"></div>
+            <ul class="dropdown-menu">
+              <li class="dropdown-menu-item">
+                <a href="experiment-rooms.html">Experiment Rooms</a>
+              </li>
+              <li class="dropdown-menu-item">
+                <a href="meeting-room.html">Meeting Room</a>
+              </li>
+              <li class="dropdown-menu-item">
+                <a href="other-rooms.html">Other Rooms</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-link-item"><a href="lab-log.html">Lab Log</a></li>
+        </ul>
+      </div>
+    </div>
+    <main class="container">
+      <h2>Homepage</h2>
+    </main>
+
+    <script src="public/javascript/navbar.js"></script>
+  </body>
+</html>

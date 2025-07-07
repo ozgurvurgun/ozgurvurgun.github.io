@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="manifest" href="manifest.json" />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <title>Güvenlift QR Certificate Generator</title>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="output" id="output3">
+        <div class="canvas" id="canvas3"></div>
+        <h2 id="dynamic-heading">Güven Lift</h2>
+      </div>
+      <div class="actions">
+        <input
+          class="url"
+          id="title3"
+          type="text"
+          placeholder="Enter dynamic title"
+          value="Güven Lift"
+        />
+        <input
+          class="url"
+          id="url3"
+          type="text"
+          placeholder="Enter dynamic link"
+          value="https://guvenlift.com/"
+        />
+        <button id="download-qr3">DOWNLOAD QR</button>
+      </div>
+    </div>
+
+    <div class="qr-sizes">
+      <div>
+        <p>Width:</p>
+        <input id="qr-width" type="text" value="270" />
+      </div>
+      <div>
+        <p>Height:</p>
+        <input id="qr-height" type="text" value="270" />
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/qr-code-styling@1.5.0/lib/qr-code-styling.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+
+    <script src="./assets/javascript/QRCodeManager.js"></script>
+  </body>
+</html>

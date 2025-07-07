@@ -1,0 +1,252 @@
+@import url("https://fonts.googleapis.com/css2?family=Jost:wght@300;400;600;900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+}
+
+body {
+  font-family: "Jost", sans-serif;
+  padding-top: 95px;
+}
+
+.container {
+  width: 100%;
+  padding: 0 40px 0 40px;
+}
+
+/* navbar start */
+nav {
+  height: 95px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ffffff;
+  z-index: 999;
+  position: fixed;
+  top: 0;
+}
+
+.logo {
+  font-size: 35px;
+  font-weight: 900;
+}
+
+.navigation {
+  display: flex;
+  column-gap: 35px;
+}
+
+.navigation-item {
+  font-weight: 400;
+  font-size: 19px;
+  color: #939598;
+  cursor: pointer;
+}
+
+.responsive-bar {
+  display: none;
+  display: flex;
+  align-items: start;
+  justify-content: start;
+  display: none;
+}
+
+.responsive-bar .responsive-bar-icon {
+  font-weight: 400;
+  font-size: 22px;
+  align-items: center;
+  cursor: pointer;
+}
+
+.navigation-item:hover {
+  color: #231f20;
+}
+/* navbar end */
+
+/* asides start */
+.aside-one-wrapper {
+  display: flex;
+  align-items: center;
+  height: calc(100vh - 95px);
+}
+
+.aside-one {
+  display: flex;
+}
+
+.aside-one .left-content,
+.aside-one .right-content {
+  flex: 1;
+}
+
+.aside-one .left-content h1 {
+  font-size: 38px;
+  font-weight: 400;
+  letter-spacing: 1px;
+}
+
+.aside-one .left-content p {
+  font-size: 17px;
+  font-weight: 300;
+  padding: 20px 30px 20px 0;
+  letter-spacing: 1px;
+}
+
+.aside-one .left-content button {
+  font-size: 14px;
+  background-color: #231f20;
+  color: #ffffff;
+  border: none;
+  text-align: center;
+  padding: 12px 50px;
+  font-weight: 600;
+  border-radius: 25px;
+}
+
+.aside-one-image {
+  width: 100%;
+  height: auto;
+}
+/* asides end */
+
+/* filters start */
+.filter-item-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  flex: 1;
+}
+
+.additional-filter-setting {
+  padding: 30px 60px;
+  display: flex;
+  gap: 25px;
+  align-items: center;
+}
+
+.filter-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  column-gap: 25px;
+  border: 1px solid #231f20;
+  border-radius: 35px;
+  flex: 1;
+  white-space: nowrap;
+  padding: 5px 10px;
+  max-width: 500px;
+  cursor: pointer;
+}
+
+.additional-filter-setting .products-number {
+  cursor: pointer;
+}
+
+.additional-filter-setting .all-filter {
+  cursor: pointer;
+}
+/* filters end */
+
+/* product start */
+.products {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+}
+.product-items {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  width: 100%;
+}
+.products .product-item {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  max-width: 340px;
+  min-width: 340px;
+}
+
+/* product end */
+
+@media screen and (max-width: 1000px) {
+  .responsive-bar {
+    display: inline-block;
+  }
+  .navigation {
+    display: none;
+  }
+  .aside-one .right-content {
+    display: none;
+  }
+  .products .product-item {
+    max-width: 200px;
+    min-width: 200px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .navigation {
+    display: none;
+  }
+  
+  .products .product-item {
+    max-width: 200px;
+    min-width: 200px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .container {
+    padding: 0 20px 0 20px;
+  }
+
+  .aside-one-wrapper {
+    align-items: start;
+    margin-top: 35px;
+    height: calc(70vh - 95px);
+  }
+  .additional-filter-setting {
+    padding: 15px 40px;
+    display: flex;
+    gap: 25px;
+    align-items: center;
+  }
+  .navigation {
+    display: none;
+  }
+  .products .product-item {
+    max-width: 150px;
+    min-width: 150px;
+  }
+  .aside-one .left-content button {
+    font-size: 14px;
+    background-color: #231f20;
+    color: #ffffff;
+    border: none;
+    text-align: center;
+    padding: 12px 50px;
+    width: 100%;
+    font-weight: 600;
+    border-radius: 25px;
+  }
+
+  .aside-one .left-content h1 {
+    font-size: 26px;
+    font-weight: 300;
+    letter-spacing: 0px;
+  }
+  
+  .aside-one .left-content p {
+    font-size: 17px;
+    font-weight: 300;
+    padding: 15px 15px 15px 0;
+    letter-spacing: 0px;
+  }
+}

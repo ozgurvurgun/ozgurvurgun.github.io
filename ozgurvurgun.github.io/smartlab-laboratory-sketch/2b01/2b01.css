@@ -1,0 +1,143 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sketch-wrapper {
+  width: 1200px;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+}
+
+.sketch-wrapper .sketch {
+  display: flex;
+  align-items: center;
+}
+
+.sketch-wrapper .area {
+  border: 1px solid grey;
+  width: 100%;
+  height: 75%;
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+}
+
+.sketch-wrapper .area .left {
+  display: grid;
+  grid-auto-rows: 1fr;
+}
+
+.sketch-wrapper .area .left .top {
+  /* background-color: powderblue; */
+}
+
+.sketch-wrapper .area .left .bottom {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border: 1px solid grey;
+}
+
+.sketch-wrapper .area .left .bottom .main-door {
+  font-size: 50px;
+  position: absolute;
+  bottom: -5px;
+  left: 50px;
+}
+
+.sketch-wrapper .area .left .bottom .main-door code {
+  font-size: 18px;
+}
+
+.sketch-wrapper .area .left .top .rooms {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  height: 100%;
+}
+
+.sketch-wrapper .area .left .top .rooms .room {
+  height: 100%;
+  border: 1px solid grey;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.sketch-wrapper .area .left .top .rooms .room .door-name {
+  position: absolute;
+  bottom: 0;
+  text-align: center;
+  font-size: 14px;
+}
+
+.sketch-wrapper .area .left .top .rooms .room .table {
+  width: 75%;
+  height: 50px;
+  border: 1px solid grey;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.sketch-wrapper .area .right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid grey;
+  position: relative;
+}
+
+.sketch-wrapper .area .right .door-name {
+  transform: rotate(90deg);
+  position: absolute;
+  bottom: 130px;
+  left: -33px;
+  font-size: 14px;
+}
+
+.sketch-wrapper .area .right .table {
+  width: 50px;
+  height: 30%;
+  border: 1px solid grey;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.sketch-wrapper .guide-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 19px;
+}
+
+.sketch-wrapper .guide-wrapper .guide {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.sketch-wrapper .guide-wrapper .guide section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* PUBLIC */
+.right-arrow {
+  margin: 0 12px;
+}

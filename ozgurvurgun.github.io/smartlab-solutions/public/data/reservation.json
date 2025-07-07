@@ -1,0 +1,175 @@
+[
+  {
+    "room-category": "experiment-rooms",
+    "roomId": "B.C. Skinner Unit",
+    "user": "Şimal Yenigüllü",
+    "startTime": "13.12.24",
+    "endTime": "13.12.24",
+    "intendedUse": "Preparing experiments",
+    "flag": "interval"
+  },
+  {
+    "room-category": "experiment-rooms",
+    "roomId": "S. Asch Unit",
+    "user": "Ayşenur Candemir",
+    "startTime": "11.12.2024",
+    "endTime": "28.02.2025",
+    "intendedUse": "Data Collection",
+    "flag": "interval"
+  },
+  {
+    "room-category": "experiment-rooms",
+    "roomId": "S. Asch Unit",
+    "user": "Şimal Yenigüllü",
+    "startTime": "25.03.2025",
+    "endTime": "20.05.2025",
+    "intendedUse": "Data Collection",
+    "flag": "interval"
+  },
+  {
+    "room-category": "experiment-rooms",
+    "roomId": "M. Sherif Unit",
+    "user": "Baturalp Kırcalı",
+    "startTime": "24.03.2025",
+    "endTime": "20.04.2025",
+    "intendedUse": "Data Collection",
+    "flag": "interval"
+  },
+  {
+    "room-category": "experiment-rooms",
+    "roomId": "J. Pavlov Unit",
+    "user": "Aybars",
+    "startTime": "04.03.2025",
+    "endTime": "30.03.2025",
+    "intendedUse": "Data Collection",
+    "flag": "interval"
+  },
+  {
+    "room-category": "experiment-rooms",
+    "roomId": "B.C. Skinner Unit",
+    "user": "Samet Kahraman",
+    "startTime": "24.03.2025",
+    "endTime": "20.05.2025",
+    "intendedUse": "Data Collection",
+    "flag": "interval"
+  },
+  {
+    "room-category": "experiment-rooms",
+    "roomId": "J.B. Watson Unit",
+    "user": "Unsung hero",
+    "startTime": "10.04.2025",
+    "endTime": "10.04.2025",
+    "intendedUse": "Preparing experiments | 13:00-14:00, 15:00-16:00",
+    "flag": "interval"
+  },
+  {
+    "room-category": "experiment-rooms",
+    "roomId": "J.B. Watson Unit",
+    "user": "Duygu Barışkan",
+    "startTime": "10.04.2025",
+    "endTime": "29.04.2025",
+    "intendedUse": "Data Collection",
+    "flag": "interval"
+  },
+  {
+    "room-category": "experiment-rooms",
+    "roomId": "J. Pavlov Unit",
+    "user": "Zeynep Tuncalı",
+    "startTime": "21.04.2025",
+    "endTime": "30.05.2025",
+    "intendedUse": "Data Collection",
+    "flag": "interval"
+  },
+  {
+    "room-category": "meeting-room",
+    "roomId": "2B04",
+    "user": "Seda Dural",
+    "startTime": "02.01.2025",
+    "endTime": "02.01.2025",
+    "startHour": "09:00",
+    "endHour": "11:00",
+    "intendedUse": "The exam for the learning course will be held.",
+    "flag": "interval"
+  },
+  {
+    "room-category": "meeting-room",
+    "roomId": "2B04",
+    "user": "Seda Dural",
+    "startTime": "16.01.2025",
+    "endTime": "16.01.2025",
+    "startHour": "10:00",
+    "endHour": "12:00",
+    "intendedUse": "PhD interview.",
+    "flag": "interval"
+  },
+  {
+    "room-category": "meeting-room",
+    "roomId": "2B04",
+    "user": "Seda Dural",
+    "startTime": "2",
+    "startHour": "12:00",
+    "endHour": "16:00",
+    "intendedUse": "SD team meeting. - Throughout the Spring 2025 semester.",
+    "flag": "continuous"
+  },
+  {
+    "room-category": "meeting-room",
+    "roomId": "2B04",
+    "user": "Seda Dural",
+    "startTime": "3",
+    "startHour": "12:00",
+    "endHour": "16:00",
+    "intendedUse": "Psy 602 - Throughout the Spring 2025 semester",
+    "flag": "continuous"
+  },
+  {
+    "room-category": "meeting-room",
+    "roomId": "2B04",
+    "user": "SmartLab Team",
+    "startTime": "4",
+    "startHour": "09:00",
+    "endHour": "12:00",
+    "intendedUse": "smartlab weekly meeting",
+    "flag": "continuous"
+  },
+  {
+    "room-category": "other-room",
+    "roomId": "fNIR",
+    "user": "Ezgi Gür",
+    "startTime": "4",
+    "startHour": "12:50",
+    "endHour": "15:45",
+    "intendedUse": "10.02.2025 - 23.05.2025 Every Wednesday",
+    "flag": "continuous"
+  },
+  {
+    "room-category": "meeting-room",
+    "roomId": "2B04",
+    "user": "Seda Dural",
+    "startTime": "4",
+    "startHour": "12:00",
+    "endHour": "16:00",
+    "intendedUse": "psy 432 - Throughout the Spring 2025 semester",
+    "flag": "continuous"
+  },
+  {
+    "room-category": "meeting-room",
+    "roomId": "2B04",
+    "user": "Seda Dural",
+    "startTime": "5",
+    "startHour": "12:00",
+    "endHour": "16:00",
+    "intendedUse": "Psy 502 - Throughout the Spring 2025 semester",
+    "flag": "continuous"
+  },
+  {
+    "room-category": "meeting-room",
+    "roomId": "2B04",
+    "user": "Ezgi Gür",
+    "startTime": "5",
+    "startHour": "09:00",
+    "endHour": "12:00",
+    "intendedUse": "10.02.2025 - 23.05.2025 Every Thursday",
+    "flag": "continuous"
+  }
+]

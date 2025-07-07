@@ -1,0 +1,50 @@
+{
+    "name": "SmartLab Solutions",
+    "short_name": "SmartLab Sol#",
+    "start_url": "https://ozgurvurgun.github.io/smartlab-solutions/index.html",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#ffffff",
+    "icons": [
+      {
+        "src": "https://ozgurvurgun.github.io/smart-lab-room-reservation/assets/images/pwa/smartlab-logo-72x72.png",
+        "type": "image/png",
+        "sizes": "72x72"
+      },
+      {
+        "src": "https://ozgurvurgun.github.io/smart-lab-room-reservation/assets/images/pwa/smartlab-logo-96x96.png",
+        "type": "image/png",
+        "sizes": "96x96"
+      },
+      {
+        "src": "https://ozgurvurgun.github.io/smart-lab-room-reservation/assets/images/pwa/smartlab-logo-128x128.png",
+        "type": "image/png",
+        "sizes": "128x128"
+      },
+      {
+        "src": "https://ozgurvurgun.github.io/smart-lab-room-reservation/assets/images/pwa/smartlab-logo-144x144.png",
+        "type": "image/png",
+        "sizes": "144x144"
+      },
+      {
+        "src": "https://ozgurvurgun.github.io/smart-lab-room-reservation/assets/images/pwa/smartlab-logo-152x152.png",
+        "type": "image/png",
+        "sizes": "152x152"
+      },
+      {
+        "src": "https://ozgurvurgun.github.io/smart-lab-room-reservation/assets/images/pwa/smartlab-logo-192x192.png",
+        "type": "image/png",
+        "sizes": "192x192"
+      },
+      {
+        "src": "https://ozgurvurgun.github.io/smart-lab-room-reservation/assets/images/pwa/smartlab-logo-384x384.png",
+        "type": "image/png",
+        "sizes": "384x384"
+      },
+      {
+        "src": "https://ozgurvurgun.github.io/smart-lab-room-reservation/assets/images/pwa/smartlab-logo-512x512.png",
+        "type": "image/png",
+        "sizes": "512x512"
+      }
+    ]
+  }

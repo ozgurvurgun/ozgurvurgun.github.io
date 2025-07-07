@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+    <link rel="stylesheet" href="image-question.css" />
+    <title>Art Quiz</title>
+  </head>
+  <body>
+    <div class="navbar">
+      <div class="nav-left">
+        <img class="logo" src="images/adusttlogo.jpg" alt="" />
+        <p class="nav-left-text">
+          ADÜ Sanat Tarihi Topluluğu<br />
+          Art Quiz
+        </p>
+      </div>
+      <input style="display: none;" type="checkbox" id="toggle-menu" />
+      <label for="toggle-menu">
+        <i class="fa-solid fa-bars"></i>
+      </label>
+      <ul class="nav-right">
+        <li class="navbar-item">Nasıl Oynarım ?</li>
+        <li class="navbar-item">Skor tablosu</li>
+      </ul>
+    </div>
+
+    <div class="quiz-div">
+        <div class="quiz-container">
+          <div class="quiz-status-bar">
+            <div class="left-status-bar">1 of 7 question</div>
+            <div class="right-status-bar">
+              <i style="font-size: 20px" class="fa-solid fa-stopwatch"></i>
+              <span class="countdown">10s</span>
+            </div>
+          </div>
+          <div class="question-bar">
+            <div class="question">
+              Aşağıdakilerden hangisi ünlü sanat tarihçisi Ece Şensöz'dür ?
+            </div>
+            <div class="answers">
+              <div class="row">
+                <button
+                  style="
+                    background-image: url(images/ecejpg.jpg);
+                    background-size: cover;
+                    background-position: center;
+                  "
+                  class="image-option"
+                >
+                  <!-- <img src="ecejpg.jpg" alt="" /> -->
+                </button>
+                <button
+                  style="
+                    background-image: url(images/adusttlogo.jpg);
+                    background-size: cover;
+                    background-position: center;
+                  "
+                  class="image-option"
+                >
+                  <!-- <img src="images/adusttlogo.jpg" alt="" /> -->
+                </button>
+              </div>
+              <div class="row">
+                <button
+                  style="
+                    background-image: url(images/adusttlogo.jpg);
+                    background-size: cover;
+                    background-position: center;
+                  "
+                  class="image-option"
+                >
+                  <!-- <img src="images/adusttlogo.jpg" alt="" /> -->
+                </button>
+                <button
+                  style="
+                    background-image: url(images/adusttlogo.jpg);
+                    background-size: cover;
+                    background-position: center;
+                  "
+                  class="image-option"
+                >
+                  <!-- <img src="images/adusttlogo.jpg" alt="" /> -->
+                </button>
+              </div>
+            </div>
+            <button class="next-question">Sonraki Soru</button>
+          </div>
+        </div>
+      </div>
+      
+
+    <script src="main.js"></script>
+  </body>
+</html>

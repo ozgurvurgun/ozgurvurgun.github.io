@@ -1,0 +1,34 @@
+[
+  {
+    "room-category": "experiment-rooms",
+    "roomId": "J. Pavlov Unit"
+  },
+  {
+    "room-category": "experiment-rooms",
+    "roomId": "M. Sherif Unit"
+  },
+  {
+    "room-category": "experiment-rooms",
+    "roomId": "B.C. Skinner Unit"
+  },
+  {
+    "room-category": "experiment-rooms",
+    "roomId": "J.B. Watson Unit"
+  },
+  {
+    "room-category": "experiment-rooms",
+    "roomId": "S. Asch Unit"
+  },
+  {
+    "room-category": "meeting-rooms",
+    "roomId": "2B04"
+  },
+  {
+    "room-category": "other-rooms",
+    "roomId": "Participant Waiting Room"
+  },
+  {
+    "room-category": "other-rooms",
+    "roomId": "fNIR"
+  }
+]

@@ -1,0 +1,134 @@
+.section-title {
+  text-align: center;
+  margin-bottom: 35px;
+}
+
+.section-title h4 {
+  font-size: 32px;
+  font-weight: 600;
+}
+
+/* categories start */
+.categories {
+  margin: 40px 10px;
+}
+.categories .category-list {
+  margin-top: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px;
+}
+/* categories end */
+
+/* products start */
+.products {
+  margin-bottom: 40px;
+}
+
+.products .product-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 20px;
+}
+
+@media (max-width: 768px) {
+  .products .product-list {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+/* products end */
+
+/* campaigns start */
+.campaigns-wrapper {
+  display: flex;
+  gap: 30px;
+  margin: 30px 0;
+  flex-wrap: wrap;
+}
+/* campaigns end */
+
+/* blog start */
+.blog {
+  margin-bottom: 30px;
+}
+
+.blog .blog-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 30px;
+}
+
+@media (max-width: 768px) {
+  .blog .blog-list {
+    grid-template-columns: 1fr;
+  }
+}
+/* blog end */
+
+/* brands start */
+.brands {
+  margin: 40px 0;
+}
+
+.brand-list {
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 20px;
+  justify-content: space-around;
+  border: 1px solid #dee0ea;
+  padding: 30px 10px;
+}
+
+.brand-list .brand-item {
+  opacity: 0.4;
+  transition: 0.2s ease opacity;
+}
+
+.brand-list .brand-item:hover {
+  opacity: 1;
+}
+/* brands end */
+
+/* policy start */
+.policy {
+  margin: 30px 0;
+}
+
+.policy .policy-list {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 25px 0;
+}
+
+.policy .policy-list .policy-item {
+  display: flex;
+  align-items: center;
+  column-gap: 10px;
+}
+
+.policy .policy-item i {
+  font-size: 50px;
+  display: flex;
+}
+
+.policy .policy-item .policy-texts {
+  display: flex;
+  flex-direction: column;
+}
+
+.policy .policy-item .policy-texts strong {
+  font-weight: 600;
+}
+
+.policy .policy-item .policy-texts span {
+  font-size: 12px;
+}
+
+@media (max-width: 768px) {
+  .policy .policy-list {
+    flex-direction: column;
+  }
+}
+/* policy end */

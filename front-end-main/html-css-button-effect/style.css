@@ -1,0 +1,43 @@
+body {
+  margin: 0;
+  padding: 0;
+  background: #b8b5dd;
+}
+.btn {
+  width: 200px;
+  height: 60px;
+  background: #ffc107;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 5px;
+  cursor: pointer;
+}
+.btn::before {
+  color: white;
+  font-family: sans-serif;
+  content: "Hover Me";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 20px;
+  transition: all .5s ease;
+}
+.btn:hover::before {
+  top: -30px;
+}
+.btn::after{
+    content: '\2665';
+    color: red;
+    position: absolute;
+    top: 200%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 50px;
+    transition: all .5s ease;
+}
+.btn:hover:after{
+    top: 50%;
+}

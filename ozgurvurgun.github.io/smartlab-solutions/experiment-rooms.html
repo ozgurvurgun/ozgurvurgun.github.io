@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+      integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      rel="shortcut icon"
+      href="https://ozgurvurgun.github.io/smart-lab-room-reservation/assets/images/pwa/smartlab-logo-72x72.png"
+      type="image/x-icon"
+    />
+    <link
+      rel="manifest"
+      href="https://ozgurvurgun.github.io/smartlab-solutions/manifest.json"
+    />
+    <link rel="stylesheet" href="./public/css/main.css" />
+    <link rel="stylesheet" href="./public/css/components/navbar.css" />
+    <link rel="stylesheet" href="./public/css/components/table.css" />
+    <link rel="stylesheet" href="./public/css/pages/lab-log.css" />
+    <title>SmartLab Solutions</title>
+  </head>
+
+  <body>
+    <div class="nav-container">
+      <div class="nav-logo">
+        <h1>SmartLab Solutions</h1>
+      </div>
+      <i class="fa-solid fa-bars open-menu"></i>
+      <div class="background"></div>
+      <div class="nav-links-container">
+        <i class="fa-solid fa-xmark close-menu"></i>
+        <ul class="nav-links">
+          <!-- <li class="nav-link-item"><a href="index.html">Home</a></li> -->
+          <li class="nav-link-item dropdown-menu-branch">
+            <a
+              class="active"
+              href="javascript:void(0)"
+              data-toggle="dropdown-menu"
+              >Room Status <i class="fa-solid fa-chevron-down"></i
+            ></a>
+            <div class="hover-buffer"></div>
+            <ul class="dropdown-menu">
+              <li class="dropdown-menu-item">
+                <a href="experiment-rooms.html">Experiment Rooms</a>
+              </li>
+              <li class="dropdown-menu-item">
+                <a href="index.html">Meeting Room</a>
+              </li>
+              <li class="dropdown-menu-item">
+                <a href="other-rooms.html">Other Rooms</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-link-item"><a href="lab-log.html">Lab Log</a></li>
+        </ul>
+      </div>
+    </div>
+    <main class="container">
+      <h2>Experiment Rooms Active Reservations</h2>
+      <div class="table-wrapper">
+        <table id="active-reservations">
+          <tr>
+            <th>Room ID</th>
+            <th>User</th>
+            <th>Interval</th>
+            <th>Intended Use</th>
+          </tr>
+          <!-- <tr>
+            <td>S. Asch Unit</td>
+            <td>Ayşenur Candemir</td>
+            <td class="date-color" data-type="standard-start-end">
+              11.12.2024 - 28.02.2025
+            </td>
+            <td>Data Collection</td>
+          </tr> -->
+        </table>
+      </div>
+      <h2>Available Experiment Rooms</h2>
+      <div class="table-wrapper">
+        <table id="available-experiment-rooms">
+          <tr>
+            <th>Room ID</th>
+          </tr>
+          <!-- <tr>
+            <td>J. Pavlov Unit</td>
+          </tr>
+          <tr>
+            <td>M. Sherif Unit</td>
+          </tr>
+          <tr>
+            <td>B.C. Skinner Unit</td>
+          </tr>
+          <tr>
+            <td>J.B. Watson Unit</td>
+          </tr> -->
+        </table>
+      </div>
+      <h2>Experiment Rooms Previous Reservations</h2>
+      <div class="table-wrapper">
+        <table id="previous-reservations">
+          <tr>
+            <th>Room ID</th>
+            <th>User</th>
+            <th>Interval</th>
+            <th>Intended Use</th>
+          </tr>
+          <!-- <tr>
+            <td>J. Pavlov Unit</td>
+            <td>Zeynep Tuncalı</td>
+            <td>11.12.2024 - 28.12.2024</td>
+            <td>data collection</td>
+          </tr> -->
+        </table>
+      </div>
+    </main>
+    <br /><br /><br />
+
+    <script src="public/javascript/navbar.js"></script>
+    <script>
+      async function fetchData() {
+        try {
+          const reservationResponse = await fetch(
+            "public/data/reservation.json"
+          );
+          const roomResponse = await fetch("public/data/rooms.json");
+
+          if (!reservationResponse.ok || !roomResponse.ok) {
+            throw new Error("Veriler alınırken hata oluştu.");
+          }
+
+          const reservationData = await reservationResponse.json();
+          const roomData = await roomResponse.json();
+
+          const currentDate = new Date();
+
+          function parseDate(dateStr) {
+            if (!dateStr || typeof dateStr !== "string") {
+              console.warn(`Geçersiz tarih: ${dateStr}`);
+              return null;
+            }
+            const [day, month, year] = dateStr.split(".").map(Number);
+            return new Date(year, month - 1, day);
+          }
+
+          // Çakışma kontrolü
+          const conflicts = [];
+          reservationData.forEach((res1, index1) => {
+            reservationData.forEach((res2, index2) => {
+              if (
+                index1 !== index2 &&
+                res1["room-category"] === "experiment-rooms" &&
+                res2["room-category"] === "experiment-rooms" &&
+                res1.roomId === res2.roomId &&
+                parseDate(res1.startTime) <= parseDate(res2.endTime) &&
+                parseDate(res1.endTime) >= parseDate(res2.startTime)
+              ) {
+                conflicts.push([res1, res2]);
+              }
+            });
+          });
+
+          // Çakışma uyarıları
+          conflicts.forEach(([res1, res2]) => {
+            alert(`Çakışma Tespit Edildi:
+    - Oda: ${res1.roomId}
+    - Kullanıcılar: ${res1.user} ve ${res2.user}
+    - Tarihler: ${res1.startTime} - ${res1.endTime} ile ${res2.startTime} - ${res2.endTime}`);
+          });
+
+          // Aktif rezervasyonları ekleme
+          const activeReservationsTable = document.querySelector(
+            "#active-reservations"
+          );
+          activeReservationsTable.innerHTML =
+            "<tr><th>Room ID</th><th>User</th><th>Interval</th><th>Intended Use</th></tr>";
+          reservationData.forEach((reservation) => {
+            const endDate = parseDate(reservation.endTime);
+            const isConflict = conflicts.some(
+              ([res1, res2]) => res1 === reservation || res2 === reservation
+            );
+            if (
+              reservation["room-category"] === "experiment-rooms" &&
+              endDate &&
+              endDate >= currentDate
+            ) {
+              activeReservationsTable.innerHTML += `
+              <tr style="background-color: ${
+                isConflict ? "rgba(255, 204, 0, 0.7)" : "transparent"
+              };">
+                <td>${reservation.roomId}</td>
+                <td>${reservation.user}</td>
+                <td class="date-color" data-type="standard-start-end">${
+                  reservation.startTime
+                } - ${reservation.endTime}</td>
+                <td>${reservation.intendedUse}</td>
+              </tr>`;
+            }
+          });
+
+          // Mevcut odaları ekleme
+          const availableRoomsTable = document.querySelector(
+            "#available-experiment-rooms"
+          );
+          availableRoomsTable.innerHTML = "<tr><th>Room ID</th></tr>";
+          roomData.forEach((room) => {
+            if (
+              room["room-category"] === "experiment-rooms" &&
+              !reservationData.some(
+                (reservation) =>
+                  reservation["room-category"] === "experiment-rooms" &&
+                  reservation.roomId === room.roomId &&
+                  parseDate(reservation.endTime) &&
+                  parseDate(reservation.endTime) >= currentDate
+              )
+            ) {
+              availableRoomsTable.innerHTML += `<tr><td>${room.roomId}</td></tr>`;
+            }
+          });
+
+          // Önceki rezervasyonları ekleme
+          const previousReservationsTable = document.querySelector(
+            "#previous-reservations"
+          );
+          previousReservationsTable.innerHTML =
+            "<tr><th>Room ID</th><th>User</th><th>Interval</th><th>Intended Use</th></tr>";
+          reservationData.forEach((reservation) => {
+            const endDate = parseDate(reservation.endTime);
+            if (
+              reservation["room-category"] === "experiment-rooms" &&
+              endDate &&
+              endDate < currentDate
+            ) {
+              previousReservationsTable.innerHTML += `
+              <tr>
+                <td>${reservation.roomId}</td>
+                <td>${reservation.user}</td>
+                <td>${reservation.startTime} - ${reservation.endTime}</td>
+                <td>${reservation.intendedUse}</td>
+              </tr>`;
+            }
+          });
+        } catch (error) {
+          console.error("Hata:", error);
+        }
+      }
+
+      // Verileri yükle
+      fetchData();
+    </script>
+  </body>
+</html>

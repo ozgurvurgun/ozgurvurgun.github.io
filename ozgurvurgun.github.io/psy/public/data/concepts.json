@@ -1,0 +1,68 @@
+[
+  {
+    "id": 1,
+    "header": "Mental Number Line (MNL)",
+    "content": "This concept suggests that we mentally organize numbers spatially, with smaller numbers typically located on the left side and larger numbers on the right side, akin to the layout of a number line. This spatial representation can influence various cognitive processes, such as numerical comparison, arithmetic operations, and estimation. Moreover, cultural and linguistic factors can also influence the directionality and spacing of the Mental Number Line.",
+    "image": "brainsci-12-00335-g006-550.jpg"
+  },
+  {
+    "id": 2,
+    "header": "SNARC Effect",
+    "content": "The SNARC effect, or Spatial-Numerical Association of Response Codes effect, is a cognitive phenomenon that involves the automatic association between the spatial position of numbers and their numerical magnitude.",
+    "image": "SNARC_effect_metric-1024x576.png"
+  },
+  {
+    "id": 3,
+    "header": "Spatial Numerical Associations (SNA)",
+    "content": "Spatial Numerical Associations (SNA) is a cognitive phenomenon that describes the tendency of individuals to automatically associate numbers with spatial locations or directions. This concept suggests that people mentally represent numbers along a spatial continuum, with smaller numbers typically associated with the left side and larger numbers with the right side.",
+    "image": "palestinians.webp"
+  },
+  {
+    "id": 4,
+    "header": "S-R Compability",
+    "content": "S-R compatibility, or Stimulus-Response Compatibility, is a concept in cognitive psychology and human factors engineering that deals with the relationship between the characteristics of a stimulus (or input) and the required response (or output). It explores how the design and arrangement of stimuli and response options can affect the ease and efficiency of human interaction with various systems and tasks.",
+    "image": "cup.png"
+  },
+  {
+    "id": 5,
+    "header": "Working Memory Account",
+    "content": "The relationship between Spatial Numerical Associations (SNAs) and working memory involves the integration of numerical information with spatial representations within the working memory system. SNAs refer to the tendency for individuals to associate smaller numbers with the left side of space and larger numbers with the right side. Working memory plays a crucial role in maintaining and manipulating this spatial-numerical information, facilitating cognitive processes such as arithmetic and problem-solving. The association between SNAs and working memory highlights how spatial and numerical processing interact and influence cognitive functions.",
+    "image": "learningscience_workingandlongterrm.png"
+  },
+  {
+    "id": 6,
+    "header": "Distance Effect",
+    "content": "The Distance Effect is considered a fundamental aspect of numerical cognition and is thought to reflect the underlying mental representation of numbers. It suggests that our cognitive system processes numerical information in a graded manner, with more effort required when discriminating between numbers that are close in magnitude.",
+    "image": "image-32.webp"
+  },
+  {
+    "id": 7,
+    "header": "Attentional SNARC",
+    "content": "The Attentional Spatial Numerical Association of Response Codes (Attentional SNARC) refers to the phenomenon where attentional shifts bias spatial representations of numbers. It suggests that when individuals attend to a specific region, such as left or right, it influences their response time to numerical tasks. For instance, when focusing on the left side, responses to smaller numbers are faster, while focusing on the right side speeds up responses to larger numbers. This effect demonstrates the interconnectedness between spatial attention and numerical cognition.",
+    "image": "Three-rationales-for-the-locus-of-the-SNARC-effect-The-Stroop-and-Simon-effects-are.png"
+  },
+  {
+    "id": 8,
+    "header": "Individual and Cultural Differences",
+    "content": "Individual and cultural differences in the Spatial-Numerical Association (SNA) refer to variations in how people perceive and represent numbers in relation to space.",
+    "image": "what-are-individualistic-cultures-2795273-5bcdfc01c9e77c0051d808e1.png"
+  },
+  {
+    "id": 9,
+    "header": "Finger Counting",
+    "content": "Finger counting is a concept in embodied cognition that highlights the role of the body and physical actions, such as using one’s fingers, in cognitive processes like numerical representation and arithmetic.",
+    "image": "360_F_435191459_J2buCbK07Cj2GMIeKvcmHePhQ1k1atmj.jpg"
+  },
+  {
+    "id": 10,
+    "header": "Hemispheric Specializations",
+    "content": "Hemispheric asymmetry in numerical processing refers to the phenomenon where certain aspects of numerical tasks are processed differently between the brain’s left and right hemispheres.",
+    "image": "left-right-brain.webp"
+  },
+  {
+    "id": 11,
+    "header": "Simon Effect",
+    "content": "The Simon effect, is a cognitive phenomenon based on the presence of conflict between stimulus and response locations. By exploring the dynamic interaction between perceptual processing and motor responses, it provides valuable insights into how cognitive systems integrate information to facilitate efficient action.",
+    "image": "srcsetup.png"
+  }
+]
