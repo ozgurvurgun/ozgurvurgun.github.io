@@ -1,0 +1,32 @@
+<input id="myInput" />
+
+<script>
+  const input = document.getElementById("myInput");
+
+  // Reaktif state
+  const state = new Proxy({ name: "" }, {
+    set(target, key, value) {
+      // State güncelleniyor
+      target[key] = value;
+
+      // Eğer 'name' değiştiyse input alanını güncelle
+      if (key === "name" && input.value !== value) {
+        input.value = value;
+      }
+
+      return true;
+    }
+  });
+
+  // Input değişince state.name güncellensin
+  input.addEventListener("input", (e) => {
+    if (state.name !== e.target.value) {
+      state.name = e.target.value;
+    }
+  });
+
+  // İlk değer
+  state.name = "Merhaba dünya!";
+</script>
+
+
