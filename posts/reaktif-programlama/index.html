@@ -37,7 +37,7 @@ Ama anasını satayım onu kullanmak da zor.
 En sonunda “en temizi Unity kullanayım, deli gibi abstraction olsun, ben sadece işimi gerçeklemeye bakayım” dersin.</p></blockquote><p>Yani araçlar işini kolaylaştırır ama onların da öğrenme eğrisi, kuralları ve mimarisi vardır.</p><h2 id=aynı-mantığın-react-versiyonu>Aynı Mantığın React Versiyonu</h2><p>Aşağıda, yukarıdaki reaktif yaklaşımın birebir React kodunu veriyorum:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-jsx data-lang=jsx><span style=display:flex><span><span style=color:#66d9ef>import</span> { <span style=color:#a6e22e>useState</span> } <span style=color:#a6e22e>from</span> <span style=color:#e6db74>&#34;react&#34;</span>;
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span><span style=color:#66d9ef>function</span> <span style=color:#a6e22e>App</span>() {
-</span></span><span style=display:flex><span>  <span style=color:#66d9ef>const</span> [<span style=color:#a6e22e>name</span>, <span style=color:#a6e22e>setName</span>] <span style=color:#f92672>=</span> <span style=color:#a6e22e>useState</span>(<span style=color:#e6db74>&#34;Merhaba dünya!&#34;</span>);
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>const</span> [<span style=color:#a6e22e>name</span>, <span style=color:#a6e22e>setName</span>] <span style=color:#f92672>=</span> <span style=color:#a6e22e>useState</span>(<span style=color:#e6db74>&#34;hello world&#34;</span>);
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>  <span style=color:#66d9ef>return</span> (
 </span></span><span style=display:flex><span>    &lt;<span style=color:#f92672>div</span>&gt;
@@ -51,9 +51,7 @@ En sonunda “en temizi Unity kullanayım, deli gibi abstraction olsun, ben sade
 </span></span><span style=display:flex><span>}
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span><span style=color:#66d9ef>export</span> <span style=color:#66d9ef>default</span> <span style=color:#a6e22e>App</span>;
-</span></span></code></pre></div><p>Nasıl ama? Mis gibi okunaklı ve anlaması çok kolay değil mi?</p><h2 id=son>Son</h2><p>Günün sonunda reaktif programlama paradigması oldukça basittir:
-Bazı kaynaklarda veri değişimleri olur, biz de bu değişimlere tepki veririz. Bu kadar.
-Ama sistemi büyütüp karmaşıklaştırdıkça bu tepki sistemini sağlıklı ve sürdürülebilir şekilde yönetmek istersen, işte orada RxJS gibi kütüphaneler, Vue, React gibi framework’ler devreye girer.</p></section><div class=post-tags></div></div></div></article></main><footer><div style=display:flex><a class=soc href=https://github.com/ozgurvurgun rel=me title=GitHub><i data-feather=github></i></a>
+</span></span></code></pre></div><p>Nasıl ama? Mis gibi okunaklı ve anlaması çok kolay değil mi?</p><h2 id=son>Son</h2><p>Günün sonunda reaktif programlama paradigması oldukça basittir: Bazı kaynaklarda veri değişimleri olur, biz de bu değişimlere tepki veririz. Bu kadar. Ama sistemi büyütüp karmaşıklaştırdıkça bu tepki sistemini sağlıklı ve sürdürülebilir şekilde yönetmek istersen, işte orada RxJS gibi kütüphaneler, Vue, React gibi framework’ler devreye girer.</p></section><div class=post-tags></div></div></div></article></main><footer><div style=display:flex><a class=soc href=https://github.com/ozgurvurgun rel=me title=GitHub><i data-feather=github></i></a>
 <a class=border></a><a class=soc href=https://linkedin.com/in/ozgurvurgun1 rel=me title=Linkedin><i data-feather=linkedin></i></a>
 <a class=border></a><a class=soc href=http://emre.xyz/me.vcf rel=me title=VCF><i data-feather=phone></i></a>
 <a class=border></a><a class=soc href=http://emre.xyz/resume.pdf rel=me title=Resume><i data-feather=file-text></i></a>
