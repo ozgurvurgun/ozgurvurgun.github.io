@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Şifreli İçerik Oluştur</title>
+    <script src="https://cdn.jsdelivr.net/npm/crypto-js@4.1.1/crypto-js.min.js"></script>
+    <style>
+      body {
+        font-family: sans-serif;
+        padding: 2rem;
+        max-width: 700px;
+        margin: auto;
+      }
+      textarea, input, #output {
+        width: 100%;
+        margin-bottom: 1rem;
+        padding: 0.5rem;
+        font-size: 1rem;
+        min-height: 20px;
+      }
+      div {
+        background: #f0f0f0;
+        padding: 1rem;
+        word-break: break-word;
+      }
+      label{
+        margin-bottom: 10px;
+        display: inline-block
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Hugo Private Post</h2>
+
+    <label>post:</label>
+    <textarea id="content" rows="6" placeholder="private content..."></textarea>
+
+    <label>key:</label>
+    <input id="password" type="text" placeholder="örnek: 123456" />
+
+    <label>encrypted output:</label>
+    <div id="output"></div>
+
+    <script>
+      const contentInput = document.getElementById("content");
+      const passwordInput = document.getElementById("password");
+      const output = document.getElementById("output");
+
+      function updateEncrypted() {
+        const content = contentInput.value;
+        const password = passwordInput.value;
+
+        if (!content || !password) {
+          output.textContent = "lütfen hem içerik hem de şifre girin.";
+          return;
+        }
+
+        try {
+          const encrypted = CryptoJS.AES.encrypt(content, password).toString();
+          output.textContent = encrypted;
+        } catch (e) {
+          output.textContent = "şifreleme başarısız.";
+        }
+      }
+
+      contentInput.addEventListener("input", updateEncrypted);
+      passwordInput.addEventListener("input", updateEncrypted);
+    </script>
+  </body>
+</html>
+
+

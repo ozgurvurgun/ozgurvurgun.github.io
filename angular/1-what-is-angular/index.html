@@ -11,4 +11,5 @@ Ne yapman gerektiğini değil, nasıl yapman gerektiğini söyler. Bir yapı ve 
 <a class=border></a><a class=soc href=https://linkedin.com/in/ozgurvurgun1 rel=me title=Linkedin><i data-feather=linkedin></i></a>
 <a class=border></a><a class=soc href=http://emre.xyz/me.vcf rel=me title=VCF><i data-feather=phone></i></a>
 <a class=border></a><a class=soc href=http://emre.xyz/resume.pdf rel=me title=Resume><i data-feather=file-text></i></a>
-<a class=border></a></div><div class=footer-info>2025 ozgurvurgun</div></footer><script>feather.replace()</script></div></body></html>
+<a class=border></a></div><div class=footer-info>2025 ozgurvurgun</div></footer><script>feather.replace()</script><script src=https://cdn.jsdelivr.net/npm/crypto-js@4.1.1/crypto-js.min.js></script>
+<script>const keyInput=document.getElementById("key"),contentEl=document.getElementById("content"),encryptedText=contentEl.textContent.trim();keyInput.addEventListener("input",()=>{const e=keyInput.value.trim();if(!e){contentEl.textContent=encryptedText;return}try{const n=CryptoJS.AES.decrypt(encryptedText,e),t=n.toString(CryptoJS.enc.Utf8);if(!t)throw new Error("Çözülemedi");contentEl.textContent=t}catch{contentEl.textContent=encryptedText}})</script></div></body></html>
