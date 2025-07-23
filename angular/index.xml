@@ -8,4 +8,8 @@ Bir noktada bu davranışların soyutlanması icap ediyor. Yani sadece ne görec
 Bu meta programlama dediğimiz yaklaşımın ilk adımıdır:
 &amp;ldquo;Kodu kodla şekillendirme işi&amp;rdquo;</description></item><item><title>Service</title><link>https://ozgurvurgun.github.io/angular/5-service/</link><pubDate>Thu, 17 Jul 2025 00:00:00 +0000</pubDate><guid>https://ozgurvurgun.github.io/angular/5-service/</guid><description>Angular Service Nedir? Angular Service dediğimiz şey, uygulamada ortaklaşa kullanılan işleri ve verileri tek bir yerde toplayan TypeScript sınıflarıdır. Misal:
 API&amp;rsquo;den veri çekmek Bileşenler arasında veri paylaşmak Ortak bir hesaplama, filtreleme, validasyon işlemini yapmak gibi işler için service yazarsın. Böylece aynı kodu her component’te yeniden yazmazsın.
-Ne Diye Service Denen Zımbırtıları Kullanıyoruz? Bir örnek: Hem AComponent hem BComponent aynı veriyi kullanmak istiyor. Gidip her birine ayrı ayrı veri koyarsan kopukluk olur.</description></item></channel></rss>
+Ne Diye Service Denen Zımbırtıları Kullanıyoruz? Bir örnek: Hem AComponent hem BComponent aynı veriyi kullanmak istiyor. Gidip her birine ayrı ayrı veri koyarsan kopukluk olur.</description></item><item><title>Pipe</title><link>https://ozgurvurgun.github.io/angular/6-pipe/</link><pubDate>Thu, 17 Jul 2025 00:00:00 +0000</pubDate><guid>https://ozgurvurgun.github.io/angular/6-pipe/</guid><description>Pİie Nedir? Neden Vardır? Şöyle düşün: Bir değerin ham hali ile gösterilecek hali genellikle aynı değildir.
+Tarih formatı farklı gösterilsin istersin. Sayının sonuna TL, $ gibi birim gelsin istersin. Tüm harfleri büyük/küçük yapmak istersin. listeyi filtrelemek, slice etmek istersin. Bunların hepsini component içinde yapmak mümkün. Ama zamanla kod şişer, tekrar eder, okunmaz hale gelir.
+Angular burada şöyle der:
+Veri değişmeyecek. Sadece görüntüsü değişecekse, o zaman bunu HTML&amp;rsquo; de hallet.
+Bu yaklaşımın adı: Pipe</description></item></channel></rss>
