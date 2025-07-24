@@ -22,7 +22,12 @@ Veri değişmeyecek. Sadece görüntüsü değişecekse, o zaman bunu HTML&rsquo
 Bu yaklaşımın adı: Pipe&mldr;</div><a class=readmore href=/angular/6-pipe/>Read more ⟶</a></section><section class=list-item><h1 class=title><a href=/angular/7-guard/>Guard</a></h1><time>Jul 23, 2025</time><br><div class=description>Guard Nedir? Neden Var? Şöyle düşün:
 Bir apartman giriş kapısı var ama herkese açık değil. Kapıda bir güvenlik görevlisi var ve sana sorular soruyor:
 Kimsin? Giriş iznin var mı? Bu kata çıkabilir misin? Bu daireye özel yetkin var mı? İşte bu Angular Gaurd tam olarak bu işi yapar. Uygulamanın rotaları arasında geçiş yapılırken kim geçebilir, kim geçemez sorularına cevap verir.
-Guard Ne İş Yapar? Angular&rsquo;daki Router sistemi sayesinde sayfalar arasında geziniriz (/login, /dashboard, /admin vs).&mldr;</div><a class=readmore href=/angular/7-guard/>Read more ⟶</a></section></main><footer><div style=display:flex><a class=soc href=https://github.com/ozgurvurgun rel=me title=GitHub><i data-feather=github></i></a>
+Guard Ne İş Yapar? Angular&rsquo;daki Router sistemi sayesinde sayfalar arasında geziniriz (/login, /dashboard, /admin vs).&mldr;</div><a class=readmore href=/angular/7-guard/>Read more ⟶</a></section><section class=list-item><h1 class=title><a href=/angular/8-componentler-arasi-veri-akisi/>Componentler Arası Veri Akışı</a></h1><time>Jul 23, 2025</time><br><div class=description>Angular&rsquo;da Bileşenler Konuşur mu? Bileşenlerinizi oluşturuyorsunuz:
+AppComponent NavbarComponent UserCardComponent TodoListComponent Ama bir sorun var: Bunlar yalnızca görüntü mü veriyor, yoska birbirleriyle konuşabiliyorlar mı? Cevap: Evet konuşabilirler. Ama sadece belirli yollarla.
+Angular&rsquo;ın Felsefesi: Tek Yönlü Veri Akışı Angular&rsquo;da veri akışı: Parent ➡️ Child
+Yani üst bileşen, alt bileşene veri gönderir. Tersini yapmak istersen, child bileşen sadece bir event fırlatabilir.
+&ldquo;Benim içimde bir şey oldu, haberin olsun&rdquo; der.
+Bu mekanizma için 2 araç kullanırız:&mldr;</div><a class=readmore href=/angular/8-componentler-arasi-veri-akisi/>Read more ⟶</a></section></main><footer><div style=display:flex><a class=soc href=https://github.com/ozgurvurgun rel=me title=GitHub><i data-feather=github></i></a>
 <a class=border></a><a class=soc href=https://linkedin.com/in/ozgurvurgun1 rel=me title=Linkedin><i data-feather=linkedin></i></a>
 <a class=border></a><a class=soc href=http://emre.xyz/me.vcf rel=me title=VCF><i data-feather=phone></i></a>
 <a class=border></a><a class=soc href=http://emre.xyz/resume.pdf rel=me title=Resume><i data-feather=file-text></i></a>

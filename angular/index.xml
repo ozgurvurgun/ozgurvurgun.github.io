@@ -15,4 +15,9 @@ Veri değişmeyecek. Sadece görüntüsü değişecekse, o zaman bunu HTML&amp;r
 Bu yaklaşımın adı: Pipe</description></item><item><title>Guard</title><link>https://ozgurvurgun.github.io/angular/7-guard/</link><pubDate>Wed, 23 Jul 2025 00:00:00 +0000</pubDate><guid>https://ozgurvurgun.github.io/angular/7-guard/</guid><description>Guard Nedir? Neden Var? Şöyle düşün:
 Bir apartman giriş kapısı var ama herkese açık değil. Kapıda bir güvenlik görevlisi var ve sana sorular soruyor:
 Kimsin? Giriş iznin var mı? Bu kata çıkabilir misin? Bu daireye özel yetkin var mı? İşte bu Angular Gaurd tam olarak bu işi yapar. Uygulamanın rotaları arasında geçiş yapılırken kim geçebilir, kim geçemez sorularına cevap verir.
-Guard Ne İş Yapar? Angular&amp;rsquo;daki Router sistemi sayesinde sayfalar arasında geziniriz (/login, /dashboard, /admin vs).</description></item></channel></rss>
+Guard Ne İş Yapar? Angular&amp;rsquo;daki Router sistemi sayesinde sayfalar arasında geziniriz (/login, /dashboard, /admin vs).</description></item><item><title>Componentler Arası Veri Akışı</title><link>https://ozgurvurgun.github.io/angular/8-componentler-arasi-veri-akisi/</link><pubDate>Wed, 23 Jul 2025 00:00:00 +0000</pubDate><guid>https://ozgurvurgun.github.io/angular/8-componentler-arasi-veri-akisi/</guid><description>Angular&amp;rsquo;da Bileşenler Konuşur mu? Bileşenlerinizi oluşturuyorsunuz:
+AppComponent NavbarComponent UserCardComponent TodoListComponent Ama bir sorun var: Bunlar yalnızca görüntü mü veriyor, yoska birbirleriyle konuşabiliyorlar mı? Cevap: Evet konuşabilirler. Ama sadece belirli yollarla.
+Angular&amp;rsquo;ın Felsefesi: Tek Yönlü Veri Akışı Angular&amp;rsquo;da veri akışı: Parent ➡️ Child
+Yani üst bileşen, alt bileşene veri gönderir. Tersini yapmak istersen, child bileşen sadece bir event fırlatabilir.
+&amp;ldquo;Benim içimde bir şey oldu, haberin olsun&amp;rdquo; der.
+Bu mekanizma için 2 araç kullanırız:</description></item></channel></rss>
