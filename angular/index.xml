@@ -20,4 +20,8 @@ AppComponent NavbarComponent UserCardComponent TodoListComponent Ama bir sorun v
 Angular&amp;rsquo;ın Felsefesi: Tek Yönlü Veri Akışı Angular&amp;rsquo;da veri akışı: Parent ➡️ Child
 Yani üst bileşen, alt bileşene veri gönderir. Tersini yapmak istersen, child bileşen sadece bir event fırlatabilir.
 &amp;ldquo;Benim içimde bir şey oldu, haberin olsun&amp;rdquo; der.
-Bu mekanizma için 2 araç kullanırız:</description></item></channel></rss>
+Bu mekanizma için 2 araç kullanırız:</description></item><item><title>Service Injection ve Dependency Injection (DI) felsefesi</title><link>https://ozgurvurgun.github.io/angular/9-service-injection-ve-dependency-injection-felsefesi/</link><pubDate>Wed, 23 Jul 2025 00:00:00 +0000</pubDate><guid>https://ozgurvurgun.github.io/angular/9-service-injection-ve-dependency-injection-felsefesi/</guid><description>Neden Kodu Parçalamak Yetmez? Diyelim ki bir bileşen, API&amp;rsquo;den veri çekiyor:
+export class UserComponent { constructor() { fetch(&amp;#39;https://api.example.com/users&amp;#39;) .then(res =&amp;gt; res.json()) .then(data =&amp;gt; this.users = data); } } Çalışıyor mu? Evet.
+Ama test edilebilir mi? Hayır. Başka yerde tekrar kullanılabilir mi? Hayır. API değişirse ne olacak? Her yeri mi değiştireceğiz? Evet. Yani: felaket. İşte bu yüzden yazılım mühendisi emmiler şöyle der:
+Bileşenler ihtiyaçlarını kendi üretmemeli, dışarıdan almalı.
+Dependency Injection Nedir? Dependency Injection, bir sınıfın ihtiyaç duyduğu şeyleri (servis, veri, yapı) kendi içinde üretmek yerine, dışarıdan alması prensibidir.</description></item></channel></rss>

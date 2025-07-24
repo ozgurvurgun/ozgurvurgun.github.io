@@ -27,7 +27,11 @@ AppComponent NavbarComponent UserCardComponent TodoListComponent Ama bir sorun v
 Angular&rsquo;ın Felsefesi: Tek Yönlü Veri Akışı Angular&rsquo;da veri akışı: Parent ➡️ Child
 Yani üst bileşen, alt bileşene veri gönderir. Tersini yapmak istersen, child bileşen sadece bir event fırlatabilir.
 &ldquo;Benim içimde bir şey oldu, haberin olsun&rdquo; der.
-Bu mekanizma için 2 araç kullanırız:&mldr;</div><a class=readmore href=/angular/8-componentler-arasi-veri-akisi/>Read more ⟶</a></section></main><footer><div style=display:flex><a class=soc href=https://github.com/ozgurvurgun rel=me title=GitHub><i data-feather=github></i></a>
+Bu mekanizma için 2 araç kullanırız:&mldr;</div><a class=readmore href=/angular/8-componentler-arasi-veri-akisi/>Read more ⟶</a></section><section class=list-item><h1 class=title><a href=/angular/9-service-injection-ve-dependency-injection-felsefesi/>Service Injection ve Dependency Injection (DI) felsefesi</a></h1><time>Jul 23, 2025</time><br><div class=description>Neden Kodu Parçalamak Yetmez? Diyelim ki bir bileşen, API&rsquo;den veri çekiyor:
+export class UserComponent { constructor() { fetch('https://api.example.com/users') .then(res => res.json()) .then(data => this.users = data); } } Çalışıyor mu? Evet.
+Ama test edilebilir mi? Hayır. Başka yerde tekrar kullanılabilir mi? Hayır. API değişirse ne olacak? Her yeri mi değiştireceğiz? Evet. Yani: felaket. İşte bu yüzden yazılım mühendisi emmiler şöyle der:
+Bileşenler ihtiyaçlarını kendi üretmemeli, dışarıdan almalı.
+Dependency Injection Nedir? Dependency Injection, bir sınıfın ihtiyaç duyduğu şeyleri (servis, veri, yapı) kendi içinde üretmek yerine, dışarıdan alması prensibidir.&mldr;</div><a class=readmore href=/angular/9-service-injection-ve-dependency-injection-felsefesi/>Read more ⟶</a></section></main><footer><div style=display:flex><a class=soc href=https://github.com/ozgurvurgun rel=me title=GitHub><i data-feather=github></i></a>
 <a class=border></a><a class=soc href=https://linkedin.com/in/ozgurvurgun1 rel=me title=Linkedin><i data-feather=linkedin></i></a>
 <a class=border></a><a class=soc href=http://emre.xyz/me.vcf rel=me title=VCF><i data-feather=phone></i></a>
 <a class=border></a><a class=soc href=http://emre.xyz/resume.pdf rel=me title=Resume><i data-feather=file-text></i></a>
