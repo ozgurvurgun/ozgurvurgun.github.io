@@ -29,4 +29,7 @@ Angular&amp;rsquo;da bu işi yapmak için HttpClient servisi kullanılır.
 Angular&amp;rsquo;da HTTP demek, HttpCLient demektir.
 HttpClient Nedir? Angular bize @angular/common/http paketiyle gelen HttpClient sınıfını sunar.
 Bununla şunları yapabilirsin:
-GET, POST, PUT, DELETE, gibi HTTP istekleri atmak Header, query param, body gibi seçenekler eklemek RxJS sayesinde asenkron istekleri yönetmek Interceptor&amp;rsquo; larla istek öncesi/sonrası işlemler eklemek Ama önce HttpClientModule&amp;rsquo; ü app module&amp;rsquo;e dahil etmelisin:</description></item></channel></rss>
+GET, POST, PUT, DELETE, gibi HTTP istekleri atmak Header, query param, body gibi seçenekler eklemek RxJS sayesinde asenkron istekleri yönetmek Interceptor&amp;rsquo; larla istek öncesi/sonrası işlemler eklemek Ama önce HttpClientModule&amp;rsquo; ü app module&amp;rsquo;e dahil etmelisin:</description></item><item><title>Angular Forms – Template vs Reactive</title><link>https://ozgurvurgun.github.io/angular/11-angular-forms-template-vs-reactive/</link><pubDate>Fri, 25 Jul 2025 00:00:00 +0000</pubDate><guid>https://ozgurvurgun.github.io/angular/11-angular-forms-template-vs-reactive/</guid><description>Giriş: Form Nedir? Sadece Input mu? Form = Kullanıcıdan veri almak. Ama sadece &amp;lt;input /&amp;gt; koymakla iş bitmez. İhtiyacın olan şey:
+Validasyon (giriş kontrolü) Veri toplama Dinamik alanlar (birden fazla e-posta vs.) Submit işlemi Temizleme, resetleme Form state takibi (dirty, touched, valid&amp;hellip;) İşte Angular burada iki yol sunar: Template-Driven ve Reactive Forms
+Angular’ın Bakışı: “Form bir bileşen değil, bir state’tir.” Bir input&amp;rsquo;a sadece veri bağlamazsın.
+Değeri ne? Değişti mi? Hata var mı?</description></item></channel></rss>
