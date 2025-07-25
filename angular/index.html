@@ -31,7 +31,12 @@ Bu mekanizma için 2 araç kullanırız:&mldr;</div><a class=readmore href=/angu
 export class UserComponent { constructor() { fetch('https://api.example.com/users') .then(res => res.json()) .then(data => this.users = data); } } Çalışıyor mu? Evet.
 Ama test edilebilir mi? Hayır. Başka yerde tekrar kullanılabilir mi? Hayır. API değişirse ne olacak? Her yeri mi değiştireceğiz? Evet. Yani: felaket. İşte bu yüzden yazılım mühendisi emmiler şöyle der:
 Bileşenler ihtiyaçlarını kendi üretmemeli, dışarıdan almalı.
-Dependency Injection Nedir? Dependency Injection, bir sınıfın ihtiyaç duyduğu şeyleri (servis, veri, yapı) kendi içinde üretmek yerine, dışarıdan alması prensibidir.&mldr;</div><a class=readmore href=/angular/9-service-injection-ve-dependency-injection-felsefesi/>Read more ⟶</a></section></main><footer><div style=display:flex><a class=soc href=https://github.com/ozgurvurgun rel=me title=GitHub><i data-feather=github></i></a>
+Dependency Injection Nedir? Dependency Injection, bir sınıfın ihtiyaç duyduğu şeyleri (servis, veri, yapı) kendi içinde üretmek yerine, dışarıdan alması prensibidir.&mldr;</div><a class=readmore href=/angular/9-service-injection-ve-dependency-injection-felsefesi/>Read more ⟶</a></section><section class=list-item><h1 class=title><a href=/angular/10-angularda-api-istekleri-ve-httpclient-kullanimi/>Angular’da API İstekleri ve HttpClient Kullanımı</a></h1><time>Jul 25, 2025</time><br><div class=description>Angular&rsquo;da API ile Konuşmak: HttpClient Bir frontend uygulaması coğu zaman tek başına bir frontend değildir. Backend ile konuşur, veri çeker, gönderir, günceller.
+Angular&rsquo;da bu işi yapmak için HttpClient servisi kullanılır.
+Angular&rsquo;da HTTP demek, HttpCLient demektir.
+HttpClient Nedir? Angular bize @angular/common/http paketiyle gelen HttpClient sınıfını sunar.
+Bununla şunları yapabilirsin:
+GET, POST, PUT, DELETE, gibi HTTP istekleri atmak Header, query param, body gibi seçenekler eklemek RxJS sayesinde asenkron istekleri yönetmek Interceptor&rsquo; larla istek öncesi/sonrası işlemler eklemek Ama önce HttpClientModule&rsquo; ü app module&rsquo;e dahil etmelisin:&mldr;</div><a class=readmore href=/angular/10-angularda-api-istekleri-ve-httpclient-kullanimi/>Read more ⟶</a></section></main><footer><div style=display:flex><a class=soc href=https://github.com/ozgurvurgun rel=me title=GitHub><i data-feather=github></i></a>
 <a class=border></a><a class=soc href=https://linkedin.com/in/ozgurvurgun1 rel=me title=Linkedin><i data-feather=linkedin></i></a>
 <a class=border></a><a class=soc href=http://emre.xyz/me.vcf rel=me title=VCF><i data-feather=phone></i></a>
 <a class=border></a><a class=soc href=http://emre.xyz/resume.pdf rel=me title=Resume><i data-feather=file-text></i></a>
