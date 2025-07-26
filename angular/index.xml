@@ -37,4 +37,8 @@ Bir şey değiştiğinde, başka bir şey otomatik değişsin istiyorum
 Bu fikir temel olarak reaklam panosuna benzer. Panoya fiyatı asarsın, her yerde o fiyat görünür. Ama panoya yeni fiyatı yazdığında tüm afişler otomatik güncellenir.
 Buna veri akışına tepki verme yani reaktif olma denir.
 RxJS Nedir? RxJS, &amp;ldquo;Reactive Extensions for JavaSript&amp;rdquo; anlamına gelir. Yani: &amp;ldquo;JavaScript&amp;rsquo;e reaktif yetenek ekleyelim&amp;rdquo; projesidir.
-Angular, fromdan HTTP&amp;rsquo;ye router&amp;rsquo;dan event&amp;rsquo;lere kadar her şeyi Observable sistemiyle yönetir.</description></item></channel></rss>
+Angular, fromdan HTTP&amp;rsquo;ye router&amp;rsquo;dan event&amp;rsquo;lere kadar her şeyi Observable sistemiyle yönetir.</description></item><item><title>Lazy Loading</title><link>https://ozgurvurgun.github.io/angular/13-lazy-loading/</link><pubDate>Wed, 23 Jul 2025 00:00:00 +0000</pubDate><guid>https://ozgurvurgun.github.io/angular/13-lazy-loading/</guid><description>Lazy Loading Nedir? Lazy Loading, Türkçesiyle tembel yükleme, uygulamamızdaki bazı modülleri ilk başta yüklememek, sadece ihtiyaç duyulduğunda (örn. bir route ziyaret edildiğinde) yüklemek demektir.
+Ana fikir:
+“Her şeyi başta yükleme, kullanıcı neye tıklarsa onu getir.”
+Neden Lazy Loading? Angular projeleri büyüdükçe, bundle (paket) boyutu artar. Bu neye yol açar?
+İlk yükleme süresi uzar Kullanıcı daha uygulamayı görmeden bile MB’larca veri iner Özellikle mobil kullanıcılar için felaket olabilir Lazy Loading buna çare olur:</description></item></channel></rss>
