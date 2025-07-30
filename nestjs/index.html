@@ -43,8 +43,17 @@ Ama NestJS bunun yerine decorator temelli bir yaklaşım sunar.
 Yani doğrudan req.body yerine @Body() kullanırsın.
 res.send() yerine doğrudan return yaparsın.
 Peki nasıl ve neden?
-🧱 @Req() ve @Res() Nedir? @Req(): HTTP isteğini temsil eden Request objesini verir. (Express tipindedir)
-@Get() handleRequest(@Req() req: Request) { console.log(req.headers['user-agent']); return 'Gelen istek işlendi'; } @Res(): Manuel olarak yanıt oluşturmak istediğinde kullanılır.&mldr;</div><a class=readmore href=/nestjs/8-nestjs-mimarisi-temel-kavramlar-6/>Read more ⟶</a></section></main><footer><div style=display:flex><a class=soc href=https://github.com/ozgurvurgun rel=me title=GitHub><i data-feather=github></i></a>
+@Req() ve @Res() Nedir? @Req(): HTTP isteğini temsil eden Request objesini verir. (Express tipindedir)
+@Get() handleRequest(@Req() req: Request) { console.log(req.headers['user-agent']); return 'Gelen istek işlendi'; } @Res(): Manuel olarak yanıt oluşturmak istediğinde kullanılır.&mldr;</div><a class=readmore href=/nestjs/8-nestjs-mimarisi-temel-kavramlar-6/>Read more ⟶</a></section><section class=list-item><h1 class=title><a href=/nestjs/9-nestjs-mimarisi-temel-kavramlar-7/>NestJS Mimarisi: Status Code Yönetimi (7. Bölüm)</a></h1><time>Jul 29, 2025</time><br><div class=description>HTTP Status Code Nedir? Neden Önemlidir? Bir API sadece veri döndürmez.
+Her cevabın bir anlamı olmalıdır. Bu anlamı taşıyan şey de status code&rsquo;tur.
+return { message: 'Başarılı!' }; Bu cevap 200 OK ile gelir mi? 201 Created mi? Yoksa 400 Bad Request mi? İşte bu çok kritik. Çünkü:
+Status code = İstemciye ne olduğunu anlatan işaret lambasıdır.
+NestJS’te Status Code Nasıl Yönetilir? En sade yol: @HttpCode() dekoratörüdür.
+@Post() @HttpCode(201) createUser() { return { message: 'Kullanıcı oluşturuldu' }; } Bu örnekte POST /users isteğine dönüş 201 Created olacaktır.&mldr;</div><a class=readmore href=/nestjs/9-nestjs-mimarisi-temel-kavramlar-7/>Read more ⟶</a></section><section class=list-item><h1 class=title><a href=/nestjs/10-nestjs-mimarisi-temel-kavramlar-8/>NestJS Mimarisi: Global Exception Handle (8. Bölüm)</a></h1><time>Jul 30, 2025</time><br><div class=description>Hata Fırlatmak Yetmez, Yakalamak da Gerekir Hatalar kaçınılmaz. Ama kontrolsüz hata = üretimde patlayan sistem = sinirli müşteri = uykusuz geliştirici.
+NestJS bu durumu çözmek için merkezî bir hata yakalama mekanizması sunar: Global Exception Filter
+Şimdiye Kadar Ne Yaptık? Şöyle kodlar yazdık:
+if (!userExists(id)) { throw new NotFoundException('Kullanıcı bulunamadı'); } Ve Nest bunu alıp güzelce 404 yanıtıyla döndü. Harika.
+Ama ya özel bir hata sınıfı yazmak istiyorsan? Ya da her hatayı { status, errorCode, message, timestamp } gibi özel bir formatta döndürmek istiyorsan?&mldr;</div><a class=readmore href=/nestjs/10-nestjs-mimarisi-temel-kavramlar-8/>Read more ⟶</a></section><ul class=pagination><span class="page-item page-prev"></span><span class="page-item page-next"><a href=/nestjs/page/2/ class=page-link aria-label=Next><span aria-hidden=true>Next →</span></a></span></ul></main><footer><div style=display:flex><a class=soc href=https://github.com/ozgurvurgun rel=me title=GitHub><i data-feather=github></i></a>
 <a class=border></a><a class=soc href=https://linkedin.com/in/ozgurvurgun1 rel=me title=Linkedin><i data-feather=linkedin></i></a>
 <a class=border></a><a class=soc href=http://emre.xyz/me.vcf rel=me title=VCF><i data-feather=phone></i></a>
 <a class=border></a><a class=soc href=http://emre.xyz/resume.pdf rel=me title=Resume><i data-feather=file-text></i></a>
