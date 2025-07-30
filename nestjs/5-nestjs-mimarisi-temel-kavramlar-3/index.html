@@ -1,0 +1,96 @@
+<!doctype html><html><head lang=en><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge"><title>@ozgurvurgun | NestJS Mimarisi: Dinamik Modüller ve Yapılandırma (3. Bölüm)</title><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="Dinamik Modül Nedir? Normal modüller sabittir. İçine neyi yazdıysan, sistem onu kullanır.
+Ama bazen bir modülün kurulum aşamasında parametre alması gerekir.
+Yani modülün davranışı dışarıdan gelen bir yapılandırmaya göre değişmelidir.
+İşte burada dinamik modül devreye girer.
+Gerçek Hayat Senaryosu Diyelim ki bir MailerModule yazıyorsun.
+Geliştirme ortamında log’a yazmasını, Gerçek ortamda ise SMTP sunucusuna mail atmasını istiyorsun. Yani modül şunu demeli:
+“Ben dışarıdan bana nasıl davranacağım söylensin istiyorum.”
+Nasıl Tanımlanır? Dinamik modül, static register() veya static registerAsync() metotlarıyla tanımlanır."><meta property="og:image" content><meta property="og:title" content="NestJS Mimarisi: Dinamik Modüller ve Yapılandırma (3. Bölüm)"><meta property="og:description" content="Dinamik Modül Nedir? Normal modüller sabittir. İçine neyi yazdıysan, sistem onu kullanır.
+Ama bazen bir modülün kurulum aşamasında parametre alması gerekir.
+Yani modülün davranışı dışarıdan gelen bir yapılandırmaya göre değişmelidir.
+İşte burada dinamik modül devreye girer.
+Gerçek Hayat Senaryosu Diyelim ki bir MailerModule yazıyorsun.
+Geliştirme ortamında log’a yazmasını, Gerçek ortamda ise SMTP sunucusuna mail atmasını istiyorsun. Yani modül şunu demeli:
+“Ben dışarıdan bana nasıl davranacağım söylensin istiyorum.”
+Nasıl Tanımlanır? Dinamik modül, static register() veya static registerAsync() metotlarıyla tanımlanır."><meta property="og:type" content="article"><meta property="og:url" content="https://ozgurvurgun.github.io/nestjs/5-nestjs-mimarisi-temel-kavramlar-3/"><meta property="article:section" content="nestJS"><meta property="article:published_time" content="2025-07-29T00:00:00+00:00"><meta property="article:modified_time" content="2025-07-29T00:00:00+00:00"><meta name=twitter:card content="summary"><meta name=twitter:title content="NestJS Mimarisi: Dinamik Modüller ve Yapılandırma (3. Bölüm)"><meta name=twitter:description content="Dinamik Modül Nedir? Normal modüller sabittir. İçine neyi yazdıysan, sistem onu kullanır.
+Ama bazen bir modülün kurulum aşamasında parametre alması gerekir.
+Yani modülün davranışı dışarıdan gelen bir yapılandırmaya göre değişmelidir.
+İşte burada dinamik modül devreye girer.
+Gerçek Hayat Senaryosu Diyelim ki bir MailerModule yazıyorsun.
+Geliştirme ortamında log’a yazmasını, Gerçek ortamda ise SMTP sunucusuna mail atmasını istiyorsun. Yani modül şunu demeli:
+“Ben dışarıdan bana nasıl davranacağım söylensin istiyorum.”
+Nasıl Tanımlanır? Dinamik modül, static register() veya static registerAsync() metotlarıyla tanımlanır."><script src=https://ozgurvurgun.github.io/js/feather.min.js></script>
+<link href=https://ozgurvurgun.github.io/css/fonts.2c2227b81b1970a03e760aa2e6121cd01f87c88586803cbb282aa224720a765f.css rel=stylesheet><link rel=stylesheet type=text/css media=screen href=https://ozgurvurgun.github.io/css/main.6a0f23ea50fd34b46fee262a5a68e17d458c51a2bc99ba1ba018065de6b180c3.css><link id=darkModeStyle rel=stylesheet type=text/css href=https://ozgurvurgun.github.io/css/dark.50b57e12d401420df23965fed157368aba37b76df0ecefd0b1ecd4da664f01a0.css media="(prefers-color-scheme: dark)"><style>input[type=text],input[type=password]{font-size:16px!important;touch-action:manipulation}</style></head><body><div class=content><header><div class=main><a href=https://ozgurvurgun.github.io/>@ozgurvurgun</a></div><nav><a href=/>main</a>
+<a href=/shorts>shorts</a>
+<a href=/projects>projects</a>
+<a href=/angular>angular</a>
+<a href=/nestjs>nestJS</a>
+<a href=/links>links</a>
+<a href=/about>me</a></nav></header><main><article><div class=post-container><div class=post-content><div class=title><h1 class=title>NestJS Mimarisi: Dinamik Modüller ve Yapılandırma (3. Bölüm)</h1><div class=meta>Posted on Jul 29, 2025</div></div><section class=body><h2 id=dinamik-modül-nedir>Dinamik Modül Nedir?</h2><p>Normal modüller sabittir. İçine neyi yazdıysan, sistem onu kullanır.</p><p>Ama bazen bir modülün kurulum aşamasında parametre alması gerekir.<br>Yani modülün davranışı dışarıdan gelen bir yapılandırmaya göre değişmelidir.</p><p>İşte burada <strong>dinamik modül</strong> devreye girer.</p><h2 id=gerçek-hayat-senaryosu>Gerçek Hayat Senaryosu</h2><p>Diyelim ki bir <code>MailerModule</code> yazıyorsun.</p><ul><li>Geliştirme ortamında log’a yazmasını,</li><li>Gerçek ortamda ise SMTP sunucusuna mail atmasını istiyorsun.</li></ul><p>Yani modül şunu demeli:</p><blockquote><p>“Ben dışarıdan bana nasıl davranacağım söylensin istiyorum.”</p></blockquote><h2 id=nasıl-tanımlanır>Nasıl Tanımlanır?</h2><p>Dinamik modül, <code>static register()</code> veya <code>static registerAsync()</code> metotlarıyla tanımlanır. Ve dönüş olarak bir <code>DynamicModule</code> objesi verir.</p><h2 id=basit-register-örneği>Basit <code>register()</code> Örneği:</h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-ts data-lang=ts><span style=display:flex><span><span style=color:#75715e>// mailer.module.ts
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>@Module</span>({})
+</span></span><span style=display:flex><span><span style=color:#66d9ef>export</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>MailerModule</span> {
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>static</span> <span style=color:#a6e22e>register</span>(<span style=color:#a6e22e>config</span>: <span style=color:#66d9ef>MailerConfig</span>)<span style=color:#f92672>:</span> <span style=color:#a6e22e>DynamicModule</span> {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> {
+</span></span><span style=display:flex><span>      <span style=color:#a6e22e>module</span>: <span style=color:#66d9ef>MailerModule</span>,
+</span></span><span style=display:flex><span>      <span style=color:#a6e22e>providers</span><span style=color:#f92672>:</span> [
+</span></span><span style=display:flex><span>        {
+</span></span><span style=display:flex><span>          <span style=color:#a6e22e>provide</span><span style=color:#f92672>:</span> <span style=color:#e6db74>&#39;MAILER_CONFIG&#39;</span>,
+</span></span><span style=display:flex><span>          <span style=color:#a6e22e>useValue</span>: <span style=color:#66d9ef>config</span>,
+</span></span><span style=display:flex><span>        },
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>MailerService</span>,
+</span></span><span style=display:flex><span>      ],
+</span></span><span style=display:flex><span>      <span style=color:#a6e22e>exports</span><span style=color:#f92672>:</span> [<span style=color:#a6e22e>MailerService</span>],
+</span></span><span style=display:flex><span>    };
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p>Kullanımı:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-ts data-lang=ts><span style=display:flex><span><span style=color:#75715e>// app.module.ts
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>@Module</span>({
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>imports</span><span style=color:#f92672>:</span> [
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>MailerModule</span>.<span style=color:#a6e22e>register</span>({
+</span></span><span style=display:flex><span>      <span style=color:#a6e22e>host</span><span style=color:#f92672>:</span> <span style=color:#e6db74>&#39;smtp.mailtrap.io&#39;</span>,
+</span></span><span style=display:flex><span>      <span style=color:#a6e22e>port</span>: <span style=color:#66d9ef>587</span>,
+</span></span><span style=display:flex><span>      <span style=color:#a6e22e>secure</span>: <span style=color:#66d9ef>false</span>,
+</span></span><span style=display:flex><span>    }),
+</span></span><span style=display:flex><span>  ],
+</span></span><span style=display:flex><span>})
+</span></span><span style=display:flex><span><span style=color:#66d9ef>export</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>AppModule</span> {}
+</span></span></code></pre></div><h2 id=registerasync-neden-var>registerAsync() Neden Var?</h2><p>Bazen yapılandırma bilgisi async olarak gelir.</p><p>Örneğin:</p><ul><li>Yapılandırmayı bir veritabanından çekiyorsundur</li><li><code>ConfigService</code> gibi başka bir servise bağımlıdır</li></ul><p>İşte bu durumda <code>registerAsync()</code> devreye girer.</p><p><code>registerAsync()</code> Örneği:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-ts data-lang=ts><span style=display:flex><span><span style=color:#75715e>// mailer.module.ts
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>@Module</span>({})
+</span></span><span style=display:flex><span><span style=color:#66d9ef>export</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>MailerModule</span> {
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>static</span> <span style=color:#a6e22e>registerAsync</span>()<span style=color:#f92672>:</span> <span style=color:#a6e22e>DynamicModule</span> {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> {
+</span></span><span style=display:flex><span>      <span style=color:#a6e22e>module</span>: <span style=color:#66d9ef>MailerModule</span>,
+</span></span><span style=display:flex><span>      <span style=color:#a6e22e>imports</span><span style=color:#f92672>:</span> [<span style=color:#a6e22e>ConfigModule</span>],
+</span></span><span style=display:flex><span>      <span style=color:#a6e22e>providers</span><span style=color:#f92672>:</span> [
+</span></span><span style=display:flex><span>        {
+</span></span><span style=display:flex><span>          <span style=color:#a6e22e>provide</span><span style=color:#f92672>:</span> <span style=color:#e6db74>&#39;MAILER_CONFIG&#39;</span>,
+</span></span><span style=display:flex><span>          <span style=color:#a6e22e>useFactory</span>: <span style=color:#66d9ef>async</span> (<span style=color:#a6e22e>configService</span>: <span style=color:#66d9ef>ConfigService</span>) <span style=color:#f92672>=&gt;</span> {
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>return</span> {
+</span></span><span style=display:flex><span>              <span style=color:#a6e22e>host</span>: <span style=color:#66d9ef>configService.get</span>(<span style=color:#e6db74>&#39;MAIL_HOST&#39;</span>),
+</span></span><span style=display:flex><span>              <span style=color:#a6e22e>port</span>: <span style=color:#66d9ef>configService.get</span>(<span style=color:#e6db74>&#39;MAIL_PORT&#39;</span>),
+</span></span><span style=display:flex><span>              <span style=color:#a6e22e>secure</span>: <span style=color:#66d9ef>configService.get</span>(<span style=color:#e6db74>&#39;MAIL_SECURE&#39;</span>),
+</span></span><span style=display:flex><span>            };
+</span></span><span style=display:flex><span>          },
+</span></span><span style=display:flex><span>          <span style=color:#a6e22e>inject</span><span style=color:#f92672>:</span> [<span style=color:#a6e22e>ConfigService</span>],
+</span></span><span style=display:flex><span>        },
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>MailerService</span>,
+</span></span><span style=display:flex><span>      ],
+</span></span><span style=display:flex><span>      <span style=color:#a6e22e>exports</span><span style=color:#f92672>:</span> [<span style=color:#a6e22e>MailerService</span>],
+</span></span><span style=display:flex><span>    };
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h2 id=analoji>Analoji</h2><p>Bunu bir kahve makinesi gibi düşün:</p><ul><li><code>register()</code> -> “şekerli mi şekersiz mi” bilgisini direkt söylersin.</li><li><code>registerAsync()</code> -> “şeker miktarını başka bir sistemden alacağım” dersin.</li></ul><p>Her iki durumda da makine farklı davranır. İşte dinamik modül de bu.</p><h2 id=nestjste-bu-nerede-kullanılıyor>NestJS’te Bu Nerede Kullanılıyor?</h2><p>Bazı örnekler:</p><table><thead><tr><th>Modül</th><th>register kullanımı</th></tr></thead><tbody><tr><td><code>ConfigModule</code></td><td><code>ConfigModule.forRoot()</code></td></tr><tr><td><code>JwtModule</code></td><td><code>JwtModule.register()</code></td></tr><tr><td><code>TypeOrmModule</code></td><td><code>TypeOrmModule.forRoot()</code></td></tr><tr><td><code>MongooseModule</code></td><td><code>MongooseModule.forRoot()</code></td></tr></tbody></table><p>Hepsi aslında dinamik modüldür.</p><h2 id=eksikkarmaşık-yönler>Eksik/Karmaşık Yönler</h2><ul><li>Kendi dinamik modülünü yazmak ilk başta kafa karıştırabilir</li><li>Type güvenliği zayıfsa (provide isimleri vs) refactor zorlaşır</li><li>registerAsync içindeki useFactory&rsquo;ler dependency&rsquo;lere bağlıysa dikkatli yönetilmelidir</li><li>NestJS’in official dökümantasyonunda detaylar dağınık verildiği için deneme-yanılma gerekebilir</li></ul><blockquote><p>Bu yüzden bu yazıyı sadece okumak değil, birebir denemek çok önemli.</p></blockquote><h2 id=bonus-dynamicmodule-nedir>Bonus: DynamicModule Nedir?</h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-ts data-lang=ts><span style=display:flex><span><span style=color:#66d9ef>export</span> <span style=color:#66d9ef>interface</span> <span style=color:#a6e22e>DynamicModule</span> {
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>module</span>: <span style=color:#66d9ef>Type</span>&lt;<span style=color:#f92672>any</span>&gt;;
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>imports?</span>: <span style=color:#66d9ef>any</span>[];
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>controllers?</span>: <span style=color:#66d9ef>Type</span>&lt;<span style=color:#f92672>any</span>&gt;[];
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>providers?</span>: <span style=color:#66d9ef>Provider</span>[];
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>exports?</span>: <span style=color:#66d9ef>any</span>[];
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>global</span><span style=color:#f92672>?:</span> <span style=color:#66d9ef>boolean</span>;
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p>Aslında @Module() içine yazdığın şeylerin aynısını döndürüyorsun.
+Sadece bunu runtime&rsquo;da inşa etme yetkisini kendin alıyorsun.</p><h2 id=özetle>Özetle</h2><ul><li>Dinamik modül, esnek ve yapılandırılabilir bir modüldür</li><li>register() -> sabit yapılandırmalar</li><li>registerAsync() -> async yapılandırmalar</li><li>Modül içindeki sağlayıcılar DynamicModule üzerinden oluşturulur</li><li>NestJS’in birçok core modülü zaten bu sistemi kullanır</li></ul></section><div class=post-tags></div></div></div></article></main><footer><div style=display:flex><a class=soc href=https://github.com/ozgurvurgun rel=me title=GitHub><i data-feather=github></i></a>
+<a class=border></a><a class=soc href=https://linkedin.com/in/ozgurvurgun1 rel=me title=Linkedin><i data-feather=linkedin></i></a>
+<a class=border></a><a class=soc href=http://emre.xyz/me.vcf rel=me title=VCF><i data-feather=phone></i></a>
+<a class=border></a><a class=soc href=http://emre.xyz/resume.pdf rel=me title=Resume><i data-feather=file-text></i></a>
+<a class=border></a></div><div class=footer-info>2025 ozgurvurgun</div></footer><script>feather.replace()</script><script src=https://cdn.jsdelivr.net/npm/crypto-js@4.1.1/crypto-js.min.js></script>
+<script>const keyInput=document.getElementById("key"),contentEl=document.getElementById("content"),encryptedText=contentEl.textContent.trim();keyInput.addEventListener("input",()=>{const e=keyInput.value.trim();if(!e){contentEl.textContent=encryptedText;return}try{const n=CryptoJS.AES.decrypt(encryptedText,e),t=n.toString(CryptoJS.enc.Utf8);if(!t)throw new Error("Çözülemedi");contentEl.textContent=t}catch{contentEl.textContent=encryptedText}})</script></div></body></html>

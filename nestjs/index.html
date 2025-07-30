@@ -5,7 +5,46 @@
 <a href=/angular>angular</a>
 <a href=/nestjs>nestJS</a>
 <a href=/links>links</a>
-<a href=/about>me</a></nav></header><main class=list><div class=site-description></div><section class=list-item><h1 class=title><a href=/nestjs/1-what-is-nestjs/>What is NestJS</a></h1><time>Jul 22, 2025</time><br><div class=description>DKFKEJKFEJK LKFELK FKL&mldr;</div><a class=readmore href=/nestjs/1-what-is-nestjs/>Read more ⟶</a></section></main><footer><div style=display:flex><a class=soc href=https://github.com/ozgurvurgun rel=me title=GitHub><i data-feather=github></i></a>
+<a href=/about>me</a></nav></header><main class=list><div class=site-description></div><section class=list-item><h1 class=title><a href=/nestjs/1-what-is-nestjs/>Giriş Temel Bİlgiler</a></h1><time>Jul 29, 2025</time><br><div class=description>NestJS&rsquo;e Giriş: Neden Yeni Bir Şeye Daha İhtiyacımız Var? Node.js harika. JavaScript&rsquo;in gücünü sunucu tarafına taşıdı, “Aynı dili hem frontend&rsquo;de hem backend&rsquo;de kullanma” rüyasını gerçeğe dönüştürdü. Ama ne zaman ki işler büyüdü, bu özgürlük başımıza bela olmaya başladı. Çünkü:
+Herkes her şeyi her yerde yapabiliyordu. Proje büyüdükçe dosyalar çöplüğe dönebiliyordu. Kod tekrarları, karışık business logic, zor test edilebilir yapılar ortaya çıkıyordu. İşte NestJS burada sahneye çıkıyor.
+NestJS Nedir? NestJS, TypeScript ile yazılmış, modüler bir backend framework&rsquo;üdür.&mldr;</div><a class=readmore href=/nestjs/1-what-is-nestjs/>Read more ⟶</a></section><section class=list-item><h1 class=title><a href=/nestjs/2-ilk-nestjs-uygulamasi/>İlk NestJS Uygulaması</a></h1><time>Jul 29, 2025</time><br><div class=description>NestJS Projesine İlk Adım Artık teoriyi kenara bırakıp işe girişme zamanı. Bu yazıda, sıfırdan bir NestJS projesi oluşturup çalıştıracağız. “Hello World” endpoint’imizi yazacak, klasörleri tanıyacak, ve uygulamanın yaşam döngüsünü anlayacağız.
+Amaç: NestJS&rsquo;e dair temel taşları yerine oturtmak. Ezberlemeden, sindirerek ilerlemek.
+1. NestJS CLI ile Proje Oluşturma NestJS, Angular&rsquo;dan esinlenmiş bir yapı sunduğu için, benzer şekilde bir CLI (Command Line Interface) aracı sunar.
+Kurulum:
+npm i -g @nestjs/cli Yeni proje oluştur:&mldr;</div><a class=readmore href=/nestjs/2-ilk-nestjs-uygulamasi/>Read more ⟶</a></section><section class=list-item><h1 class=title><a href=/nestjs/3-nestjs-mimarisi-temel-kavramlar-1/>NestJS Mimarisi: Modüller ve Temel Kavramlar (1. Bölüm)</a></h1><time>Jul 29, 2025</time><br><div class=description>Neden Modül? Küçük projelerde her şeyi tek dosyada yazmak kolaydır. Ama işler büyüyünce işler sarpa sarar. Kod karmaşıklaşır, neyin nerede olduğunu bulmak zorlaşır. İşte burada modüller devreye girer.
+NestJS, Angular&rsquo;dan aldığı ilhamla “her şey bir modülün içinde” prensibiyle çalışır.
+Bir modül, belirli bir işlevi yerine getiren yapıları gruplar: controller&rsquo;lar, service&rsquo;ler, provider&rsquo;lar&mldr;
+1. Modül Nedir? NestJS’te her yapı bir modülün içinde yaşar.
+Modül; bağımsız, izole, bir iş parçasını temsil eden bir yapıdır.&mldr;</div><a class=readmore href=/nestjs/3-nestjs-mimarisi-temel-kavramlar-1/>Read more ⟶</a></section><section class=list-item><h1 class=title><a href=/nestjs/4-nestjs-mimarisi-temel-kavramlar-2/>NestJS Mimarisi: Modüller Arası İletişim (2. Bölüm)</a></h1><time>Jul 29, 2025</time><br><div class=description>Modüller Arası İletişim Neden Önemlidir? Modülleri ayırdık ama gerçek hayatta işler böyle izole ilerlemez.
+Örneğin:
+Kullanıcı kaydı yapılınca log&rsquo;a bir şey yazmak isteyebilirsin. Bir ödeme alınınca stok sistemini bilgilendirmek isteyebilirsin. Yani modüllerin birbiriyle konuşması gerekir.
+NestJS bunu imports, exports ve dependency injection sistemleriyle sağlar.
+Temel Kurgu: Service Kullanmak Senaryomuz şu:
+UserService adında bir servisimiz var (UserModule içinde) AuthModule bu servisi kullanmak istiyor (örneğin kullanıcıyı veritabanında sorgulamak için) Şöyle bir şey yapmak istiyoruz:&mldr;</div><a class=readmore href=/nestjs/4-nestjs-mimarisi-temel-kavramlar-2/>Read more ⟶</a></section><section class=list-item><h1 class=title><a href=/nestjs/5-nestjs-mimarisi-temel-kavramlar-3/>NestJS Mimarisi: Dinamik Modüller ve Yapılandırma (3. Bölüm)</a></h1><time>Jul 29, 2025</time><br><div class=description>Dinamik Modül Nedir? Normal modüller sabittir. İçine neyi yazdıysan, sistem onu kullanır.
+Ama bazen bir modülün kurulum aşamasında parametre alması gerekir.
+Yani modülün davranışı dışarıdan gelen bir yapılandırmaya göre değişmelidir.
+İşte burada dinamik modül devreye girer.
+Gerçek Hayat Senaryosu Diyelim ki bir MailerModule yazıyorsun.
+Geliştirme ortamında log’a yazmasını, Gerçek ortamda ise SMTP sunucusuna mail atmasını istiyorsun. Yani modül şunu demeli:
+“Ben dışarıdan bana nasıl davranacağım söylensin istiyorum.”
+Nasıl Tanımlanır? Dinamik modül, static register() veya static registerAsync() metotlarıyla tanımlanır.&mldr;</div><a class=readmore href=/nestjs/5-nestjs-mimarisi-temel-kavramlar-3/>Read more ⟶</a></section><section class=list-item><h1 class=title><a href=/nestjs/6-nestjs-mimarisi-temel-kavramlar-4/>NestJS Mimarisi: Global Modüller ve Kullanım Senaryoları (4. Bölüm)</a></h1><time>Jul 29, 2025</time><br><div class=description>Global Modül Nedir? NestJS&rsquo;te bir modül normalde sadece import edildiği yerde kullanılır.
+Yani UserModule içinde tanımlı bir UserService, sadece onu import eden modüller tarafından erişilebilir.
+Ama bazı modüller vardır ki:
+“Beni her yerden erişilebilir yap” demek ister.
+İşte bu tür modüller için global modül kavramı vardır.
+Nasıl Tanımlanır? Bir modülü global yapmak için @Global() dekoratörünü kullanırız.
+// logger.module.ts @Global() @Module({ providers: [LoggerService], exports: [LoggerService], }) export class LoggerModule {} Artık bu modülü AppModule&lsquo;de bir kez import etmek yeterlidir:&mldr;</div><a class=readmore href=/nestjs/6-nestjs-mimarisi-temel-kavramlar-4/>Read more ⟶</a></section><section class=list-item><h1 class=title><a href=/nestjs/7-nestjs-mimarisi-temel-kavramlar-5/>NestJS Mimarisi: Controller Nedir? Ne Değildir? (5. Bölüm)</a></h1><time>Jul 29, 2025</time><br><div class=description>Controller Nedir? NestJS&rsquo;te Controller, gelen HTTP isteklerini karşılayan yapıdır.
+Yani dış dünyadan gelen tüm GET, POST, PUT, DELETE istekleri burada karşılanır.
+Kısaca: Controller = API’nin giriş noktasıdır.
+Router mı bu? Express kullanmış olanlar için şöyle bir benzetme yapalım:
+// Express app.get('/users', handler); // NestJS @Controller('users') export class UserController { @Get() getAll() { return 'user listesi'; } } Arka planda aslında Express (veya Fastify) hala çalışıyor. Ama NestJS bunu sınıflar ve dekoratörlerle daha okunabilir ve organize bir hâle getiriyor.&mldr;</div><a class=readmore href=/nestjs/7-nestjs-mimarisi-temel-kavramlar-5/>Read more ⟶</a></section><section class=list-item><h1 class=title><a href=/nestjs/8-nestjs-mimarisi-temel-kavramlar-6/>NestJS Mimarisi: Controller’da Request ve Response Nesnelerinin Kullanımı (6. Bölüm)</a></h1><time>Jul 29, 2025</time><br><div class=description>NestJS’te Request ve Response Nesneleri NestJS, altında Express (veya Fastify) kullanır.
+Yani istersen alışılagelmiş req, res nesnelerine erişebilirsin.
+Ama NestJS bunun yerine decorator temelli bir yaklaşım sunar.
+Yani doğrudan req.body yerine @Body() kullanırsın.
+res.send() yerine doğrudan return yaparsın.
+Peki nasıl ve neden?
+🧱 @Req() ve @Res() Nedir? @Req(): HTTP isteğini temsil eden Request objesini verir. (Express tipindedir)
+@Get() handleRequest(@Req() req: Request) { console.log(req.headers['user-agent']); return 'Gelen istek işlendi'; } @Res(): Manuel olarak yanıt oluşturmak istediğinde kullanılır.&mldr;</div><a class=readmore href=/nestjs/8-nestjs-mimarisi-temel-kavramlar-6/>Read more ⟶</a></section></main><footer><div style=display:flex><a class=soc href=https://github.com/ozgurvurgun rel=me title=GitHub><i data-feather=github></i></a>
 <a class=border></a><a class=soc href=https://linkedin.com/in/ozgurvurgun1 rel=me title=Linkedin><i data-feather=linkedin></i></a>
 <a class=border></a><a class=soc href=http://emre.xyz/me.vcf rel=me title=VCF><i data-feather=phone></i></a>
 <a class=border></a><a class=soc href=http://emre.xyz/resume.pdf rel=me title=Resume><i data-feather=file-text></i></a>
