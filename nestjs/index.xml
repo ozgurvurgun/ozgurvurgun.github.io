@@ -66,4 +66,12 @@ Kullanıcı kayıt olurken e-posta eşsiz olmalı
 Bir ürün stoğu sıfırsa sepete eklenememeli
 Hafta sonu sipariş geçersiz sayılmalı
 Bunlar framework’le değil, iş modeliyle ilgili kurallardır. Ve işte bunlara business logic denir.
-Peki Bu Kurallar Nereye Yazılır? Controller’a yazarsan: Kodun şişer. Test yazmak eziyet olur. Entity’ye yazarsan: Veritabanına fazla sorumluluk yüklersin. Pipe’a yazarsan: Genellikle sadece doğrulama yapılır.</description></item></channel></rss>
+Peki Bu Kurallar Nereye Yazılır? Controller’a yazarsan: Kodun şişer. Test yazmak eziyet olur. Entity’ye yazarsan: Veritabanına fazla sorumluluk yüklersin. Pipe’a yazarsan: Genellikle sadece doğrulama yapılır.</description></item><item><title>NestJS Mimarisi: Value, Class ve Factory Providers (14. Bölüm)</title><link>https://ozgurvurgun.github.io/nestjs/16-nestjs-mimarisi-temel-kavramlar-14/</link><pubDate>Thu, 31 Jul 2025 00:00:00 +0000</pubDate><guid>https://ozgurvurgun.github.io/nestjs/16-nestjs-mimarisi-temel-kavramlar-14/</guid><description>Provider Ne Demekti? NestJS’de bir class veya değer, &amp;ldquo;provider&amp;rdquo; olarak tanımlanırsa constructor() içinde @Inject() ile enjekte edilebilir.
+Yani dependency injection sistemine kayıtlı olur. Ama bu provider illa bir class olmak zorunda değil.
+İşte tam burada 3 farklı yol devreye giriyor:
+Tür Ne Sağlar? Ne Zaman Kullanılır? Value Provider Sabit bir değer (obj, string, sayı) Config, sabit ayarlar, env verileri Class Provider Alternatif class tanımı Mock servis, farklı implementasyonlar Factory Provider Fonksiyonla üretilen provider Dinamik yapı, config’e bağlı servis üretimi 1.</description></item><item><title>NestJS Mimarisi: Provider Scope (15. Bölüm)</title><link>https://ozgurvurgun.github.io/nestjs/17-nestjs-mimarisi-temel-kavramlar-15/</link><pubDate>Thu, 31 Jul 2025 00:00:00 +0000</pubDate><guid>https://ozgurvurgun.github.io/nestjs/17-nestjs-mimarisi-temel-kavramlar-15/</guid><description>Bir Servis, Herkes İçin Aynı mıdır? NestJS’te @Injectable() bir sınıf tanımladığında, varsayılan olarak bu servis singleton olur:
+Tüm uygulama boyunca sadece 1 kez oluşturulur ve herkes aynı örneği kullanır.
+Ama bu her zaman ideal değildir.
+Bazı durumlarda:
+Her HTTP isteği için yeni bir örnek gerekebilir (örneğin kullanıcıya özel veri taşımak) Her dependency injection noktası farklı bir örnek almalıdır İşte burada scope kavramı devreye girer.
+3 Temel Scope Türü Scope Yaşam Süresi Kullanım Senaryosu SINGLETON Tüm uygulama boyunca 1 örnek Varsayılan, çoğu servis bu olur REQUEST Her HTTP isteği için yeni Kullanıcıya özel veri tutan servisler TRANSIENT Her kullanımda yeni örnek Paylaşılmaması gereken servisler (stateless) 1.</description></item></channel></rss>
